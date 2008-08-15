@@ -1,0 +1,54 @@
+<project name="jpa-joined" default="run">
+
+	  <property name="src.java.dir" value="src"/>
+	  <property name="lib.dir" value="${user.home}/lib/"/>
+	  <property name="build.dir" value="bin"/>
+	  <property name="src.etc.dir" value="etc"/>
+	
+	  <path id="project.classpath">
+	    <fileset dir="${lib.dir}">
+	      <include name="**/*.jar"/> 
+	    </fileset>
+	  </path>
+	
+	  <patternset id="meta.files">
+	    <include name="**/*.xml"/>
+	    <include name="**/*.properties"/>
+	  </patternset>
+	
+	  <target name="clean">
+	    <delete dir="${build.dir}"/>
+	  	<mkdir dir="${build.dir}"/>
+	  </target>
+	
+	  <target name="compile">
+	    <javac 
+	  	    srcdir="${src.java.dir}"
+	  	    destdir="${build.dir}"
+	  	    nowarn="on">
+	     <classpath refid="project.classpath"/>
+	    </javac>
+	  </target>
+	    		    	
+	  <target name="copymetafiles">
+	    <copy todir="${build.dir}">
+	  	  <fileset dir="${src.java.dir}">
+	    	<patternset refid="meta.files"/>
+	  	  </fileset>
+	    </copy>
+	  	<copy todir="${build.dir}">
+	  	  <fileset dir="${src.etc.dir}">
+	  	  	  <patternset refid="meta.files"/>
+	  	  </fileset>
+	  	</copy>
+	  </target>
+	
+	  <target name="run" depends="compile, copymetafiles">
+	     <java fork="true"
+	  	       classname="rain.Driver"
+	  	       classpathref="project.classpath">
+	     	   <classpath path="${build.dir}"/>
+	     </java>
+	  </target>
+						
+</project>
