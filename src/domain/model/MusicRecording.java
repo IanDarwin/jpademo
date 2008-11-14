@@ -6,9 +6,6 @@ import java.text.NumberFormat;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -50,11 +47,6 @@ public class MusicRecording extends Recording {
 	 *  The list of tracks/songs
 	 */
 	private Track tracks[];
-
-	/**
-	 *	The recording id
-	 */
-	private int id;
 
 	/**
 	 *  The recording title
@@ -178,35 +170,13 @@ public class MusicRecording extends Recording {
 		return artist.compareTo(targetArtist);
 	}
 
-
-	/**
-	 *  Returns the recording id.
-	 */
-	@Id
-	@Column(name="product_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
-		return id;
-	}
-
-
-	/**
-	 *  Sets the recording id
-	 */
-	void setId(int id) {
-		this.id = id;
-	}
-
-
 	public String getTitle() {
 		return title;
 	}
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 	public double getPrice() {
 		return price;

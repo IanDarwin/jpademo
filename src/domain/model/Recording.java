@@ -2,7 +2,10 @@ package domain.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -11,12 +14,22 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Recording implements Serializable {
 
-	@Id private int id;
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private int id;
 	private String title;
 	private double price;
 	
-	public abstract Duration getDuration();
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Embedded
+	public abstract Duration getDuration();
+	
 	public double getPrice() {
 		return price;
 	}
@@ -31,5 +44,10 @@ public abstract class Recording implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	@Override
+	public String toString() {
+		return title;
 	}
 }

@@ -25,6 +25,7 @@ public final class MusicDaoImpl implements MusicDao {
 		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingByPrice(double price) {
 		return em.createQuery(
 				"from rain.MusicRecording where price = " + price).getResultList();
@@ -46,7 +47,6 @@ public final class MusicDaoImpl implements MusicDao {
 		}
 	}
 
-
 	/**
      * Delete the given MusicRecording
 	 */
@@ -64,7 +64,6 @@ public final class MusicDaoImpl implements MusicDao {
 		}
 	}
 
-
 	/** Find the recording by its primary key.
 	 * @see domain.dao.MusicDao#getMusicRecording(long)
 	 */
@@ -75,6 +74,7 @@ public final class MusicDaoImpl implements MusicDao {
 	/** List all the recordings.
 	 * @see domain.dao.MusicDao#listMusicRecordings()
 	 */
+	@SuppressWarnings("unchecked")
 	public List<MusicRecording> listMusicRecordings(){
 		return em.createQuery("from rain.MusicRecording").getResultList();
 	}
@@ -85,7 +85,5 @@ public final class MusicDaoImpl implements MusicDao {
 	public void close(){
 		em.close();
 		emf.close();
-
 	}
-
 }

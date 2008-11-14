@@ -13,9 +13,6 @@ import domain.model.VideoRecording;
 
 public class ManyToManyDemo {
 
-	/**
-	 * @param args
-	 */
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
@@ -31,7 +28,7 @@ public class ManyToManyDemo {
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
 			System.out.println("Found video: " + swIV);
 			final Query actorsByVideoQuery =
-				em.createNamedQuery("findActorsByVideo");
+				em.createQuery("Select a from Actor a join a.videos v where v = ?1");
 			actorsByVideoQuery.setParameter(1, swIV);
 			List<Actor> starWarsActors = actorsByVideoQuery.getResultList();
 			System.out.println(swIV + " stars the following Actors");
@@ -44,7 +41,8 @@ public class ManyToManyDemo {
 			final Query hfQuery = em.createQuery("from Actor where firstName = 'Harrison' and lastName = 'Ford'");
 			Actor ford = (Actor) hfQuery.getSingleResult();
 			System.out.println("Found actor " + ford);
-			final Query videosByActorQuery = em.createNamedQuery("findVideosByActor");
+			final Query videosByActorQuery = 
+				em.createQuery("Select v from VideoRecording v join v.actors a where a = ?1");
 			videosByActorQuery.setParameter(1, ford);
 			List<VideoRecording> fordVideos = videosByActorQuery.getResultList();
 			System.out.println(ford + " appears in:");

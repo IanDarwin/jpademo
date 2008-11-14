@@ -5,7 +5,6 @@ import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 
 
-
 /**
  *  This class describes a duration of time.  It contains
  *  the hour, minutes and seconds.
@@ -24,7 +23,7 @@ import javax.persistence.Transient;
  *
  *  </pre>
  *
- *  @author 936 Development Team
+ *  @author 570 Development Team
  */
 
 @Embeddable
@@ -79,15 +78,6 @@ public class Duration implements java.io.Serializable {
 	}
 	
 	/**
-	 *  Sets the hours portion of the duration
-	 */
-	private void setHours(int hours) {
-		this.hours = hours;
-	}
-	
-	
-	
-	/**
 	 *  Returns the minutes portion of the duration
 	 */
 	@Transient
@@ -95,13 +85,6 @@ public class Duration implements java.io.Serializable {
 		return minutes;
 	}
 
-	/**
-	 *  Sets the minutes portion of the duration
-	 */
-	private void setMinutes(int minutes) {
-		this.minutes = minutes;
-	}	
-	
 	/**
 	 *  Returns the seconds portion of the duration.
 	 *
@@ -113,13 +96,6 @@ public class Duration implements java.io.Serializable {
 	public int getSeconds() {
 		return seconds;
 	}
-	
-	/**
-	 *  Sets the seconds portion of the duration
-	 */
-	private void setSeconds(int seconds) {
-		this.seconds = seconds;
-	}	
 	
 	/**
 	 *  Returns the total seconds
