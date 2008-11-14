@@ -13,7 +13,8 @@ insert into Recording (id, title, price) values(-106, 'Star Wars IV: A New Hope'
 insert into VideoRecording (id) values (-106)
 insert into Recording (id, title, price) values(-107, 'Raiders of the Lost Ark', 0)
 insert into VideoRecording (id) values (-107)
-insert into Actor_VideoRecording (actors_id, films_id) values (-103, -106)
-insert into Actor_VideoRecording (actors_id, films_id) values (-104, -106)
-insert into Actor_VideoRecording (actors_id, films_id) values (-105, -106)
-insert into Actor_VideoRecording (actors_id, films_id) values (-103, -107)
+-- join table
+insert into Actor_VideoRecording (actors_id, videos_id) values (-103, -106)
+insert into Actor_VideoRecording (actors_id, videos_id) values (-104, -106)
+insert into Actor_VideoRecording (actors_id, videos_id) values (-105, -106)
+insert into Actor_VideoRecording (actors_id, videos_id) values (-103, -107)
