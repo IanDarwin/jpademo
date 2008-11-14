@@ -152,7 +152,7 @@ public class MusicRecording extends Recording {
 	 *  total of each track's duration.
 	 */
 
-	@Transient
+	@Transient @Override
 	public Duration getDuration() {
 
 		if (tracks == null) {
