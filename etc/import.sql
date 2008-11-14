@@ -2,16 +2,17 @@
 insert into Person(id, firstname, lastname) values(-101, 'Christopher', 'Robin');
 insert into Person(id, firstname, lastname) values(-102, 'Ian', 'Darwin');
 
--- Data for Actors/Videos 
+-- Data for Actors
 insert into Person (firstName, lastName, id) values('Harrison', 'Ford', -103)
 insert into Actor (id) values (-103)
 insert into Person (firstName, lastName, id) values('Mark', 'Hamill', -104)
 insert into Actor (id) values (-104)
 insert into Person (firstName, lastName, id) values('Carrie', 'Fisher', -105)
 insert into Actor (id) values (-105)
+-- Data for Videos
 insert into Recording (id, title, price) values(-106, 'Star Wars IV: A New Hope', 0)
 insert into VideoRecording (id) values (-106)
-insert into Recording (id, title, price) values(-107, 'Raiders of the Lost Ark', 0)
+insert into Recording (id, title, price) values(-107, 'Indiana Jones: Raiders of the Lost Ark', 0)
 insert into VideoRecording (id) values (-107)
 -- join table
 insert into Actor_VideoRecording (actors_id, videos_id) values (-103, -106)
