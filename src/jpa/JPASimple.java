@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import domain.Person;
 
 public class JPASimple {
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
 		System.out.println("JPASimple.main()");

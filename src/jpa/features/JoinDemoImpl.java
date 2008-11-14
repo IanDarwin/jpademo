@@ -17,6 +17,7 @@ public class JoinDemoImpl {
 	int amount;
 	@PersistenceContext EntityManager em;
 	
+	@SuppressWarnings("unchecked")
 	public void sendReport() {
 		Query q = em.createNamedQuery("joindemo");
 		final List<JoinDemoImpl> resultList = q.getResultList();
