@@ -21,7 +21,7 @@ public class JPASimple {
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 
-		// Set up fake data
+		// Create an entity in the database.
 		Person np = new Person("Tom", "Boots");
 		System.out.println(np);
 		em.persist(np);
@@ -32,7 +32,7 @@ public class JPASimple {
 		Query query = em.createQuery("from Person p order by p.lastName");
 
 		List<Person> list = query.getResultList();
-		System.out.println("Got results, size " + list.size());
+		System.out.println("There are " + list.size() + " persons:");
 		for (Person p : list) {
 			System.out.println(
 				p.getFirstName() + ' ' + p.getLastName());
