@@ -21,9 +21,9 @@ public class ManyToManyDemo {
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
 
-			// N.B. Data for this demo are loaded via "import.sql"
+			// N.B. Most data for this demo are loaded via "import.sql"
 
-			// Show Actors in "Star Wars IV"
+			// Show Actors appearing in "Star Wars IV"
 			final Query swQuery = em.createQuery("from VideoRecording where title = 'Star Wars IV: A New Hope'");
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
 			System.out.println("Found video: " + swIV);
@@ -31,7 +31,7 @@ public class ManyToManyDemo {
 				em.createQuery("Select a from Actor a join a.videos v where v = ?1 order by a.lastName");
 			actorsByVideoQuery.setParameter(1, swIV);
 			List<Actor> starWarsActors = actorsByVideoQuery.getResultList();
-			System.out.println(swIV + " stars the following Actors");
+			System.out.println("The following actors are credited in " + swIV);
 			for (Actor a : starWarsActors) {
 				System.out.println("\t" + a);
 			}
