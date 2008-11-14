@@ -28,7 +28,7 @@ public class JPASimple {
 		int id = np.getId();
 		System.out.println("Created with Id " + id);
 		
-		Query query = em.createQuery("from domain.Person p");
+		Query query = em.createQuery("from Person p order by p.lastName");
 
 		List<Person> list = query.getResultList();
 		System.out.println("Got results, size " + list.size());
