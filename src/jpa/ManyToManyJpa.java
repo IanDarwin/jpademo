@@ -33,7 +33,7 @@ public class ManyToManyDemo {
 			List<Actor> starWarsActors = actorsByVideoQuery.getResultList();
 			System.out.println(swIV + " stars the following Actors");
 			for (Actor a : starWarsActors) {
-				System.out.println(a);
+				System.out.println("\t" + a);
 			}
 			System.out.println();
 			
@@ -47,7 +47,7 @@ public class ManyToManyDemo {
 			List<VideoRecording> fordVideos = videosByActorQuery.getResultList();
 			System.out.println(ford + " appears in:");
 			for (VideoRecording v : fordVideos) {
-				System.out.println(v);
+				System.out.println("\t" + v);
 			}
 			System.out.println();
 		} finally {
