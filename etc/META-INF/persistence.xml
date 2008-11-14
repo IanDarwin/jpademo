@@ -11,15 +11,11 @@
          <property name="hibernate.format_sql" value="false"/>
          <property name="hibernate.archive.autodetection" value="class"/>
          <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
-         <property name="hibernate.connection.url" value="jdbc:hsql:jpademo"/>
+         <property name="hibernate.connection.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
          <property name="hibernate.connection.username" value="sa"/>
-         <property name="hibernate.connection.password" value="nopassword"/>
-         <property name="hibernate.c3p0.min_size" value="5"/>
-         <property name="hibernate.c3p0.max_size" value="20"/>
-         <property name="hibernate.c3p0.timeout" value="3000"/>
-         <property name="hibernate.c3p0.max_statements" value="50"/>
+         <property name="hibernate.connection.password" value=""/>
          <property name="hibernate.transaction.factory.class" value="org.hibernate.transaction.JTATransactionFactory"/>
-         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
          <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
       </properties>
    </persistence-unit>
