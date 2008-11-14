@@ -12,7 +12,7 @@ import domain.Person;
 public class Actor extends Person {
 	
 	@ManyToMany
-	Set<VideoRecording> films = new HashSet<VideoRecording>();
+	Set<VideoRecording> videos = new HashSet<VideoRecording>();
 	
 	public Actor() {
 		// javabean constructor
@@ -24,9 +24,9 @@ public class Actor extends Person {
 	}
 
 	public Set<VideoRecording> getVideos() {
-		return films;
+		return videos;
 	}
 	public void setVideos(Set<VideoRecording> films) {
-		this.films = films;
+		this.videos = films;
 	}
 }

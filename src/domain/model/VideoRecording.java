@@ -20,7 +20,7 @@ public class VideoRecording extends Recording {
 		setTitle(title);
 	}
 	
-	@ManyToMany(mappedBy="films")
+	@ManyToMany(mappedBy="videos")
 	Set<Actor> actors = new HashSet<Actor>();
 
 	public Set<Actor> getActors() {
