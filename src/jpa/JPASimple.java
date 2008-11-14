@@ -13,19 +13,22 @@ import domain.Person;
 public class JPASimple {
 	public static void main(String[] args) {
 
+		System.out.println("JPASimple.main()");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
 		EntityManager em = emf.createEntityManager();
+	
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 
 		// Set up fake data
 		Person np = new Person("Tom", "Boots");
+		System.out.println(np);
 		em.persist(np);
 		transaction.commit();
 		int id = np.getId();
-		System.out.println("Created as " + id);
+		System.out.println("Created with Id " + id);
 		
-		Query query = em.createNativeQuery("from Person");
+		Query query = em.createQuery("from domain.Person p");
 
 		List<Person> list = query.getResultList();
 		System.out.println("Got results, size " + list.size());
