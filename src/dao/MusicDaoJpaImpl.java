@@ -1,4 +1,4 @@
-package domain.model;
+package domain.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import domain.dao.MusicDao;
+import domain.model.MusicRecording;
 
 /**
  * JPA implementation of MusicDAO
@@ -20,7 +20,7 @@ public final class MusicDaoImpl implements MusicDao {
 
 	public MusicDaoImpl(){
 		System.out.println("MusicDaoImpl.MusicDaoImpl()");
-		emf = Persistence.createEntityManagerFactory("jpa-demo");
+		emf = Persistence.createEntityManagerFactory("jpademo");
 		em = emf.createEntityManager();
 		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
 	}
@@ -28,7 +28,7 @@ public final class MusicDaoImpl implements MusicDao {
 	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingByPrice(double price) {
 		return em.createQuery(
-				"from rain.MusicRecording where price = " + price).getResultList();
+				"from MusicRecording where price = " + price).getResultList();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class MusicDaoImpl implements MusicDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<MusicRecording> listMusicRecordings(){
-		return em.createQuery("from rain.MusicRecording").getResultList();
+		return em.createQuery("from MusicRecording").getResultList();
 	}
 	
 	/** Close this DAO
