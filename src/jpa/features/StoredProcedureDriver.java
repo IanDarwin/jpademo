@@ -18,18 +18,16 @@ import domain.model.Track;
  */
 public class StoredProcedureDriver {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
-		EntityManagerFactory emf;
-		EntityManager em;
-		EntityTransaction entityTransaction;
-
-		emf = Persistence.createEntityManagerFactory("ex71_solution");
-		em = emf.createEntityManager();
+		EntityManagerFactory emf
+			= Persistence.createEntityManagerFactory("ex71_solution");
+		EntityManager em = emf.createEntityManager();
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 		
-		// Set up fake data
+		// Set up some data
 		Track t1 = new Track("Hop til ya stop", new Duration(240));
 		em.persist(t1);
 		Track t2 = new Track("Why not tonight?", new Duration(123));
