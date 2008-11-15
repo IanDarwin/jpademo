@@ -12,6 +12,8 @@ insert into Actor (id) values (-105)
 insert into Person (id, firstName, lastName) values(-106, 'Ian', 'Darwin')
 insert into Actor (id) values (-106)
 -- Data for Videos
+insert into Recording (id, title, price) values(-200, 'Gone With The Wind', 0)
+insert into VideoRecording (id) values (-200)
 insert into Recording (id, title, price) values(-201, 'Star Wars IV: A New Hope', 0)
 insert into VideoRecording (id) values (-201)
 insert into Recording (id, title, price) values(-202, 'Indiana Jones: Raiders of the Lost Ark', 0)
