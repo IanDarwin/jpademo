@@ -1,4 +1,4 @@
-<project name="jpa-joined" default="run">
+<project name="JPA Demos" default="run">
 
 	  <property name="src.java.dir" value="src"/>
 	  <property name="lib.dir" value="${user.home}/lib/"/>
@@ -45,7 +45,7 @@
 	
 	  <target name="run" depends="compile, copymetafiles">
 	     <java fork="true"
-	  	       classname="rain.Driver"
+	  	       classname="demo.JPASimple"
 	  	       classpathref="project.classpath">
 	     	   <classpath path="${build.dir}"/>
 	     </java>
