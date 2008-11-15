@@ -50,5 +50,13 @@
 	     	   <classpath path="${build.dir}"/>
 	     </java>
 	  </target>
+	
+	  <target name="runManyToMany" depends="compile, copymetafiles">
+		     <java fork="true"
+		  	       classname="demo.ManyToManyDemo"
+		  	       classpathref="project.classpath">
+		     	   <classpath path="${build.dir}"/>
+		     </java>
+	  </target>
 						
 </project>
