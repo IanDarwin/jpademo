@@ -41,11 +41,11 @@ public class ManyToManyDemo {
 			final Query hfQuery = em.createQuery("from Actor where firstName = 'Harrison' and lastName = 'Ford'");
 			Actor ford = (Actor) hfQuery.getSingleResult();
 			System.out.println("Found actor " + ford);
-			VideoRecording vr = new VideoRecording("Indiana Jones: Kingdom of the Crystal Skull");
+			VideoRecording vr = new VideoRecording("Indiana Jones: Kingdom of the Crystal Skull", 2008);
 			vr.addActor(ford);
 			em.persist(vr);
 			final Query videosByActorQuery = 
-				em.createQuery("Select v from VideoRecording v join v.actors a where a = ?1 order by v.title");
+				em.createQuery("Select v from VideoRecording v join v.actors a where a = ?1 order by v.year");
 			videosByActorQuery.setParameter(1, ford);
 			List<VideoRecording> fordVideos = videosByActorQuery.getResultList();
 			System.out.println(ford + " appears in these videos:");

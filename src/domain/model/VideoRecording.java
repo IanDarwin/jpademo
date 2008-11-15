@@ -16,9 +16,16 @@ public class VideoRecording extends Recording {
 	}
 	
 	public VideoRecording(String title) {
+		this(title, 0);
+	}
+	
+	public VideoRecording(String title, int year) {
 		super();
 		setTitle(title);
+		setYear(year);
 	}
+	
+	private int year;
 	
 	@ManyToMany(mappedBy="videos")
 	Set<Actor> actors = new HashSet<Actor>();
@@ -39,5 +46,23 @@ public class VideoRecording extends Recording {
 	@Override
 	public Duration getDuration() {
 		return new Duration(0, 47, 0);
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getTitle());
+		if (year != 0) {
+			sb.append(" (").append(year).append(")");
+		}
+		return sb.toString();
 	}
 }
