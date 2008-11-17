@@ -54,7 +54,7 @@
 	  </target>
 	
 	  <target name="runManyToMany" depends="compile, copymetafiles">
-		     <java fork="true"
+		     <java fork="true" failonerror="true"
 		  	       classname="demo.ManyToManyDemo"
 		  	       classpathref="project.classpath">
 		     	   <classpath path="${build.dir}"/>
