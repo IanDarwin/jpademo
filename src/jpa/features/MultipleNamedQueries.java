@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="findActorByName",
 			query="from Actor a where A.firstName = ?1"),
 	@NamedQuery(name="updateActorLastNameById",
-			query="UPDATE Actor a SET a.lastName=?2 where a.id=?1"),
+			query="UPDATE Actor a SET a.lastName=?2 where a.id=?1")
 })
 @Entity // Can only put named queries on an Entity.
 public class MultipleNamedQueries {
