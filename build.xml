@@ -14,6 +14,7 @@
 	  <patternset id="meta.files">
 	    <include name="**/*.xml"/>
 	    <include name="**/*.properties"/>
+	  	<include name="**/*.sql"/>
 	  </patternset>
 	
 	  <target name="clean">
