@@ -46,7 +46,7 @@
 	  </target>
 	
 	  <target name="run" depends="compile, copymetafiles">
-	     <java fork="true"
+	     <java fork="true" failonerror="true"
 	  	       classname="demo.JPASimple"
 	  	       classpathref="project.classpath">
 	     	   <classpath path="${build.dir}"/>
