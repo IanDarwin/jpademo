@@ -1,7 +1,7 @@
 <project name="JPA Demos" default="run">
 
 	  <property name="src.java.dir" value="src"/>
-	  <property name="lib.dir" value="${user.home}/lib/"/>
+	  <property name="lib.dir" value="lib"/>
 	  <property name="build.dir" value="bin"/>
 	  <property name="src.etc.dir" value="etc"/>
 	
