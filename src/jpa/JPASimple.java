@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import domain.Person;
+import domain.sales.Customer;
 
 public class JPASimple {
 	@SuppressWarnings("unchecked")
@@ -29,7 +30,14 @@ public class JPASimple {
 		em.persist(np);
 		transaction.commit();
 		int id = np.getId();
-		System.out.println("Created with Id " + id);
+		System.out.println("Created Person with Id " + id);
+		
+		transaction = em.getTransaction();
+		transaction.begin();
+		Customer nc = new Customer("Happy", "User");
+		em.persist(nc);
+		transaction.commit();
+		System.out.println("Created Customer " + nc + ", HomeAddress field = " + nc.getHomeAddress());
 		
 		Query query = em.createQuery("from Person p order by p.lastName");
 
