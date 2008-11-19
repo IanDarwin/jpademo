@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -18,7 +19,7 @@ public class Person {
 	protected String lastName;
 	
 	public Person() {
-		// empty
+		version = 0;
 	}
 	
 	public Person(String firstName, String lastName) {
@@ -62,5 +63,8 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}	
+	}
+	
+	@Version
+	int version;
 }

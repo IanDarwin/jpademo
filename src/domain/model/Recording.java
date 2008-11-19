@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -18,6 +19,10 @@ public abstract class Recording implements Serializable {
 	private int id;
 	private String title;
 	private double price;
+	
+	public Recording() {
+		version = 0;
+	}
 	
 	public int getId() {
 		return id;
@@ -50,4 +55,7 @@ public abstract class Recording implements Serializable {
 	public String toString() {
 		return title;
 	}
+	
+	@Version
+	int version;
 }

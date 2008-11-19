@@ -1,5 +1,6 @@
 package demo;
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,7 @@ public class ManyToManyDemo {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
+		DemoHelper.setup();
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
 		EntityManager em = emf.createEntityManager();
 		try {

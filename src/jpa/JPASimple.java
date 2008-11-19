@@ -14,6 +14,8 @@ public class JPASimple {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
+		DemoHelper.setup();
+		
 		System.out.println("JPASimple.main()");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
 		EntityManager em = emf.createEntityManager();

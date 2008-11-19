@@ -15,7 +15,7 @@ public class DAODemo {
 	public static void main(String[] args) {
 
 		System.out.println("JPA Demo");
-	
+		DemoHelper.setup();
 		MusicDao musicDAO = new MusicDaoImpl();
 
 		MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.99, "Rock", null);
