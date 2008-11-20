@@ -44,12 +44,13 @@ public class JPASimple {
 		} else {
 			person.setHomeAddress(null);
 		}
-		Address work = person.getHomeAddress();
+		Address work = person.getWorkAddress();
 		if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
 			em.persist(work);
 		} else {
-			person.setHomeAddress(null);
-		}em.persist(person);
+			person.setWorkAddress(null);
+		}
+		em.persist(person);
 		transaction.commit();
 		System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
 		
