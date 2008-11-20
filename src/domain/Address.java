@@ -13,7 +13,8 @@ public class Address {
 	
 	private String streetAddress;
 	private String city;
-	private Country country;
+	private Country country = Country.CANADA;
+
 	public String getCity() {
 		return city;
 	}
@@ -37,5 +38,10 @@ public class Address {
 	}
 	public void setStreetAddress(String streetAddress) {
 		this.streetAddress = streetAddress;
+	}
+	
+	@Override
+	public String toString() {
+		return id + ": " + streetAddress + ", " + city;
 	}
 }
