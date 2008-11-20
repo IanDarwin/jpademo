@@ -14,9 +14,9 @@ import domain.Person;
 public class Customer extends Person {
 
 	@OneToOne
-	protected Address homeAddress;
+	protected Address homeAddress = new Address();
 	@OneToOne
-	protected Address workAddress;
+	protected Address workAddress = new Address();
 	
 	// There can be many customers to one sales rep.
 	@ManyToOne
