@@ -37,14 +37,19 @@ public class JPASimple {
 		transaction.begin();
 
 		Customer person = new Customer("Happy", "User");
+		person.getHomeAddress().setStreetAddress("123 Main St");
 		Address home = person.getHomeAddress();
 		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
 			em.persist(home);
 		} else {
 			person.setHomeAddress(null);
 		}
-		// repeat for other Address fields
-		em.persist(person);
+		Address work = person.getHomeAddress();
+		if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
+			em.persist(work);
+		} else {
+			person.setHomeAddress(null);
+		}em.persist(person);
 		transaction.commit();
 		System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
 		
