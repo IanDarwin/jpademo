@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import domain.Address;
 import domain.Person;
 import domain.sales.Customer;
 
@@ -34,10 +35,16 @@ public class JPASimple {
 		
 		transaction = em.getTransaction();
 		transaction.begin();
-		Customer nc = new Customer("Happy", "User");
-		em.persist(nc);
+
+		Customer person = new Customer("Happy", "User");
+		Address home = person.getHomeAddress();
+		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
+			em.persist(home);
+		}
+		// repeat for other Address fields
+		em.persist(person);
 		transaction.commit();
-		System.out.println("Created Customer " + nc + ", HomeAddress field = " + nc.getHomeAddress());
+		System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
 		
 		Query query = em.createQuery("from Person p order by p.lastName");
 
