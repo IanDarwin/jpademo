@@ -1,6 +1,5 @@
 package demo;
 
-import java.io.File;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -33,7 +32,7 @@ public class ManyToManyDemo {
 				em.createQuery("Select a from Actor a join a.videos v where v = ?1 order by a.lastName");
 			actorsByVideoQuery.setParameter(1, swIV);
 			List<Actor> starWarsActors = actorsByVideoQuery.getResultList();
-			System.out.println("The following actors are credited in " + swIV);
+			System.out.println("The following actors appear in " + swIV);
 			for (Actor a : starWarsActors) {
 				System.out.println("\t" + a);
 			}
