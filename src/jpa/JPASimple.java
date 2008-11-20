@@ -40,6 +40,8 @@ public class JPASimple {
 		Address home = person.getHomeAddress();
 		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
 			em.persist(home);
+		} else {
+			person.setHomeAddress(null);
 		}
 		// repeat for other Address fields
 		em.persist(person);
