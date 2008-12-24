@@ -13,13 +13,10 @@ import domain.Person;
 @Entity
 public class Customer extends Person {
 
-	@OneToOne
 	protected Address homeAddress = new Address();
-	@OneToOne
 	protected Address workAddress = new Address();
 	
 	// There can be many customers to one sales rep.
-	@ManyToOne
 	protected SalesPerson salesRep;
 	
 	public Customer() {
@@ -30,6 +27,7 @@ public class Customer extends Person {
 		super(firstName, lastName);
 	}
 
+	@OneToOne
 	public Address getHomeAddress() {
 		return homeAddress;
 	}
@@ -38,6 +36,7 @@ public class Customer extends Person {
 		this.homeAddress = homeAddress;
 	}
 
+	@ManyToOne
 	public SalesPerson getSalesRep() {
 		return salesRep;
 	}
@@ -46,6 +45,7 @@ public class Customer extends Person {
 		this.salesRep = rep;
 	}
 
+	@OneToOne
 	public Address getWorkAddress() {
 		return workAddress;
 	}

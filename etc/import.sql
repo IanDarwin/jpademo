@@ -1,3 +1,6 @@
+-- drop sequence my_poid_sequence;
+create sequence my_poid_sequence start with 100;
+
 -- Data for simple person use
 insert into Person(id, version, firstname, lastname) values(-101, 1, 'Christopher', 'Robin');
 insert into Person(id, version, firstname, lastname) values(-102, 1, 'Ian', 'Darwin');
@@ -13,6 +16,7 @@ insert into Person(id, version, firstName, lastName) values(-106, 1, 'Clark', 'G
 insert into Actor(id) values (-106)
 insert into Person(id, version, firstName, lastName) values(-107, 1, 'Vivien', 'Leigh')
 insert into Actor(id) values (-107)
+
 -- Data for Videos
 insert into Recording (id, version, title, price) values(-200, 1, 'Gone With The Wind', 0)
 insert into VideoRecording (id, year) values (-200, 1939)
@@ -20,7 +24,8 @@ insert into Recording (id, version, title, price) values(-201, 1, 'Star Wars IV:
 insert into VideoRecording (id, year) values (-201, 1977)
 insert into Recording (id, version, title, price) values(-202, 1, 'Indiana Jones: Raiders of the Lost Ark', 0)
 insert into VideoRecording (id, year) values (-202, 1981)
--- join table
+
+-- Video<-->Actors join table
 insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-104, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-105, -201)

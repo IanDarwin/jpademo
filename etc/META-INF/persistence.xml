@@ -4,9 +4,29 @@
    version="1.0">
    
    <persistence-unit name="jpademo">
-      <provider>org.hibernate.ejb.HibernatePersistence</provider>
-      
-      <properties>
+		<!--
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		-->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<mapping-file>META-INF/orm.xml</mapping-file>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+ 		<properties>
+ 			<!-- Properties for eclipselink -->
+			<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+			<property name="eclipselink.jdbc.url" value="jdbc:hsqldb:tmp/jpademo.db"/>
+			<property name="eclipselink.jdbc.user" value="sa"/>
+			<property name="eclipselink.jdbc.password" value=""/>
+            <property name="eclipselink.target-database"
+                      value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
+            <property name="eclipselink.logging.level" value="OFF"/>
+            <property name="eclipselink.orm.throw.exceptions" value="true"/>
+
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+
+			<!-- Properties for Hibernate -->
+         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
          <property name="hibernate.show_sql" value="true"/>
          <property name="hibernate.format_sql" value="false"/>
          <property name="hibernate.archive.autodetection" value="class"/>
@@ -16,7 +36,6 @@
          <property name="hibernate.connection.password" value=""/>
          <property name="hibernate.transaction.factory.class" value="org.hibernate.transaction.JTATransactionFactory"/>
          <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      </properties>
+		</properties>
    </persistence-unit>
 </persistence>

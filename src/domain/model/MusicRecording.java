@@ -1,7 +1,7 @@
 package domain.model;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -97,27 +97,12 @@ public class MusicRecording extends Recording {
 		this(theArtist, null, theTitle, thePrice, theCategory, theImageName);
 	}
 
-	@Transient
-	private final NumberFormat currencyFormatter = DecimalFormat.getCurrencyInstance();
-
 	@Override
 	public String toString() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append("MusicRecording {\n");
-        buffer.append("\t" + artist + "\n");
-        buffer.append("\t" + title + "\n");
-		buffer.append("\t" + currencyFormatter.format(price) + "\n");
-        buffer.append("\tTracks {\n");
-        if (tracks != null)
-        for (Track track : tracks) {
-        	if (track == null) {
-        		System.err.println("NULL TRACK");
-        	} else 
-        	if (track.getTitle() != null)
-            buffer.append("\t\t" + track.getTitle() + "\n");
-        }
-        buffer.append("\t}\n");
-        buffer.append("}");
+        buffer.append(title).append(" - ");
+        buffer.append(artist).append(" (");
+        buffer.append(tracks.length).append(" tracks)");
         return buffer.toString();
     }
 
@@ -143,7 +128,6 @@ public class MusicRecording extends Recording {
 	 *  Iterates over the list of tracks and keeps a running
 	 *  total of each track's duration.
 	 */
-
 	@Transient @Override
 	public Duration getDuration() {
 
@@ -196,12 +180,11 @@ public class MusicRecording extends Recording {
 
 	@OneToMany(mappedBy="recordingId", cascade=CascadeType.ALL)
 	@IndexColumn(name="index_number")
-	public Track[] getTracks() {
-		return tracks;
+	public List<Track> getTracks() {
+		return Arrays.asList(tracks);
 	}
 
-
-	public void setTracks(Track[] tracks) {
-		this.tracks = tracks;
+	public void setTracks(List<Track> tracks) {
+		this.tracks = (Track[]) tracks.toArray();
 	}
 }

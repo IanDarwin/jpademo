@@ -13,19 +13,41 @@ import javax.persistence.Version;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Person {
 
-	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	int id;
 	protected String firstName;
 	protected String lastName;
+	int version;
 	
 	public Person() {
-		version = 0;
+		// empty
 	}
 	
 	public Person(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="my_poid_gen")
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	@Version
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public String getLastName() {
+		return lastName;
 	}
 	
 	@Override
@@ -53,18 +75,8 @@ public class Person {
 		this.firstName = firstName;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	
-	@Version
-	int version;
 }

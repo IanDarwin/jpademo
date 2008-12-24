@@ -11,7 +11,6 @@ import domain.Person;
 @Entity
 public class Actor extends Person {
 	
-	@ManyToMany
 	Set<VideoRecording> videos = new HashSet<VideoRecording>();
 	
 	public Actor() {
@@ -23,6 +22,7 @@ public class Actor extends Person {
 		this.lastName = lastName;
 	}
 
+	@ManyToMany
 	public Set<VideoRecording> getVideos() {
 		return videos;
 	}

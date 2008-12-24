@@ -2,7 +2,6 @@ package domain.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,15 +14,16 @@ import javax.persistence.Version;
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Recording implements Serializable {
 
-	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String title;
 	private double price;
+	int version;
 	
 	public Recording() {
 		version = 0;
 	}
 	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -31,10 +31,21 @@ public abstract class Recording implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	@Embedded
-	public abstract Duration getDuration();
 	
+	@Version
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public abstract Duration getDuration();
+	public void setDuration(Duration d) {
+		throw new RuntimeException("Stupid method called");
+	}
+		
 	public double getPrice() {
 		return price;
 	}
@@ -56,6 +67,4 @@ public abstract class Recording implements Serializable {
 		return title;
 	}
 	
-	@Version
-	int version;
 }

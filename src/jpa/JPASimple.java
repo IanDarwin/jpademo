@@ -16,53 +16,65 @@ public class JPASimple {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
-		DemoHelper.setup();
-		
 		System.out.println("JPASimple.main()");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
-		EntityManager em = emf.createEntityManager();
-	
-		EntityTransaction transaction = em.getTransaction();
-		transaction.begin();
 
-		// Create an entity in the database.
-		Person np = new Person("Tom", "Boots");
-		System.out.println(np);
-		em.persist(np);
-		transaction.commit();
-		int id = np.getId();
-		System.out.println("Created Person with Id " + id);
+		DemoHelper.setup();	// create hsqldb file
 		
-		transaction = em.getTransaction();
-		transaction.begin();
+		EntityManagerFactory emf = null;
+		EntityManager em = null;
+		try {
+			long time = System.currentTimeMillis();
+			emf = Persistence.createEntityManagerFactory("jpademo");
+			em = emf.createEntityManager();
+			long time2 = System.currentTimeMillis();
+			System.out.printf("Created EM in %f seconds%n", (time2 - time)/1000d);
+		
+			EntityTransaction transaction = em.getTransaction();
+			transaction.begin();
 
-		Customer person = new Customer("Happy", "User");
-		person.getHomeAddress().setStreetAddress("123 Main St");
-		Address home = person.getHomeAddress();
-		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
-			em.persist(home);
-		} else {
-			person.setHomeAddress(null);
-		}
-		Address work = person.getWorkAddress();
-		if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
-			em.persist(work);
-		} else {
-			person.setWorkAddress(null);
-		}
-		em.persist(person);
-		transaction.commit();
-		System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
-		
-		Query query = em.createQuery("from Person p order by p.lastName");
+			// Create an entity in the database.
+			Person np = new Person("Tom", "Boots");
+			System.out.println(np);
+			em.persist(np);
+			transaction.commit();
+			int id = np.getId();
+			System.out.println("Created Person with Id " + id);
+			
+			transaction = em.getTransaction();
+			transaction.begin();
 
-		List<Person> list = query.getResultList();
-		System.out.println("There are " + list.size() + " persons:");
-		for (Person p : list) {
-			System.out.println(
-				p.getFirstName() + ' ' + p.getLastName());
+			Customer person = new Customer("Happy", "User");
+			person.getHomeAddress().setStreetAddress("123 Main St");
+			Address home = person.getHomeAddress();
+			if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
+				em.persist(home);
+			} else {
+				person.setHomeAddress(null);
+			}
+			Address work = person.getWorkAddress();
+			if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
+				em.persist(work);
+			} else {
+				person.setWorkAddress(null);
+			}
+			em.persist(person);
+			transaction.commit();
+			System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
+			
+			Query query = em.createQuery("select p from Person p order by p.lastName");
+
+			List<Person> list = query.getResultList();
+			System.out.println("There are " + list.size() + " persons:");
+			for (Person p : list) {
+				System.out.println(
+					p.getFirstName() + ' ' + p.getLastName());
+			}
+		} finally {	
+			if (em != null)
+				em.close();
+			if (emf != null)
+				emf.close();
 		}
-		
 	}
 
 }

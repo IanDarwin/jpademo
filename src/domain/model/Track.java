@@ -2,12 +2,13 @@ package domain.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -23,7 +24,7 @@ import javax.persistence.Table;
  *
  *   </pre>
  *
- *  @author 936 Development Team
+ *  @author 570 Development Team
  */
 @Entity
 @Table(name="Music_Tracks")
@@ -44,15 +45,16 @@ public class Track implements Serializable {
 	private Duration duration;
 	
 	/** Recording this track is part of */
-	private int recordingId;
+	private Recording recording;
 
-	@Column(name="product_id")
-	public int getRecordingId() {
-		return recordingId;
+	@ManyToOne
+	@JoinColumn(name="product_id")
+	public Recording getRecordingId() {
+		return recording;
 	}
 
-	public void setRecordingId(int recordingId) {
-		this.recordingId = recordingId;
+	public void setRecordingId(Recording recording) {
+		this.recording = recording;
 	}
 
 	/**

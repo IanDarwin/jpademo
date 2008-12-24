@@ -8,12 +8,19 @@ import javax.persistence.Id;
 @Entity
 public class Address {
 	
-	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
 	private String streetAddress;
 	private String city;
 	private Country country = Country.CANADA;
+
+	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="my_poid_gen")
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getCity() {
 		return city;
@@ -26,12 +33,6 @@ public class Address {
 	}
 	public void setCountry(Country country) {
 		this.country = country;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getStreetAddress() {
 		return streetAddress;
