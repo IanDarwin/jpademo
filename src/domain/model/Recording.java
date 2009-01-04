@@ -43,7 +43,7 @@ public abstract class Recording implements Serializable {
 
 	public abstract Duration getDuration();
 	public void setDuration(Duration d) {
-		throw new RuntimeException("Stupid method called");
+		// System.err.println("Lame-but-required method called");
 	}
 		
 	public double getPrice() {
