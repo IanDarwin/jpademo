@@ -1,6 +1,7 @@
 package demo;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,10 +29,8 @@ public class ManyToManyDemo {
 			final Query swQuery = em.createQuery("from VideoRecording where title = 'Star Wars IV: A New Hope'");
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
 			System.out.println("Found video: " + swIV);
-			final Query actorsByVideoQuery =
-				em.createQuery("Select a from Actor a join a.videos v where v = ?1 order by a.lastName");
-			actorsByVideoQuery.setParameter(1, swIV);
-			List<Actor> starWarsActors = actorsByVideoQuery.getResultList();
+			
+			Set<Actor> starWarsActors = swIV.getActors();
 			System.out.println("The following actors appear in " + swIV);
 			for (Actor a : starWarsActors) {
 				System.out.println("\t" + a);
