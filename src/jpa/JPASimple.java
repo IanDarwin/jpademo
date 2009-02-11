@@ -37,6 +37,7 @@ public class JPASimple {
 			System.out.println(np);
 			em.persist(np);
 			transaction.commit();
+			
 			int id = np.getId();
 			System.out.println("Created Person with Id " + id);
 			
