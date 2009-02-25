@@ -20,49 +20,49 @@ public class JPASimple {
 
 		DemoHelper.setup();	// create hsqldb file
 		
-		EntityManagerFactory emf = null;
-		EntityManager em = null;
+		EntityManagerFactory entityMgrFactory = null;
+		EntityManager entityManager = null;
 		try {
 			long time = System.currentTimeMillis();
-			emf = Persistence.createEntityManagerFactory("jpademo");
-			em = emf.createEntityManager();
+			entityMgrFactory = Persistence.createEntityManagerFactory("jpademo");
+			entityManager = entityMgrFactory.createEntityManager();
 			long time2 = System.currentTimeMillis();
-			System.out.printf("Created EM in %f seconds%n", (time2 - time)/1000d);
+			System.out.printf("Created EntityManager in %f seconds%n", (time2 - time)/1000d);
 		
-			EntityTransaction transaction = em.getTransaction();
+			EntityTransaction transaction = entityManager.getTransaction();
 			transaction.begin();
 
 			// Create an entity in the database.
 			Person np = new Person("Tom", "Boots");
 			System.out.println(np);
-			em.persist(np);
+			entityManager.persist(np);
 			transaction.commit();
 			
 			int id = np.getId();
 			System.out.println("Created Person with Id " + id);
 			
-			transaction = em.getTransaction();
+			transaction = entityManager.getTransaction();
 			transaction.begin();
 
 			Customer person = new Customer("Happy", "User");
 			person.getHomeAddress().setStreetAddress("123 Main St");
 			Address home = person.getHomeAddress();
 			if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
-				em.persist(home);
+				entityManager.persist(home);
 			} else {
 				person.setHomeAddress(null);
 			}
 			Address work = person.getWorkAddress();
 			if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
-				em.persist(work);
+				entityManager.persist(work);
 			} else {
 				person.setWorkAddress(null);
 			}
-			em.persist(person);
+			entityManager.persist(person);
 			transaction.commit();
 			System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
 			
-			Query query = em.createQuery("select p from Person p order by p.lastName");
+			Query query = entityManager.createQuery("select p from Person p order by p.lastName");
 
 			List<Person> list = query.getResultList();
 			System.out.println("There are " + list.size() + " persons:");
@@ -71,10 +71,10 @@ public class JPASimple {
 					p.getFirstName() + ' ' + p.getLastName());
 			}
 		} finally {	
-			if (em != null)
-				em.close();
-			if (emf != null)
-				emf.close();
+			if (entityManager != null)
+				entityManager.close();
+			if (entityMgrFactory != null)
+				entityMgrFactory.close();
 		}
 	}
 
