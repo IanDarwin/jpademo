@@ -26,7 +26,7 @@ import org.hibernate.annotations.IndexColumn;
  */
 
 // XXX TODO Warning - you must make some little tweaks
-// to the database for this to work; JPA/Hibernate needs
+// to the 936 database for this to work; JPA/Hibernate needs
 // an index number for the elements in the Track array:
 // alter table music_tracks add column index_number integer;
 // update music_tracks set index_number = id - 9030 where product_id = 3500;
