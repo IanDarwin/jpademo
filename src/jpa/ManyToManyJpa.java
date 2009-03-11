@@ -1,5 +1,6 @@
 package demo;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -44,10 +45,17 @@ public class ManyToManyDemo {
 			VideoRecording vr = new VideoRecording("Indiana Jones: Kingdom of the Crystal Skull", 2008);
 			vr.addActor(ford);
 			em.persist(vr);
+			
+			// This could be done as ford.getVideos(), but is
+			// here to show off a bit of JPQL syntax
+			// (and the ability to use "order by" :-) ).
+			Collection<VideoRecording> fordVideos;
 			final Query videosByActorQuery = 
 				em.createQuery("Select v from VideoRecording v join v.actors a where a = ?1 order by v.year");
 			videosByActorQuery.setParameter(1, ford);
-			List<VideoRecording> fordVideos = videosByActorQuery.getResultList();
+			fordVideos = videosByActorQuery.getResultList();
+			//fordVideos = ford.getVideos();
+			
 			System.out.println(ford + " appears in these videos:");
 			for (VideoRecording v : fordVideos) {
 				System.out.println("\t" + v);
