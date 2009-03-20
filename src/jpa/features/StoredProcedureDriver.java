@@ -14,7 +14,9 @@ import domain.model.Track;
 
 /**
  * Simple example of using Stored Procedure from within JPA,
- * using the "Native Query" escape route.
+ * using the "Native Query" escape route. N.B this assumes
+ * you have done the db-specific work of creating the
+ * stored procedure!
  */
 public class StoredProcedureDriver {
 
