@@ -1,7 +1,6 @@
 package demo;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
