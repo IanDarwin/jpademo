@@ -8,7 +8,12 @@ public class DemoHelper {
 	 */
 	public static void setup() {
 		final File hsqlDbDir = new File("tmp");
-		hsqlDbDir.mkdir();
-		hsqlDbDir.deleteOnExit();
+		if (hsqlDbDir.exists()) {
+			for (File f : hsqlDbDir.listFiles()) {
+				f.delete();
+			}
+		} else {
+			hsqlDbDir.mkdirs();
+		}
 	}
 }
