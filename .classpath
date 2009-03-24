@@ -21,5 +21,12 @@
 	<classpathentry kind="lib" path="lib/checkstyle-all.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-validator.jar"/>
 	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.antlr_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.asm_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.core_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.jpa_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.moxy_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.oracle_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.persistence.sdo_1.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
