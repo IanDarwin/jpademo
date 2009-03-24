@@ -25,9 +25,11 @@ public class JPASimple {
 		try {
 			long time = System.currentTimeMillis();
 			entityMgrFactory = Persistence.createEntityManagerFactory("jpademo");
-			entityManager = entityMgrFactory.createEntityManager();
 			long time2 = System.currentTimeMillis();
-			System.out.printf("Created EntityManager in %f seconds%n", (time2 - time)/1000d);
+			System.out.printf("Created EntityManagerFactory in %f seconds%n", (time2 - time)/1000d);
+			entityManager = entityMgrFactory.createEntityManager();
+			long time3 = System.currentTimeMillis();
+			System.out.printf("Created EntityManager in %f seconds%n", (time3 - time2)/1000d);
 		
 			EntityTransaction transaction = entityManager.getTransaction();
 			transaction.begin();
