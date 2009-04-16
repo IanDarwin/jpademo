@@ -5,6 +5,7 @@
 	version="1.0">
 
 	<!-- 
+	* Comment this out if using EclipseLink
 	 -->
 	<sequence-generator name="my_poid_gen" sequence-name="MY_POID_SEQUENCE"/>
 
