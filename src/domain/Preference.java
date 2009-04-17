@@ -6,6 +6,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Preference {
@@ -21,7 +22,7 @@ public class Preference {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@JoinColumn(name="person_id")
+	@ManyToOne @JoinColumn(name="person_id")
 	public Person getPerson() {
 		return person;
 	}
