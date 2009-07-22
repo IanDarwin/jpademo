@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import domain.Address;
+import domain.HierBottom;
 import domain.Person;
 import domain.sales.Customer;
 
@@ -81,6 +82,14 @@ public class JPASimple {
 			System.out.println("Removing person " + dp.getId());
 			entityManager.remove(dp);
 			transaction.commit();
+
+			// Try out Table Per Class hierarchy relationship
+			transaction = entityManager.getTransaction();
+			transaction.begin();
+			entityManager.persist(new HierBottom());
+			transaction.commit();
+			
+		
 		} finally {	
 			if (entityManager != null)
 				entityManager.close();
