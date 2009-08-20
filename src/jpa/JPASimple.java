@@ -21,6 +21,8 @@ public class JPASimple {
 
 		DemoHelper.setup();	// create hsqldb file
 		
+		// These two steps would be done for you
+		// were you running in an EE App Server
 		EntityManagerFactory entityMgrFactory = null;
 		EntityManager entityManager = null;
 		try {
