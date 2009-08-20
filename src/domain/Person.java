@@ -67,8 +67,6 @@ public class Person {
 			sb.append(firstName).append(' ');
 		if (lastName != null)
 			sb.append(lastName);
-		if (sb.length() == 0)
-			sb.append("NO NAME");
 		return sb.toString();
 	}
 	
