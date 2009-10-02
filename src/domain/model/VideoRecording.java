@@ -39,7 +39,7 @@ public class VideoRecording extends Recording {
 	}
 	
 	public void addActor(Actor a) {
-		actors.add(a);
+		getActors().add(a);
 		a.getVideos().add(this);
 	}
 
