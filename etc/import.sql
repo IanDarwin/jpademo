@@ -24,11 +24,14 @@ insert into Recording (id, version, title, price) values(-201, 1, 'Star Wars IV:
 insert into VideoRecording (id, year) values (-201, 1977)
 insert into Recording (id, version, title, price) values(-202, 1, 'Indiana Jones: Raiders of the Lost Ark', 0)
 insert into VideoRecording (id, year) values (-202, 1981)
+insert into Recording (id, version, title, price) values(-203, 1, 'Patriot Games', 0)
+insert into VideoRecording (id, year) values (-203, 1992)
 
 -- Video<-->Actors join table
 insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -201)
+insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -202)
+insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -203)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-104, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-105, -201)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -202)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-106, -200)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-107, -200)
