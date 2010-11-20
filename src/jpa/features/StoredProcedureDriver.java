@@ -11,7 +11,6 @@ import javax.persistence.Query;
 import domain.model.Duration;
 import domain.model.Track;
 
-
 /**
  * Simple example of using Stored Procedure from within JPA,
  * using the "Native Query" escape route. N.B this assumes
@@ -24,7 +23,7 @@ public class StoredProcedureDriver {
 	public static void main(String[] args) {
 
 		EntityManagerFactory emf
-			= Persistence.createEntityManagerFactory("ex71_solution");
+			= Persistence.createEntityManagerFactory("jpademo");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
@@ -36,7 +35,7 @@ public class StoredProcedureDriver {
 		em.persist(t2);
 		
 		// A way to call SP from JPA
-		Query query = em.createNativeQuery("call getAllTracks()", Track.class);
+		Query query = em.createNativeQuery("getAllTracks()", Track.class);
 		
 		List<Track> list = query.getResultList();
 		System.out.println("Got results, size " + list.size());
