@@ -25,12 +25,6 @@ import org.hibernate.annotations.IndexColumn;
  *  @author Ian Darwin modifications for standalone demo.
  */
 
-// XXX TODO Warning - you must make some little tweaks
-// to the 936 database for this to work; JPA/Hibernate needs
-// an index number for the elements in the Track array:
-// alter table music_tracks add column index_number integer;
-// update music_tracks set index_number = id - 9030 where product_id = 3500;
-// update music_tracks set index_number = id - 12045 where product_id = 3667;
 
 @Entity
 @Table(name="Music_Recordings")
@@ -136,7 +130,7 @@ public class MusicRecording extends Recording {
 		}
 
 		int total = 0;
-		for (int i=0; i < tracks.length; i++) {
+		for (int i=0; i < getTracks().size(); i++) {
 			total += tracks[i].getDuration().getTotalSeconds();
 		}
 
