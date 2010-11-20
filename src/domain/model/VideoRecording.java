@@ -12,7 +12,8 @@ public class VideoRecording extends Recording {
 	private static final long serialVersionUID = -2887474264317103342L;
 
 	private int year;	
-	Set<Actor> actors = new HashSet<Actor>();
+	private Set<Actor> actors = new HashSet<Actor>();
+	private Duration duration;
 	
 	public VideoRecording() {
 		// javabean constructor
@@ -26,8 +27,7 @@ public class VideoRecording extends Recording {
 		super();
 		setTitle(title);
 		setYear(year);
-	}
-	
+	}	
 
 	@ManyToMany(mappedBy="videos")
 	public Set<Actor> getActors() {
@@ -45,7 +45,7 @@ public class VideoRecording extends Recording {
 
 	@Override
 	public Duration getDuration() {
-		return new Duration(0, 47, 0);
+		return duration;
 	}
 
 	public int getYear() {
