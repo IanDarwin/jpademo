@@ -45,9 +45,27 @@
 	  	</copy>
 	  </target>
 	
-	  <target name="run" depends="compile, copymetafiles">
+	<target name="run" depends="runSimple"/>
+
+	  <target name="runSimple" depends="compile, copymetafiles">
 	     <java fork="true" failonerror="true"
 	  	       classname="demo.JPASimple"
+	  	       classpathref="project.classpath">
+	     	   <classpath path="${build.dir}"/>
+	     </java>
+	  </target>
+
+	  <target name="runQuery" depends="compile, copymetafiles">
+	     <java fork="true" failonerror="true"
+	  	       classname="demo.JPAQuery"
+	  	       classpathref="project.classpath">
+	     	   <classpath path="${build.dir}"/>
+	     </java>
+	  </target>
+
+	  <target name="runSP" depends="compile, copymetafiles">
+	     <java fork="true" failonerror="true"
+	  	       classname="features/StoredProcedureDriver"
 	  	       classpathref="project.classpath">
 	     	   <classpath path="${build.dir}"/>
 	     </java>
