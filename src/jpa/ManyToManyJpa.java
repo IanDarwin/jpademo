@@ -26,7 +26,8 @@ public class ManyToManyDemo {
 			// N.B. Most data for this demo are loaded via "import.sql"
 
 			// Show Actors appearing in "Star Wars IV"
-			final Query swQuery = em.createQuery("from VideoRecording where title = 'Star Wars IV: A New Hope'");
+			final Query swQuery = em.createQuery(
+				"select v from VideoRecording v where v.title = 'Star Wars IV: A New Hope'");
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
 			System.out.println("Found video: " + swIV);
 			
