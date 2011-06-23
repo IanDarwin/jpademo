@@ -39,7 +39,7 @@ public class ManyToManyDemo {
 			System.out.println();
 			
 			// Update and show videos that Harrison Ford appears in
-			final Query hfQuery = em.createQuery("from Actor where firstName = 'Harrison' and lastName = 'Ford'");
+			final Query hfQuery = em.createQuery("select a from Actor a where a.firstName = 'Harrison' and a.lastName = 'Ford'");
 			Actor ford = (Actor) hfQuery.getSingleResult();
 			System.out.println("Found actor " + ford);
 			VideoRecording vr = new VideoRecording("Indiana Jones: Kingdom of the Crystal Skull", 2008);
