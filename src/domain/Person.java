@@ -33,7 +33,7 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="my_poid_gen")
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}

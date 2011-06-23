@@ -14,7 +14,7 @@ public class Address {
 	private String city;
 	private Country country = Country.CANADA;
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="my_poid_gen")
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}

@@ -1,5 +1,4 @@
 -- drop sequence my_poid_sequence;
-create sequence my_poid_sequence start with 100;
 
 -- Data for simple person use
 insert into Person(id, version, firstname, lastname) values(-101, 1, 'Christopher', 'Robin');
