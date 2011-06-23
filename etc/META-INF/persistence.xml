@@ -9,8 +9,8 @@
 	-->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-	<mapping-file>META-INF/orm.xml</mapping-file>
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
 	<properties>
 
 	<!-- Properties for eclipselink -->
