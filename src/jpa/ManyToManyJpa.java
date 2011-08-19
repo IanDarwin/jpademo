@@ -29,7 +29,7 @@ public class ManyToManyDemo {
 			final Query swQuery = em.createQuery(
 				"select v from VideoRecording v where v.title = 'Star Wars IV: A New Hope'");
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
-			System.out.println("Found video: " + swIV);
+			System.out.println("Video: " + swIV);
 			
 			Set<Actor> starWarsActors = swIV.getActors();
 			System.out.println("The following actors appear in " + swIV);
