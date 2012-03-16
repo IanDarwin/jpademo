@@ -14,6 +14,8 @@ public class VideoRecording extends Recording {
 	private int year;	
 	private Set<Actor> actors = new HashSet<Actor>();
 	private Duration duration;
+
+	private String director;
 	
 	public VideoRecording() {
 		// javabean constructor
@@ -64,5 +66,12 @@ public class VideoRecording extends Recording {
 			sb.append(" (").append(year).append(")");
 		}
 		return sb.toString();
+	}
+
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
 	}
 }
