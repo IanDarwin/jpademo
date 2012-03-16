@@ -12,13 +12,13 @@ import domain.model.MusicRecording;
 /**
  * JPA implementation of MusicDAO
  */
-public final class MusicDaoImpl implements MusicDao {
+public final class MusicDaoJpaImpl implements MusicDao {
 
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private EntityTransaction entityTransaction;
 
-	public MusicDaoImpl(){
+	public MusicDaoJpaImpl(){
 		System.out.println("MusicDaoImpl.MusicDaoImpl()");
 		emf = Persistence.createEntityManagerFactory("jpademo");
 		em = emf.createEntityManager();

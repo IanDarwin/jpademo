@@ -11,7 +11,7 @@ import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
 
-public class MusicRecordingDAOHibernate implements MusicDao {
+public class MusicDaoHibernateImpl implements MusicDao {
 
 	SessionFactory factory =
 		new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
