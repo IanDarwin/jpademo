@@ -7,20 +7,20 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 import domain.model.Actor;
 import domain.model.VideoRecording;
 
 /**
  * Many-To-Many Hibernate Demo
- * @version $Id: ManyToManyHibernate.java,v 1.1 2012/03/16 14:37:09 ian Exp $
+ * @version $Id: ManyToManyHibernate.java,v 1.2 2012/03/16 14:45:18 ian Exp $
  */
 public class ManyToManyHibernate {
 
 	public static void main(String[] args) throws HibernateException {
 		SessionFactory factory =
-			new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
+			new AnnotationConfiguration().configure("/hibernate.cfg.xml").buildSessionFactory();
 
 		Session hibSession = factory.openSession();
 		Transaction tx = null;
