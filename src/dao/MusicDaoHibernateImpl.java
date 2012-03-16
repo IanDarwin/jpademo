@@ -11,7 +11,7 @@ import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
 
-public class MusicRecordingDAOHibernate {
+public class MusicRecordingDAOHibernate implements MusicDao {
 
 	SessionFactory factory =
 		new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
@@ -40,5 +40,41 @@ public class MusicRecordingDAOHibernate {
 			hibSession.close();
 		}
 		return list;
+	}
+
+	@Override
+	public void saveMusicRecording(MusicRecording recording) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteMusicRecording(MusicRecording recording) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MusicRecording getMusicRecording(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<MusicRecording> listMusicRecordings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MusicRecording> findRecordingByPrice(double d) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
