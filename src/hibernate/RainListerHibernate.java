@@ -10,9 +10,9 @@ import domain.model.Track;
 
 /**
  * Main program for Hibernate Demo
- * @version $Id: RainListerHibernate.java,v 1.3 2012/03/16 15:00:29 ian Exp $
+ * @version $Id: RainListerHibernate.java,v 1.4 2012/03/16 15:14:47 ian Exp $
  */
-public class RainLister {
+public class RainListerHibernate {
 
 	public static void main(String[] args) throws HibernateException {
 			final MusicDaoHibernateImpl musicDAO = new MusicDaoHibernateImpl();

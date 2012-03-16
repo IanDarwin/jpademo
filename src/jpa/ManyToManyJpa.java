@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import domain.model.Actor;
 import domain.model.VideoRecording;
 
-public class ManyToManyDemo {
+public class ManyToManyJpa {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {

@@ -2,20 +2,20 @@ package jpa;
 
 import java.util.List;
 
-import domain.dao.MusicDao;
-import domain.dao.MusicDaoImpl;
+import dao.MusicDao;
+import dao.MusicDaoJpaImpl;
 import domain.model.MusicRecording;
 
 
 /**
  * A main Driver for one JPA Demo
  */
-public class DAODemo {
+public class RainListerJPA {
 
 	public static void main(String[] args) {
 
 		System.out.println("JPA Demo");
-		MusicDao musicDAO = new MusicDaoImpl();
+		MusicDao musicDAO = new MusicDaoJpaImpl();
 
 		MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.99, "Rock", null);
 		musicDAO.saveMusicRecording(recording1);
