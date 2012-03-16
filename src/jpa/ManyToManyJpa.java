@@ -1,4 +1,4 @@
-package demo;
+package jpa;
 
 import java.util.Collection;
 import java.util.Set;

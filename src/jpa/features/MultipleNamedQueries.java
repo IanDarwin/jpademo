@@ -1,4 +1,4 @@
-package features;
+package jpa.features;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,4 +1,4 @@
-package features;
+package jpa.features;
 
 import java.util.List;
 
