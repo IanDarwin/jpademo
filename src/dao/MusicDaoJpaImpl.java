@@ -26,7 +26,7 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<MusicRecording> findRecordingByPrice(double price) {
+	public List<MusicRecording> findRecordingsByPrice(double price) {
 		return em.createQuery(
 				"from MusicRecording where price = " + price).getResultList();
 	}

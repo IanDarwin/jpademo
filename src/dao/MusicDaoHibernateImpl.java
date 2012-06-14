@@ -17,6 +17,7 @@ public class MusicDaoHibernateImpl implements MusicDao {
 		new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
 
 	/** Get list of recording by price */
+	@Override
 	public List<MusicRecording> findRecordingsByPrice(double price) {
 
 		Session hibSession = factory.openSession();
@@ -31,11 +32,6 @@ public class MusicDaoHibernateImpl implements MusicDao {
 			
 			tx.commit();
 			
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			throw new RuntimeException(e);
 		} finally {
 			hibSession.close();
 		}
@@ -44,14 +40,28 @@ public class MusicDaoHibernateImpl implements MusicDao {
 
 	@Override
 	public void saveMusicRecording(MusicRecording recording) {
-		// TODO Auto-generated method stub
-		
+		Session hibSession = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = hibSession.beginTransaction();
+			hibSession.saveOrUpdate(recording);
+			tx.commit();
+		} finally {
+			hibSession.close();
+		}
 	}
 
 	@Override
 	public void deleteMusicRecording(MusicRecording recording) {
-		// TODO Auto-generated method stub
-		
+		Session hibSession = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = hibSession.beginTransaction();
+			hibSession.delete(recording);
+			tx.commit();
+		} finally {
+			hibSession.close();
+		}
 	}
 
 	@Override
@@ -68,12 +78,6 @@ public class MusicDaoHibernateImpl implements MusicDao {
 
 	@Override
 	public List<MusicRecording> listMusicRecordings() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<MusicRecording> findRecordingByPrice(double d) {
 		// TODO Auto-generated method stub
 		return null;
 	}

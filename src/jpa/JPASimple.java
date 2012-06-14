@@ -20,7 +20,8 @@ public class JPASimple {
 		System.out.println("JPASimple.main()");
 
 		// These two steps would be done for you
-		// were you running in an EE App Server
+		// were you running in an EE App Server.
+		// Or just the EntityManager injected if you were using Spring
 		EntityManagerFactory entityMgrFactory = null;
 		EntityManager entityManager = null;
 		try {

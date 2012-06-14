@@ -12,5 +12,5 @@ public interface MusicDao {
 	MusicRecording getMusicRecording(long id);
 	void close();
 	List<MusicRecording> listMusicRecordings();
-	List<MusicRecording> findRecordingByPrice(double d);
+	List<MusicRecording> findRecordingsByPrice(double d);
 }
