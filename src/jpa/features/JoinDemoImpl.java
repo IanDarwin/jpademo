@@ -2,7 +2,6 @@ package jpa.features;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
@@ -12,7 +11,6 @@ import javax.persistence.Query;
  * An example of a Join and also an example of a DTO creation
  * @author Ian Darwin
  */
-@Stateless
 @NamedQuery(name="joindemo",
 	// Note that the DTO created with NEW here is not a JPA Entity!
 	query="SELECT NEW JoinDemoImpl(p.name, SUM(s.amount))" + 
