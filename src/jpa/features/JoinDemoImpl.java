@@ -8,8 +8,13 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+/** 
+ * An example of a Join and also an example of a DTO creation
+ * @author Ian Darwin
+ */
 @Stateless
-@NamedQuery(name="joindemo", 
+@NamedQuery(name="joindemo",
+	// Note that the DTO created with NEW here is not a JPA Entity!
 	query="SELECT NEW JoinDemoImpl(p.name, SUM(s.amount))" + 
           "FROM Salesperson p LEFT JOIN p.sales s GROUP BY p.name")
 public class JoinDemoImpl {
