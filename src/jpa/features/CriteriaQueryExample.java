@@ -53,9 +53,11 @@ public class CriteriaQueryExample {
 			q.setParameter(firstNameParameter, firstName);
 		}
 		// And similar for lastName
-		System.out.println("Generated Query: " + q);
 
-		List<Person> matches = q.getResultList();
+		System.out.println("Running the generated Query: " + q);
+		for (Person p : q.getResultList()) {
+			System.out.println("Found person " + p);
+		}
 	}
 
 }
