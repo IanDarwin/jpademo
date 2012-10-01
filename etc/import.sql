@@ -34,3 +34,6 @@ insert into Actor_VideoRecording(actors_id, videos_id) values (-104, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-105, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-106, -200)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-107, -200)
+
+-- Composite Primary Key demo
+insert into fish(speciesId, individualId, fishName) values(255, 001, 'Fred')
