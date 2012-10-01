@@ -3,6 +3,11 @@ package domain.misc;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+/** Represents the state of a pet fish. Uses a composite PK class called FishPK which is embedded as the ID.
+ * 
+ * @author Ian Darwin
+ *
+ */
 @Entity
 public class Fish {
 

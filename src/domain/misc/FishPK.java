@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
+/** Represents the composite primary key for the pet fish.
+ * Note that an Embeddable PK class *must* implement Serializable!
+ * @author Ian Darwin
+ */
 @Embeddable
 public class FishPK implements Serializable {
 
