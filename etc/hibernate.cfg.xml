@@ -45,6 +45,9 @@
 				<mapping class="domain.model.Track"/>
 				<mapping class="domain.model.VideoRecording"/>
 				<mapping class="domain.model.Actor"/>
+				
+				<mapping class="domain.sales.Customer"/>
+				<mapping class="domain.sales.SalesPerson"/>
 
 		</session-factory>
 </hibernate-configuration>
