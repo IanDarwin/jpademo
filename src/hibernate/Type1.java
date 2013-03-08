@@ -1,8 +1,12 @@
 package hibernate;
 
+import javax.persistence.*;
+
+@Entity
 public class Type1 {
 	int id;
 
+	@Id
 	public int getId() {
 		return id;
 	}

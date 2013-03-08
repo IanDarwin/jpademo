@@ -49,5 +49,8 @@
 				<mapping class="domain.sales.Customer"/>
 				<mapping class="domain.sales.SalesPerson"/>
 
+				<mapping class="hibernate.Type1"/>
+				<mapping class="hibernate.Type2"/>
+
 		</session-factory>
 </hibernate-configuration>

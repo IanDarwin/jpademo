@@ -6,12 +6,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 public class ManyToOneDemo {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		Configuration cf = new Configuration();
+		Configuration cf = new AnnotationConfiguration();
 		cf.configure();
 		SessionFactory sf = cf.buildSessionFactory();
 		Session session = sf.openSession();

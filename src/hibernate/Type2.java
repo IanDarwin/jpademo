@@ -1,5 +1,8 @@
 package hibernate;
 
+import javax.persistence.*;
+
+@Entity
 public class Type2 {
 	int id;
 	Type1 parent;
@@ -8,6 +11,7 @@ public class Type2 {
 		this.parent = parent;
 	}
 
+	@Id
 	public int getId() {
 		return id;
 	}
