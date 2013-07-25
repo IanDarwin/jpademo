@@ -18,17 +18,22 @@ public class JpaUpdate {
 	public static void main(String[] args) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		
-		Query query = entityManager.createNamedQuery("updateActorLastNameById");
-		query.setParameter(1, "Ford"); // pkey
-		String newLastName = "Smith";
-		entityManager.getTransaction().begin();
-		query.setParameter(2, newLastName);
-		int rowCount = query.executeUpdate();
-		System.out.println(rowCount + " actors renamed to " + newLastName);
-		
-		Actor a = entityManager.find(Actor.class, -103);
-		entityManager.getTransaction().commit();
+		renameActorsByLastName(entityManager, "Ford", "Smith");
+		int actorHarrison = -103; // just happen to know (import.sql)
+		Actor a = entityManager.find(Actor.class, actorHarrison);
 		System.out.println(a);
 	}
 
+	private static void renameActorsByLastName(EntityManager entityManager,
+		String oldLastName, String newLastName) {
+
+		Query query =
+			entityManager.createNamedQuery("updateActorLastNameById");
+		query.setParameter(1, oldLastName);
+		query.setParameter(2, newLastName);
+		entityManager.getTransaction().begin();
+		int rowCount = query.executeUpdate();
+		entityManager.getTransaction().commit();
+		System.out.println(rowCount + " Actors renamed from " + oldLastName + " to " + newLastName);
+	}
 }
