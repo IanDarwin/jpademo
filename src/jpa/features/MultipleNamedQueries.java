@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
  */
 @NamedQueries({
 	@NamedQuery(name="findActorByName",
-			query="select a from Actor a where A.firstName = ?1"),
+			query="select a from Actor a where a.firstName = ?1"),
 	@NamedQuery(name="updateActorLastNameById",
 			query="UPDATE Actor a SET a.lastName=?2 where a.id=?1")
 })
