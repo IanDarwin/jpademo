@@ -6,16 +6,42 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
 
 public class MusicDaoHibernateImpl implements MusicDao {
 
-	SessionFactory factory =
-		new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
+	final static SessionFactory factory =
+		new AnnotationConfiguration().configure("/hibernate.cfg.xml").buildSessionFactory();
 
+	@Override
+	public MusicRecording getMusicRecording(long id) {
+		Session hibSession = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = hibSession.beginTransaction();
+			return (MusicRecording) hibSession.get(MusicRecording.class, id);
+		} finally {
+			tx.commit();
+			hibSession.close();
+		}
+	}
+	
+	@Override
+	public List<MusicRecording> listMusicRecordings() {
+		Session hibSession = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = hibSession.beginTransaction();
+			return (List<MusicRecording>) hibSession.createQuery("from MusicRecording");
+		} finally {
+			tx.commit();
+			hibSession.close();
+		}
+	}
+	
 	/** Get list of recording by price */
 	@Override
 	public List<MusicRecording> findRecordingsByPrice(double price) {
@@ -65,20 +91,7 @@ public class MusicDaoHibernateImpl implements MusicDao {
 	}
 
 	@Override
-	public MusicRecording getMusicRecording(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void close() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<MusicRecording> listMusicRecordings() {
-		// TODO Auto-generated method stub
-		return null;
+		factory.close();
 	}
 }
