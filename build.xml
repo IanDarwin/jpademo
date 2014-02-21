@@ -7,31 +7,31 @@
 
 	<path id="project.classpath">
 		<fileset dir="${lib.dir}">
-			<include name="lib/hibernate3.jar" />
-			<include name="lib/hibernate-annotations.jar" />
-			<include name="lib/hibernate-entitymanager.jar" />
-			<include name="lib/cglib-2.1_3.jar" />
-			<include name="lib/hibernate-commons-annotations.jar" />
-			<include name="lib/jboss-archive-browsing.jar" />
-			<include name="lib/log4j.jar" />
-			<include name="lib/dom4j-1.6.1.jar" />
-			<include name="lib/commons-logging.jar" />
-			<include name="lib/javassist.jar" />
-			<include name="lib/commons-collections-3.0-dev2.jar" />
-			<include name="lib/c3p0-0.9.1.jar" />
-			<include name="lib/asm.jar" />
-			<include name="lib/javax.persistence_2.0.4.v201112161009.jar" />
-			<include name="lib/javaee.jar" />
-			<include name="lib/checkstyle-all.jar" />
-			<include name="lib/hibernate-validator.jar" />
-			<include name="lib/hsqldb.jar" />
-			<include name="lib/org.eclipse.persistence.antlr_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.asm_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.core_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.jpa_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.moxy_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.oracle_1.0.2.jar" />
-			<include name="lib/org.eclipse.persistence.sdo_1.0.2.jar" />
+			<include name="hibernate3.jar" />
+			<include name="hibernate-annotations.jar" />
+			<include name="hibernate-entitymanager.jar" />
+			<include name="cglib-2.1_3.jar" />
+			<include name="hibernate-commons-annotations.jar" />
+			<include name="jboss-archive-browsing.jar" />
+			<include name="log4j.jar" />
+			<include name="dom4j-1.6.1.jar" />
+			<include name="commons-logging.jar" />
+			<include name="javassist.jar" />
+			<include name="commons-collections-3.0-dev2.jar" />
+			<include name="c3p0-0.9.1.jar" />
+			<include name="asm.jar" />
+			<include name="javax.persistence_2.0.4.v201112161009.jar" />
+			<include name="javaee.jar" />
+			<include name="checkstyle-all.jar" />
+			<include name="hibernate-validator.jar" />
+			<include name="hsqldb.jar" />
+			<include name="org.eclipse.persistence.antlr_1.0.2.jar" />
+			<include name="org.eclipse.persistence.asm_1.0.2.jar" />
+			<include name="org.eclipse.persistence.core_1.0.2.jar" />
+			<include name="org.eclipse.persistence.jpa_1.0.2.jar" />
+			<include name="org.eclipse.persistence.moxy_1.0.2.jar" />
+			<include name="org.eclipse.persistence.oracle_1.0.2.jar" />
+			<include name="org.eclipse.persistence.sdo_1.0.2.jar" />
 		</fileset>
 	</path>
 
