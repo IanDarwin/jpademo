@@ -1,82 +1,95 @@
 <project name="JPA Demos" default="run">
 
-	  <property name="src.java.dir" value="src"/>
-	  <property name="lib.dir" value="lib"/>
-	  <property name="build.dir" value="bin"/>
-	  <property name="src.etc.dir" value="etc"/>
-	
-	  <path id="project.classpath">
-	    <fileset dir="${lib.dir}">
-	      <include name="**/*.jar"/> 
-	    </fileset>
-	  </path>
-	
-	  <patternset id="meta.files">
-	    <include name="**/*.xml"/>
-	    <include name="**/*.properties"/>
-	  	<include name="**/*.sql"/>
-	  </patternset>
-	
-	  <target name="clean">
-	    <delete dir="${build.dir}"/>
-	  	<mkdir dir="${build.dir}"/>
-	  </target>
-	
-	  <target name="compile">
-		<mkdir dir="${build.dir}"/>
-	    <javac 
-	  	    srcdir="${src.java.dir}"
-	  	    destdir="${build.dir}"
-	  	    debug="on" nowarn="on">
-	     <classpath refid="project.classpath"/>
-	    </javac>
-	  </target>
-	    		    	
-	  <target name="copymetafiles">
-	    <copy todir="${build.dir}">
-	  	  <fileset dir="${src.java.dir}">
-	    	<patternset refid="meta.files"/>
-	  	  </fileset>
-	    </copy>
-	  	<copy todir="${build.dir}">
-	  	  <fileset dir="${src.etc.dir}">
-	  	  	  <patternset refid="meta.files"/>
-	  	  </fileset>
-	  	</copy>
-	  </target>
-	
-	<target name="run" depends="runSimple"/>
+	<property name="src.java.dir" value="src" />
+	<property name="lib.dir" value="lib" />
+	<property name="build.dir" value="bin" />
+	<property name="src.etc.dir" value="etc" />
 
-	  <target name="runSimple" depends="compile, copymetafiles">
-	     <java fork="true" failonerror="true"
-	  	       classname="demo.JPASimple"
-	  	       classpathref="project.classpath">
-	     	   <classpath path="${build.dir}"/>
-	     </java>
-	  </target>
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="lib/hibernate3.jar" />
+			<include name="lib/hibernate-annotations.jar" />
+			<include name="lib/hibernate-entitymanager.jar" />
+			<include name="lib/cglib-2.1_3.jar" />
+			<include name="lib/hibernate-commons-annotations.jar" />
+			<include name="lib/jboss-archive-browsing.jar" />
+			<include name="lib/log4j.jar" />
+			<include name="lib/dom4j-1.6.1.jar" />
+			<include name="lib/commons-logging.jar" />
+			<include name="lib/javassist.jar" />
+			<include name="lib/commons-collections-3.0-dev2.jar" />
+			<include name="lib/c3p0-0.9.1.jar" />
+			<include name="lib/asm.jar" />
+			<include name="lib/javax.persistence_2.0.4.v201112161009.jar" />
+			<include name="lib/javaee.jar" />
+			<include name="lib/checkstyle-all.jar" />
+			<include name="lib/hibernate-validator.jar" />
+			<include name="lib/hsqldb.jar" />
+			<include name="lib/org.eclipse.persistence.antlr_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.asm_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.core_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.jpa_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.moxy_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.oracle_1.0.2.jar" />
+			<include name="lib/org.eclipse.persistence.sdo_1.0.2.jar" />
+		</fileset>
+	</path>
 
-	  <target name="runQuery" depends="compile, copymetafiles">
-	     <java fork="true" failonerror="true"
-	  	       classname="demo.JPAQuery"
-	  	       classpathref="project.classpath">
-	     	   <classpath path="${build.dir}"/>
-	     </java>
-	  </target>
+	<patternset id="meta.files">
+		<include name="**/*.xml" />
+		<include name="**/*.properties" />
+		<include name="**/*.sql" />
+	</patternset>
 
-	  <target name="runSP" depends="compile, copymetafiles">
-	     <java fork="true" failonerror="true"
-	  	       classname="features/StoredProcedureDriver"
-	  	       classpathref="project.classpath">
-	     	   <classpath path="${build.dir}"/>
-	     </java>
-	  </target>
-	
-	  <target name="runManyToMany" depends="compile, copymetafiles">
-		     <java fork="true" failonerror="true"
-		  	       classname="demo.ManyToManyDemo"
-		  	       classpathref="project.classpath">
-		     	   <classpath path="${build.dir}"/>
-		     </java>
-	  </target>
-						
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.java.dir}" destdir="${build.dir}" debug="on" nowarn="on">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="copymetafiles">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.java.dir}">
+				<patternset refid="meta.files" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}">
+			<fileset dir="${src.etc.dir}">
+				<patternset refid="meta.files" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="run" depends="runSimple" />
+
+	<target name="runSimple" depends="compile, copymetafiles">
+		<java fork="true" failonerror="true" classname="demo.JPASimple" classpathref="project.classpath">
+			<classpath path="${build.dir}" />
+		</java>
+	</target>
+
+	<target name="runQuery" depends="compile, copymetafiles">
+		<java fork="true" failonerror="true" classname="demo.JPAQuery" classpathref="project.classpath">
+			<classpath path="${build.dir}" />
+		</java>
+	</target>
+
+	<target name="runSP" depends="compile, copymetafiles">
+		<java fork="true" failonerror="true" classname="features/StoredProcedureDriver" classpathref="project.classpath">
+			<classpath path="${build.dir}" />
+		</java>
+	</target>
+
+	<target name="runManyToMany" depends="compile, copymetafiles">
+		<java fork="true" failonerror="true" classname="demo.ManyToManyDemo" classpathref="project.classpath">
+			<classpath path="${build.dir}" />
+		</java>
+	</target>
+
 </project>
