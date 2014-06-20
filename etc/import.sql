@@ -35,5 +35,11 @@ insert into Actor_VideoRecording(actors_id, videos_id) values (-105, -201)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-106, -200)
 insert into Actor_VideoRecording(actors_id, videos_id) values (-107, -200)
 
+-- Gotta have a MusicRecording
+insert into Recording (id, version, title, price) values(-301, 1, 'Greatest Hits', 9.67)
+insert into MusicRecordings (id, artist_name) values (-301, 'The Java Junquies')
+
+insert into Tracks (id, index_number, title, duration, product_id) values(1, 0, 'All Hits Medly', 1234, -301)
+
 -- Composite Primary Key demo
 -- insert into fish(speciesId, individualId, fishName) values(255, 001, 'Fred')

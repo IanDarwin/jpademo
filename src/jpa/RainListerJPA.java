@@ -17,7 +17,7 @@ public class RainListerJPA {
 		System.out.println("JPA Demo");
 		MusicDao musicDAO = new MusicDaoJpaImpl();
 
-		MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.99, "Rock", null);
+		MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.67, "Rock", null);
 		musicDAO.saveMusicRecording(recording1);
 		System.out.printf("Added Music Recording %d.%n", recording1.getId());
 		
@@ -26,7 +26,7 @@ public class RainListerJPA {
 		System.out.printf("Added Music Recording %d.%n", recording2.getId());
 
 		List<MusicRecording> c =
-            musicDAO.findRecordingsByPrice(9.99);
+            musicDAO.findRecordingsByPrice(9.67);
 		
 		for (MusicRecording rec : c) {
 			System.out.println(rec);	

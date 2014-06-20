@@ -15,8 +15,8 @@ import javax.persistence.Version;
 public abstract class Recording implements Serializable {
 
 	private int id;
-	private String title;
-	private double price;
+	protected String title;
+	protected double price;
 	int version;
 	
 	public Recording() {
@@ -66,5 +66,4 @@ public abstract class Recording implements Serializable {
 	public String toString() {
 		return title;
 	}
-	
 }

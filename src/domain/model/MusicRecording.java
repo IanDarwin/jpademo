@@ -1,5 +1,6 @@
 package domain.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +28,7 @@ import org.hibernate.annotations.IndexColumn;
 
 
 @Entity
-@Table(name="Music_Recordings")
+@Table(name="MusicRecordings")
 public class MusicRecording extends Recording {
 
 	private static final long serialVersionUID = -2657285648284489986L;
@@ -40,17 +41,7 @@ public class MusicRecording extends Recording {
 	/**
 	 *  The list of tracks/songs
 	 */
-	private Track tracks[];
-
-	/**
-	 *  The recording title
-	 */
-	private String title;
-
-	/**
-	 *  The recording price
-	 */
-	private double price;
+	private Track tracks[] = new Track[0];
 
 	/**
 	 *  The recording category
@@ -66,15 +57,15 @@ public class MusicRecording extends Recording {
 
 
 	/**
-	 *  Creates a MusicRecording object with given parameter values
-	 *
+	 * Creates a MusicRecording object with given parameter values
+	 * Too complex; should use Builder pattern here.
 	 */
 	public MusicRecording(String theArtist, Track[] theTrackList,
 						  String theTitle, double thePrice,
 						  String theCategory, String theImageName) {
 
-		this.title = theTitle;
-		this.price = thePrice;
+		super.title = theTitle;
+		super.price = thePrice;
 		this.category = theCategory;
 		artist = theArtist;
 		tracks = theTrackList;
@@ -148,22 +139,6 @@ public class MusicRecording extends Recording {
 		return artist.compareTo(targetArtist);
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	public String getCategory() {
 		return category;
 	}
@@ -175,10 +150,14 @@ public class MusicRecording extends Recording {
 	@OneToMany(mappedBy="recordingId", cascade=CascadeType.ALL)
 	@IndexColumn(name="index_number")
 	public List<Track> getTracks() {
+		if (tracks == null || tracks.length == 0) {
+			return new ArrayList<Track>();
+		}
 		return Arrays.asList(tracks);
 	}
 
 	public void setTracks(List<Track> tracks) {
-		this.tracks = (Track[]) tracks.toArray();
+		Track[] target = new Track[tracks.size()];
+		this.tracks = (Track[]) tracks.toArray(target);
 	}
 }

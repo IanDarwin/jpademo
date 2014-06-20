@@ -27,7 +27,7 @@ import javax.persistence.Table;
  *  @author 570 Development Team
  */
 @Entity
-@Table(name="Music_Tracks")
+@Table(name="Tracks")
 public class Track implements Serializable {
 
 	private static final long serialVersionUID = 7412748348094654728L;

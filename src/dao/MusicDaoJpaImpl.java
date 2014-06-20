@@ -21,14 +21,19 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	public MusicDaoJpaImpl(){
 		System.out.println("MusicDaoImpl.MusicDaoImpl()");
 		emf = Persistence.createEntityManagerFactory("jpademo");
-		em = emf.createEntityManager();
 		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingsByPrice(double price) {
+		try {
+		em = emf.createEntityManager();
 		return em.createQuery(
 				"from MusicRecording where price = " + price).getResultList();
+		} finally {
+			if (em != null)
+				em.close();
+		}
 	}
 
 	/**
@@ -36,14 +41,20 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	 */
 	public void saveMusicRecording(final MusicRecording recording) {
 		try {
+			em = emf.createEntityManager();
 			entityTransaction = em.getTransaction();
 			entityTransaction.begin();
 			em.persist(recording);
 			entityTransaction.commit();
+			System.out.println("MusicDaoJpaImpl.saveMusicRecording()" + recording.getId());
 		} catch (RuntimeException e) {
-     		if(entityTransaction != null){
+			e.printStackTrace();
+     		if (entityTransaction != null){
 				entityTransaction.rollback();
 			}
+		} finally {
+			if (em != null)
+				em.close();
 		}
 	}
 
@@ -52,11 +63,12 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	 */
 	public void deleteMusicRecording(final MusicRecording recording) {
 		try {
+			em = emf.createEntityManager();
 			entityTransaction = em.getTransaction();
 			entityTransaction.begin();
 			em.remove(recording);
 			entityTransaction.commit();
-
+			em.close();
 		} catch (RuntimeException e) {
 			if(entityTransaction != null){
 				entityTransaction.rollback();
@@ -68,7 +80,7 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	 * @see domain.dao.MusicDao#getMusicRecording(long)
 	 */
 	public MusicRecording getMusicRecording(final long id) {
-		return em.find(MusicRecording.class, id);
+		return emf.createEntityManager().find(MusicRecording.class, id);
 	}
 
 	/** List all the recordings.
@@ -76,6 +88,7 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<MusicRecording> listMusicRecordings(){
+		em = emf.createEntityManager();
 		return em.createQuery("from MusicRecording").getResultList();
 	}
 	
@@ -83,7 +96,6 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	 * @see domain.dao.MusicDao#close()
 	 */
 	public void close(){
-		em.close();
 		emf.close();
 	}
 }
