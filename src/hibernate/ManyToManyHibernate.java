@@ -14,7 +14,6 @@ import domain.model.VideoRecording;
 
 /**
  * Many-To-Many Hibernate Demo
- * @version $Id: ManyToManyHibernate.java,v 1.2 2012/03/16 14:45:18 ian Exp $
  */
 public class ManyToManyHibernate {
 

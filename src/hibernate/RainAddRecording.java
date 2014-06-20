@@ -16,7 +16,6 @@ import domain.model.Track;
 
 /**
  * Populate Hibernate Demo
- * @version $Id: RainAddRecording.java,v 1.2 2013/07/30 00:40:59 ian Exp $
  */
 public class RainAddRecording {
 

@@ -10,7 +10,6 @@ import domain.model.Track;
 
 /**
  * Main program for Hibernate Demo
- * @version $Id: RainListerHibernate.java,v 1.4 2012/03/16 15:14:47 ian Exp $
  */
 public class RainListerHibernate {
 
