@@ -11,4 +11,4 @@ Further, the *JPA demos can run using either Hibernate or EclipseLink
 as their JPA provider*; see the persistence.xml file for the properties 
 to change.
 
-Currently works with Eclipse and maybe with Ant.
+Currently works with Eclipse and proably with Maven.
