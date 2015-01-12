@@ -16,7 +16,7 @@ public class ManyToManyJpa {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		System.out.println("ManyToManyDemo.main()");
+		System.out.println("ManyToManyJPA.main()");
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpademo");
 		EntityManager em = emf.createEntityManager();
 		try {
