@@ -32,7 +32,8 @@
 	<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 	
 	<!-- This causes the Hibernate-style import.sql to be run after creation. -->
-	<property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
+	<property name="javax.persistence.sql-load-script-source" value="botch:///import.sql"/>
+	<property name="NOTeclipselink.session.customizer" value="eclipselink.ImportSQL"/>
 	<property name="import.sql.file" value="/import.sql"/>
 	<property name="import.sql.trace" value="true"/>
 

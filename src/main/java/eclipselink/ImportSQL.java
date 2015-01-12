@@ -17,6 +17,7 @@ import org.eclipse.persistence.sessions.UnitOfWork;
  * Note: In JPA 2.1+ (EclipseLink 2.5.2+) you can get this functionality without
  * adding any code, just by adding this to persistence.xml:
  * <property name="javax.persistence.sql-load-script-source" value="/import.sql"/>
+ * (EXCEPT that the value has to be a URL, not a "mere" filesystem path...).
  * </br>
  * To use this workaround code, you MUST add this line to persistence.xml:
  * <property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
