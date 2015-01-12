@@ -71,12 +71,7 @@
 	</dependencies>
 
 	<build>
-		<testSourceDirectory>test</testSourceDirectory>
-		<resources>
-			<resource>
-				<directory>etc</directory>
-			</resource>
-		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
 			<!-- Compiler plugin enforces Java compatibility and activates annotation processors -->
 			<plugin>
