@@ -47,10 +47,14 @@ public class JpaRollback {
 			System.out.println("Rolling back transaction!");
 			transaction.rollback();
 			System.out.println("Tom's last name in memory is now " + tom.getLastName());
-			tom = entityManager.find(Person.class, npId);
-			// transaction = entityManager.getTransaction();
-			// transaction.begin();
-			// entityManager.merge(tom);
+			boolean firstway = true;
+			if (firstway) {
+				tom = entityManager.find(Person.class, npId);
+			} else {
+				transaction = entityManager.getTransaction();
+				transaction.begin();
+				entityManager.merge(tom);
+			}
 			System.out.println("Tom's last name in database is now " + tom.getLastName());
 		
 		} finally {	
