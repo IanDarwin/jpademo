@@ -21,6 +21,6 @@ public class JpaSetupTest {
 		entityManager.close();
 		entityMgrFactory.close();
 		
-		System.err.println("Completed OK");
+		System.out.println("Completed OK");
 	}
 }
