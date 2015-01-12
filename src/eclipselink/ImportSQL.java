@@ -17,6 +17,9 @@ import org.eclipse.persistence.sessions.UnitOfWork;
  * <property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
  * Original code posted by an Oracle (EclipseLink owner) employee for public use, at:
  * http://onpersistence.blogspot.ca/2010/03/running-sql-script-on-startup-in.html
+ * <br>
+ * XXX TODO See if we can find the value of eclipselink.ddl-generation
+ * and only run this if it has 'create' as a substring.
  * @author Shaun Smith, Oracle, http://www.blogger.com/profile/03444889032778621661
  * @author Ian Darwin filled in some blanks and tweaked slightly
  */
