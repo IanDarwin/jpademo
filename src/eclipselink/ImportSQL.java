@@ -22,16 +22,24 @@ import org.eclipse.persistence.sessions.UnitOfWork;
  */
 public class ImportSQL implements SessionCustomizer {
 	
-	private void importSql(UnitOfWork unitOfWork, String fileName) {
+	private void importSql(UnitOfWork unitOfWork, String fileName, boolean trace) {
 		try (BufferedReader is = new BufferedReader(
 				new InputStreamReader(getClass().getResourceAsStream(fileName)))) {
 
-			String line;
+			String line; int lineNum = 0;
 			while ((line = is.readLine())!= null) {
+				++lineNum;
 				if (line.length() == 0 || line.startsWith("--")) {
 					continue;
 				}
-				unitOfWork.executeNonSelectingSQL(line);
+				if (trace) {
+					System.err.println(line);
+				}
+				try {
+					unitOfWork.executeNonSelectingSQL(line);
+				} catch (Exception e) {
+					System.err.println("Error at " + fileName + ":" + lineNum + ": " + e);
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -43,12 +51,15 @@ public class ImportSQL implements SessionCustomizer {
         session.getEventManager().addListener(new SessionEventAdapter() {
             @Override
             public void postLogin(SessionEvent event) {
+            	System.err.println("ImportSQL.customize(...).new SessionEventAdapter() {...}.postLogin()");
                 String fileName = (String) event.getSession().getProperty("import.sql.file");
                 if (fileName == null) {
                 	fileName = "/import.sql";
                 }
+                String logging = (String) event.getSession().getProperty("import.sql.trace");
+                boolean tracing = logging != null && logging.equals("true");
                 UnitOfWork unitOfWork = event.getSession().acquireUnitOfWork();
-                importSql(unitOfWork, fileName);
+                importSql(unitOfWork, fileName, tracing);
                 unitOfWork.commit();
             }
         });
