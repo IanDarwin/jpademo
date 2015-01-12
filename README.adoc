@@ -1,4 +1,4 @@
-= jpademo
+== jpademo
 
 This project contains the RainForest domain model implemented using
 Annotations, and has both Hibernate and JPA versions of many of the demo
@@ -11,4 +11,5 @@ Further, the *JPA demos can run using either Hibernate or EclipseLink
 as their JPA provider*; see the persistence.xml file for the properties 
 to change.
 
-Currently works with Eclipse and proably with Maven.
+Currently works with Eclipse (M2E plugin required!) and builds with Maven; 
+there are no 'run' type goals configured in Maven.

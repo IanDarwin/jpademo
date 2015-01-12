@@ -4,10 +4,10 @@
    version="1.0">
    
 <persistence-unit name="jpademo">
-	<!--
 	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-	-->
+	<!--
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	-->
 
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
