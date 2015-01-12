@@ -19,6 +19,8 @@
 		<!-- Timestamp format for the maven.build.timestamp property -->
 		<!-- You can reference property in pom.xml or filtered resources -->
 		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
+		<eclipselink.version>2.6.0-M3</eclipselink.version>
+		<hibernate.version>4.0.1.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -30,6 +32,23 @@
 			<version>7.0</version>
 		</dependency>
 
+		<!-- Here we put two different JPA providers on the ClassPath.
+		 *** This works but a different implementation of Persistence may
+		 *** get invoked depending on the ordering...
+		 -->
+
+		<!-- EclipseLink and its JPA Provider -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.core</artifactId>
+			<version>${eclipselink.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.jpa</artifactId>
+			<version>${eclipselink.version}</version>
+		</dependency>
+		
 		<!-- Hibernate and its JPA Provider -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -39,21 +58,9 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.0.1.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 
-		<!-- EclipseLink and its JPA Provider -->
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.core</artifactId>
-			<version>2.5.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>2.5.2</version>
-		</dependency>
-		
 		<!-- Database Drivers -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
