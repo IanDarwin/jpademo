@@ -8,10 +8,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.IndexColumn;
 
 /**
  *  This class represents a music recording.  It contains additional
@@ -148,7 +148,7 @@ public class MusicRecording extends Recording {
 	}
 
 	@OneToMany(mappedBy="recordingId", cascade=CascadeType.ALL)
-	@IndexColumn(name="index_number")
+	@OrderColumn(name="index_number")
 	public List<Track> getTracks() {
 		if (tracks == null || tracks.length == 0) {
 			return new ArrayList<Track>();
