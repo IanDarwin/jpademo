@@ -53,6 +53,13 @@
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
 			<version>2.5.2</version>
 		</dependency>
+		
+		<!-- Database Drivers -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
