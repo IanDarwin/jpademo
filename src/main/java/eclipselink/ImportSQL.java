@@ -12,8 +12,13 @@ import org.eclipse.persistence.sessions.UnitOfWork;
 
 /**
  * Allows EclipseLink to survive an app's dependency on the non-JPA-standardized
- * Hibernate "import.sql" feature. Totally non-standard.
- * You MUST add this line to persistence.xml:
+ * Hibernate "import.sql" feature. Totally non-standard. EclipseLink only!
+ * <br>
+ * Note: In JPA 2.1+ (EclipseLink 2.5.2+) you can get this functionality without
+ * adding any code, just by adding this to persistence.xml:
+ * <property name="javax.persistence.sql-load-script-source" value="/import.sql"/>
+ * </br>
+ * To use this workaround code, you MUST add this line to persistence.xml:
  * <property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
  * Original code posted by an Oracle (EclipseLink owner) employee for public use, at:
  * http://onpersistence.blogspot.ca/2010/03/running-sql-script-on-startup-in.html
