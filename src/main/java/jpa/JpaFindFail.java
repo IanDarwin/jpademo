@@ -35,7 +35,7 @@ public class JpaFindFail {
 			Person p2 = (Person) q2.getSingleResult();
 			System.out.println("That is INTERESTING. Person 2 is " + p2);
 		} catch (NoResultException nre) {
-			System.out.println("Caught expected NoResultException!");
+			System.out.println("Failing getSingleResult() threw expected NoResultException!");
 		} finally {	
 			if (entityManager != null)
 				entityManager.close();
