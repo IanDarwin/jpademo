@@ -1,8 +1,11 @@
 package jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import domain.Person;
 
@@ -11,12 +14,10 @@ public class JpaFindFail {
 
 		System.out.println("JPAFindFail.main()");
 
-		EntityManagerFactory entityMgrFactory = JPAUtil.getEntityManagerFactory();
-		EntityManager entityManager = JPAUtil.getEntityManager();
-		
+		EntityManagerFactory entityManagerFactory = JPAUtil.getEntityManagerFactory();
+		EntityManager entityManager = null;
 		try {
-			EntityTransaction transaction = entityManager.getTransaction();
-			transaction.begin();
+			entityManager = JPAUtil.getEntityManager();
 
 			// Find an entity in the database.
 			
@@ -25,11 +26,21 @@ public class JpaFindFail {
 			
 			System.out.println("No Person with Id " + id + "; returned " + p);
 		
+			// Create a query with a where clause on a non-existent primary key to show what happens
+			Query q2 = entityManager.createQuery("from Person c where c.id = 98765");
+			@SuppressWarnings("unchecked")
+			List<Person> list = q2.getResultList();
+			System.out.println("getResultList return a list of length " + list.size());
+
+			Person p2 = (Person) q2.getSingleResult();
+			System.out.println("That is INTERESTING. Person 2 is " + p2);
+		} catch (NoResultException nre) {
+			System.out.println("Caught expected NoResultException!");
 		} finally {	
 			if (entityManager != null)
 				entityManager.close();
-			if (entityMgrFactory != null)
-				entityMgrFactory.close();
+			if (entityManagerFactory != null)
+				entityManagerFactory.close();
 		}
 	}
 
