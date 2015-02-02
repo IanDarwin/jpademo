@@ -33,7 +33,7 @@ public class JpaFindFail {
 			System.out.println("getResultList return a list of length " + list.size());
 
 			Person p2 = (Person) q2.getSingleResult();
-			System.out.println("That is INTERESTING. Person 2 is " + p2);
+			throw new RuntimeException("getSingleResult() failed to throw expected exception, returned " + p2);
 		} catch (NoResultException nre) {
 			System.out.println("Failing getSingleResult() threw expected NoResultException!");
 		} finally {	
