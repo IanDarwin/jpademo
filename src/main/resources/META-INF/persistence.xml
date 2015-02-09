@@ -4,10 +4,15 @@
    version="1.0">
    
 <persistence-unit name="jpademo">
-	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!-- 
+    *** N.B. Both Hibernate and EclipseLink are here; one must be
+    *** commented out, and the one that isn't, must be moved ahead of 
+    *** the other in pom.xml as well, and "Maven->Update Project" run! 
+    -->
 	<!--
-	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 	-->
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
@@ -32,8 +37,9 @@
 	<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 	
 	<!-- This causes the Hibernate-style import.sql to be run after creation. -->
-	<property name="javax.persistence.sql-load-script-source" value="botch:///import.sql"/>
-	<property name="NOTeclipselink.session.customizer" value="eclipselink.ImportSQL"/>
+	<property name="javax.persistence.sql-load-script-source" 
+	    value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
+	<property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
 	<property name="import.sql.file" value="/import.sql"/>
 	<property name="import.sql.trace" value="true"/>
 
