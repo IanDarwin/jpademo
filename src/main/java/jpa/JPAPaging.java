@@ -4,17 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import domain.Address;
-import domain.HierBottom;
 import domain.Person;
-import domain.sales.Customer;
 
 /** Shows use of Query properties to break a list into pages,
- * as you would on a web view of a long list
+ * as you would on a web view of a long list. This is sometimes
+ * called the Value List Handler pattern or the Fast Track pattern.
  * @author Ian Darwin
  */
 public class JPAPaging {
@@ -50,7 +46,6 @@ public class JPAPaging {
 			}
 			++pageNumber;
 		} while (list.size() > 0);
-
 
 		if (entityManager != null)
 			entityManager.close();
