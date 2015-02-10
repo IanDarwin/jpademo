@@ -5,8 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-/** A dummy Entity just to show hanging NamedQueries
- * on an Entity class.
+/** A dummy Entity just to show adding NamedQueries
+ * to an Entity class.
  */
 @NamedQueries({
 	@NamedQuery(name="findActorByName",
