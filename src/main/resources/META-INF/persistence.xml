@@ -30,18 +30,23 @@
 	<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 	<property name="eclipselink.ddl-generation.output-mode" value="database"/>
 	
-	<!-- These cause the generated DDL statements to be saved for examination -->
+	<!-- These cause EclipseLink to save the generated DDL statements for examination -->
+	<!--
 	<property name="eclipselink.application-location" value="/tmp"/>
 	<property name="eclipselink.create-ddl-jdbc-file-name" value="create_statements.sql"/>
 	<property name="eclipselink.drop-ddl-jdbc-file-name" value="drop_statements.sql"/>
 	<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+	-->
 	
-	<!-- This causes the Hibernate-style import.sql to be run after creation. -->
+	<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->
 	<property name="javax.persistence.sql-load-script-source" 
 	    value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
+	<!-- These are for use with the kludgy import mechanism for older EclipseLink -->
+	<!--
 	<property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
 	<property name="import.sql.file" value="/import.sql"/>
 	<property name="import.sql.trace" value="true"/>
+	-->
 
 	<!-- Properties for Hibernate -->
 	<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
