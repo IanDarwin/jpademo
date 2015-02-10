@@ -16,7 +16,7 @@ import domain.model.Actor;
 public class JpaUpdate {
 
 	public static void main(String[] args) {
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		renameActorsByLastName(entityManager, "Ford", "Smith");
 		int actorHarrison = -103; // just happen to know (import.sql)

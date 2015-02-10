@@ -14,10 +14,10 @@ public class JpaFindFail {
 
 		System.out.println("JPAFindFail.main()");
 
-		EntityManagerFactory entityManagerFactory = JPAUtil.getEntityManagerFactory();
+		EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = null;
 		try {
-			entityManager = JPAUtil.getEntityManager();
+			entityManager = JpaUtil.getEntityManager();
 
 			// Find an entity in the database.
 			

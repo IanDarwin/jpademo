@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
-import jpa.JPAUtil;
+import jpa.JpaUtil;
 
 @Entity
 @Table(name="MultiTableEntity")
@@ -23,7 +23,7 @@ public class MultiTableEntity {
 	private String secoField1, secoField2;
 	
 	public static void main(String[] args) {
-		EntityManager em = JPAUtil.getEntityManager();
+		EntityManager em = JpaUtil.getEntityManager();
 		MultiTableEntity entity = new MultiTableEntity();
 		entity.mainField1 = "one";
 		entity.mainfield2 = "two";

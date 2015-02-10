@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 
-import jpa.JPAUtil;
+import jpa.JpaUtil;
 
 import org.hibernate.Session;
 
@@ -16,7 +16,7 @@ import domain.misc.FishPK;
 
 public class JpaJdbc {
 	public static void main(String[] args) throws SQLException {
-		EntityManager em = JPAUtil.getEntityManager();
+		EntityManager em = JpaUtil.getEntityManager();
 		Fish goldie = new Fish();
 		goldie.setFishName("Goldie");
 		FishPK pk = new FishPK(100, 100);
@@ -26,7 +26,7 @@ public class JpaJdbc {
 		em.getTransaction().commit();
 		em.close();
 		
-		em = JPAUtil.getEntityManager();
+		em = JpaUtil.getEntityManager();
 		System.out.println("Using EM: " + em.getClass().getName());
 		Connection conn = em.unwrap(Session.class).connection();
 		PreparedStatement st = conn.prepareStatement("select * from fish");

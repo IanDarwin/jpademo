@@ -22,8 +22,8 @@ public class JpaRollback {
 		// These two steps would be done for you
 		// were you running in an EE App Server.
 		// Or just the EntityManager injected if you were using JavaEE or Spring
-		EntityManagerFactory entityMgrFactory = JPAUtil.getEntityManagerFactory();
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		try {
 			EntityTransaction transaction = entityManager.getTransaction();

@@ -19,8 +19,8 @@ public class JpaArray {
 
 		System.out.println("JpaArray.main()");
 
-		EntityManagerFactory entityMgrFactory = JPAUtil.getEntityManagerFactory();
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		try {
 			EntityTransaction transaction = entityManager.getTransaction();

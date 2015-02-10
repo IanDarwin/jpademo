@@ -10,7 +10,7 @@ import domain.model.MusicRecording;
 /**
  * A main Driver for one JPA Demo
  */
-public class RainListerJPA {
+public class RainListerJpa {
 
 	public static void main(String[] args) {
 

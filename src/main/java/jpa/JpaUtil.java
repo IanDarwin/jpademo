@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
  * Common creational routines, similar to the ever-popular HibernateUtils class.
  * @author Ian Darwin
  */
-public class JPAUtil {
+public class JpaUtil {
 	
 	protected static EntityManagerFactory entityMgrFactory = null;
 	protected static EntityManager entityManager = null;

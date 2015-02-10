@@ -8,7 +8,7 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import jpa.JPAUtil;
+import jpa.JpaUtil;
 import domain.Person;
 
 public class CriteriaQueryExample {
@@ -25,7 +25,7 @@ public class CriteriaQueryExample {
 		//String homePhone = null;
 		// and we want to use each of these fields, where non-null, in the query.
 		
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		CriteriaBuilder qb = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Person> cq = qb.createQuery(Person.class);

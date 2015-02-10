@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import jpa.JPAUtil;
+import jpa.JpaUtil;
 import domain.misc.Fish;
 import domain.misc.FishPK;
 
@@ -21,7 +21,7 @@ public class CompositePKDemo {
 		FishPK pk = new FishPK(100, 100);
 		goldie.setId(pk);
 		
-		EntityManager em = JPAUtil.getEntityManager();
+		EntityManager em = JpaUtil.getEntityManager();
 		System.out.println("Using EM: " + em.getClass().getName());
 		
 		final EntityTransaction transaction = em.getTransaction();

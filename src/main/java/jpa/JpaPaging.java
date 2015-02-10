@@ -13,17 +13,17 @@ import domain.Person;
  * called the Value List Handler pattern or the Fast Track pattern.
  * @author Ian Darwin
  */
-public class JPAPaging {
+public class JpaPaging {
 	
 	public static void main(String[] args) {
 
-		System.out.println("JPAPaging.main()");
+		System.out.println("JpaPaging.main()");
 
 		// These two steps would be done for you
 		// were you running in an EE App Server.
 		// Or just the EntityManager injected if you were using JavaEE or Spring
-		EntityManagerFactory entityMgrFactory = JPAUtil.getEntityManagerFactory();
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 
 		int people = entityManager.createQuery("select count(p) from Person p").getFirstResult();
 		System.out.printf("There are %d people%n", people);
