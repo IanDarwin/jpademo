@@ -3,7 +3,7 @@ package test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import jpa.JPAUtil;
+import jpa.JpaUtil;
 
 import org.junit.Test;
 
@@ -15,8 +15,8 @@ public class JpaSetupTest {
 
 		System.out.println("SetupTest.setupTest");
 
-		EntityManagerFactory entityMgrFactory = JPAUtil.getEntityManagerFactory();
-		EntityManager entityManager = JPAUtil.getEntityManager();
+		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		entityManager.close();
 		entityMgrFactory.close();
