@@ -39,4 +39,29 @@ public class FishPK implements Serializable {
 		this.individualId = individualId;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + individualId;
+		result = prime * result + speciesId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FishPK other = (FishPK) obj;
+		if (individualId != other.individualId)
+			return false;
+		if (speciesId != other.speciesId)
+			return false;
+		return true;
+	}
+
 }
