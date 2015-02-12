@@ -32,10 +32,9 @@
 			<version>7.0</version>
 		</dependency>
 
-		<!-- Here we put two different JPA providers on the ClassPath.
-		 *** This works but a different implementation of Persistence may
-		 *** get invoked depending on the ordering...
-		 -->
+		<!-- Here we put two different JPA providers on the ClassPath. *** This 
+			works but a different implementation of Persistence may *** get invoked depending 
+			on the ordering... -->
 
 		<!-- EclipseLink and its JPA Provider -->
 		<dependency>
@@ -48,16 +47,16 @@
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
 			<version>${eclipselink.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate and its JPA Provider -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
-				<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<version>1.0.1.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-entitymanager</artifactId>
+			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
@@ -72,7 +71,11 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.3.2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.33</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -85,7 +88,8 @@
 	<build>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
-			<!-- Compiler plugin enforces Java compatibility and activates annotation processors -->
+			<!-- Compiler plugin enforces Java compatibility and activates annotation 
+				processors -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.1</version>

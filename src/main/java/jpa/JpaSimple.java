@@ -11,6 +11,7 @@ import domain.Address;
 import domain.HierBottom;
 import domain.Person;
 import domain.sales.Customer;
+import domain.sales.SalesPerson;
 
 public class JpaSimple {
 	@SuppressWarnings("unchecked")
@@ -40,23 +41,31 @@ public class JpaSimple {
 			transaction = entityManager.getTransaction();
 			transaction.begin();
 
-			Customer person = new Customer("Happy", "User");
-			person.getHomeAddress().setStreetAddress("123 Main St");
-			Address home = person.getHomeAddress();
+			Customer cust = new Customer("Happy", "User");
+			cust.getHomeAddress().setStreetAddress("123 Main St");
+			Address home = cust.getHomeAddress();
 			if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
 				entityManager.persist(home);
 			} else {
-				person.setHomeAddress(null);
+				cust.setHomeAddress(null);
 			}
-			Address work = person.getWorkAddress();
+			Address work = cust.getWorkAddress();
 			if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
 				entityManager.persist(work);
 			} else {
-				person.setWorkAddress(null);
+				cust.setWorkAddress(null);
 			}
-			entityManager.persist(person);
+			entityManager.persist(cust);
 			transaction.commit();
-			System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
+			System.out.println("Created Customer " + cust + ", HomeAddress = " + cust.getHomeAddress());
+			
+			SalesPerson sp = new SalesPerson("Active", "Seller");
+			transaction = entityManager.getTransaction();
+			transaction.begin();
+			sp.addCustomer(cust);
+			entityManager.persist(sp);
+			transaction.commit();
+			System.out.println("Created Salesperson " + sp + "who is the rep for " + cust.getFirstName()+" "+cust.getLastName());
 			
 			Query query = entityManager.createQuery("select p from Person p order by p.lastName");
 

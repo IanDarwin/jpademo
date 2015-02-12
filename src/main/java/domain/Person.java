@@ -14,7 +14,8 @@ import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+//@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Person {
 
 	int id;

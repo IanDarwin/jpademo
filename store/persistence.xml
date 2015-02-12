@@ -9,11 +9,11 @@
     *** commented out, and the one that isn't, must be moved ahead of 
     *** the other in pom.xml as well, and "Maven->Update Project" run! 
     -->
-	
+	<!--
 	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-<!-- 	
+	-->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
- -->
+
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 	<properties>
@@ -33,15 +33,14 @@
 	<property name="eclipselink.ddl-generation.output-mode" value="database"/>
 	 -->
 
- 		
+<!-- 	<class>rain.Duration</class>  -->
+		<property name="eclipselink.logging.level" value="INFO" />
 		<property name="eclipselink.target-database" value="MySQL"/>
 		<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
 		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpademo.db"/>
 		<property name="javax.persistence.jdbc.user" value="student" />
 		<property name="javax.persistence.jdbc.password" value="student" />
-		<property name="eclipselink.logging.level.sql" value="FINE"/>
- 		<property name="eclipselink.logging.parameters" value="true"/>
 	
 	<!-- These cause EclipseLink to save the generated DDL statements for examination -->
 	<!--

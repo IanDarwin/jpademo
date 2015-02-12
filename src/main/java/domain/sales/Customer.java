@@ -43,6 +43,9 @@ public class Customer extends Person {
 
 	public void setSalesRep(SalesPerson rep) {
 		this.salesRep = rep;
+		if(rep!=null && !rep.getCustomers().contains(this)) {
+			rep.addCustomer(this);
+		}
 	}
 
 	@OneToOne
