@@ -13,3 +13,27 @@ to change.
 
 Currently works with Eclipse (M2E plugin required!) and builds with Maven; 
 there are no 'run' type goals configured in Maven.
+
+Can run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
+of DB parameters is not commented out in persistence.xml.
+
+=== Database Setup
+
+H2 runs in-memory, in-VM, so no setup is needed.
+
+For PostgreSQL, you can use the handy _psql_ command-line client.
+Once you have your authorization set up as per the Postgres documentation,
+it's as simple as
+
+[source]
+----
+ian=# create user student login password 'student';
+CREATE ROLE
+ian=# create database TicketManorJava owner student;
+CREATE DATABASE
+ian=# 
+----
+
+For MySQL, we offer a guided click-through; see the *.doc
+file which has many screenshots with instructions and has not yet been
+converted to AsciiDoc format.
