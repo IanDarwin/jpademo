@@ -18,64 +18,70 @@
 
 	<properties>
 
+		<!-- Properties for HSQL(H2) database (runs in-VM, no database files needed) -->
+		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+		<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:ticketmanor;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"/>
+		<property name="javax.persistence.jdbc.user" value="sa"/>
+		<property name="javax.persistence.jdbc.password" value="sa"/>
+		<property name="eclipselink.target-database"
+			value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 
-	<!-- Properties for eclipselink -->
-	<!-- 
-	<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
-	<property name="eclipselink.jdbc.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
-	<property name="eclipselink.jdbc.user" value="sa"/>
-	<property name="eclipselink.jdbc.password" value=""/>
-	<property name="eclipselink.target-database"
-	      value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
-	<property name="eclipselink.logging.level" value="OFF"/>
-	<property name="eclipselink.orm.throw.exceptions" value="true"/>
-	<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-	<property name="eclipselink.ddl-generation.output-mode" value="database"/>
-	 -->
-
- 		
-		<property name="eclipselink.target-database" value="MySQL"/>
-		<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+		<!-- Properties for MySQL (database must be created) -->
+		<!--
 		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpademo.db"/>
 		<property name="javax.persistence.jdbc.user" value="student" />
 		<property name="javax.persistence.jdbc.password" value="student" />
+		<property name="eclipselink.target-database" value="MySQL"/>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+		-->
+
+		<!-- Properties for PostgreSQL (database must be created) -->
+		<!--
+		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
+		<property name="javax.persistence.jdbc.user" value="student"/>
+		<property name="javax.persistence.jdbc.password" value="student"/>
+		<property name="eclipselink.target-database" value="PostgressQL"/>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+		-->
+
+		<!-- Properties for eclipselink provider -->
+		<property name="eclipselink.logging.level" value="OFF"/>
+		<property name="eclipselink.orm.throw.exceptions" value="true"/>
+		<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+		<property name="eclipselink.ddl-generation.output-mode" value="database"/>
 		<property name="eclipselink.logging.level.sql" value="FINE"/>
  		<property name="eclipselink.logging.parameters" value="true"/>
 	
-	<!-- These cause EclipseLink to save the generated DDL statements for examination -->
-	<!--
-	<property name="eclipselink.application-location" value="/tmp"/>
-	<property name="eclipselink.create-ddl-jdbc-file-name" value="create_statements.sql"/>
-	<property name="eclipselink.drop-ddl-jdbc-file-name" value="drop_statements.sql"/>
-	<property name="eclipselink.ddl-generation.output-mode" value="both"/>
-	-->
-	
-	<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->
-<!-- 	
-	<property name="javax.persistence.sql-load-script-source" 
-	    value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
- -->	    
-	<!-- These are for use with the kludgy import mechanism for older EclipseLink -->
-	<!--
-	<property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
-	<property name="import.sql.file" value="/import.sql"/>
-	<property name="import.sql.trace" value="true"/>
-	-->
+		<!-- These cause EclipseLink to save the generated DDL statements for examination -->
+		<!--
+		<property name="eclipselink.application-location" value="/tmp"/>
+		<property name="eclipselink.create-ddl-jdbc-file-name" value="create_statements.sql"/>
+		<property name="eclipselink.drop-ddl-jdbc-file-name" value="drop_statements.sql"/>
+		<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+		-->
+		
+		<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->
+		<!-- 	
+		<property name="javax.persistence.sql-load-script-source" 
+			value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
+		 -->	    
+		<!-- These are for use with the kludgy import mechanism for older EclipseLink -->
+		<!--
+		<property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
+		<property name="import.sql.file" value="/import.sql"/>
+		<property name="import.sql.trace" value="true"/>
+		-->
 
-	<!-- Properties for Hibernate -->
-<!-- 	
-	<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-	<property name="hibernate.show_sql" value="true"/>
-	<property name="hibernate.format_sql" value="false"/>
-	<property name="hibernate.archive.autodetection" value="class"/>
-	<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
-	<property name="hibernate.connection.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
-	<property name="hibernate.connection.username" value="sa"/>
-	<property name="hibernate.connection.password" value=""/>
-	<property name="hibernate.transaction.factory.class" value="org.hibernate.transaction.JTATransactionFactory"/>
-	<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
- -->
+		<!-- Properties for Hibernate provider -->
+		<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+		<property name="hibernate.show_sql" value="true"/>
+		<property name="hibernate.format_sql" value="false"/>
+		<property name="hibernate.archive.autodetection" value="class"/>
+		<property name="hibernate.transaction.factory.class" value="org.hibernate.transaction.JTATransactionFactory"/>
+
 	</properties>
 </persistence-unit>
 </persistence>
