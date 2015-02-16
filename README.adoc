@@ -34,6 +34,8 @@ CREATE DATABASE
 ian=# 
 ----
 
-For MySQL, we offer a guided click-through; see the *.doc
+For MySQL, there is a command line clien but it is very well hidden
+(e.g., on Mac OS, it installs in /usr/local/mysql-5.6.21-osx10.8-x86_64/bin/mysql).
+Instead, we offer a guided click-through; see the *.doc
 file which has many screenshots with instructions and has not yet been
 converted to AsciiDoc format.
