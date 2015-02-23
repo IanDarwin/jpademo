@@ -65,7 +65,7 @@ public class JpaSimple {
 			sp.addCustomer(cust);
 			entityManager.persist(sp);
 			transaction.commit();
-			System.out.println("Created Salesperson " + sp + "who is the rep for " + cust.getFirstName()+" "+cust.getLastName());
+			System.out.println("Created Salesperson " + sp + " who is the rep for " + cust.getFirstName()+" "+cust.getLastName());
 			
 			Query query = entityManager.createQuery("select p from Person p order by p.lastName");
 
