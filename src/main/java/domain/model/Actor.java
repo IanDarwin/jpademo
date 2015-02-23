@@ -3,12 +3,14 @@ package domain.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
 import domain.Person;
 
 @Entity
+@DiscriminatorValue(value="A")
 public class Actor extends Person {
 	
 	Set<VideoRecording> videos = new HashSet<VideoRecording>();

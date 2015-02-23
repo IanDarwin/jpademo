@@ -2,6 +2,9 @@ package domain;
 
 import java.util.Map;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +17,11 @@ import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @Entity
-//@Inheritance(strategy=InheritanceType.JOINED)
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="PType",
+	discriminatorType=DiscriminatorType.CHAR)
+@DiscriminatorValue(value="P")
 public class Person {
 
 	int id;
@@ -23,6 +29,10 @@ public class Person {
 	protected String lastName;
 	int version;
 	Map<PrefType,Preference> prefs;
+	// Used by JPA with SINGLE_TABLE mode; not really
+	// part of the data model; just exposed here so that
+	// import.sql will work for any inheritance strategy.
+	char pType = 'P';
 	
 	public Person() {
 		// empty
@@ -56,11 +66,6 @@ public class Person {
 		return lastName;
 	}
 	
-	@Override
-	public String toString() {
-		return getName();
-	}
-	
 	@Transient /* synthetic: cannot be used in JPA queries, alas. */
 	public String getName() {
 		StringBuilder sb = new StringBuilder();
@@ -81,6 +86,14 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public char getPType() {
+		return pType;
+	}
+
+	public void setPType(char pType) {
+		this.pType = pType;
 	}
 
 	@Override
@@ -121,7 +134,13 @@ public class Person {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
 
+	// XXX This should probably be in Customer
 	@OneToMany(mappedBy="person")
 	@MapKey(name="prefType")
 	public Map<PrefType, Preference> getPrefs() {

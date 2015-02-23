@@ -1,19 +1,19 @@
 -- drop sequence my_poid_sequence;
 
 -- Data for simple person use
-insert into Person(id, version, firstname, lastname) values(-101, 1, 'Christopher', 'Robin');
-insert into Person(id, version, firstname, lastname) values(-102, 1, 'Ian', 'Darwin');
+insert into Person(id, version, firstname, lastname, ptype) values(-101, 1, 'Christopher', 'Robin', 'P');
+insert into Person(id, version, firstname, lastname, ptype) values(-102, 1, 'Ian', 'Darwin', 'P');
 
 -- Data for Actors
-insert into Person(id, version, firstName, lastName) values(-103, 1, 'Harrison', 'Ford')
+insert into Person(id, version, firstName, lastName, ptype) values(-103, 1, 'Harrison', 'Ford', 'A')
 insert into Actor(id) values (-103)
-insert into Person(id, version, firstName, lastName) values(-104, 1, 'Mark', 'Hamill')
+insert into Person(id, version, firstName, lastName, ptype) values(-104, 1, 'Mark', 'Hamill', 'A')
 insert into Actor(id) values (-104)
-insert into Person(id, version, firstName, lastName) values(-105, 1, 'Carrie', 'Fisher')
+insert into Person(id, version, firstName, lastName, ptype) values(-105, 1, 'Carrie', 'Fisher', 'A')
 insert into Actor(id) values (-105)
-insert into Person(id, version, firstName, lastName) values(-106, 1, 'Clark', 'Gable')
+insert into Person(id, version, firstName, lastName, ptype) values(-106, 1, 'Clark', 'Gable', 'A')
 insert into Actor(id) values (-106)
-insert into Person(id, version, firstName, lastName) values(-107, 1, 'Vivien', 'Leigh')
+insert into Person(id, version, firstName, lastName, ptype) values(-107, 1, 'Vivien', 'Leigh', 'A')
 insert into Actor(id) values (-107)
 
 -- Data for Videos
