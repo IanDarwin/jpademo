@@ -15,15 +15,14 @@ import domain.model.VideoRecording;
  */
 public class DtoDemo {
 	static String query =
-			// Note that the DTO created with NEW here is not a JPA Entity!
-			"SELECT NEW jpa.features.VideoDto(v.title, v.price) from VideoRecording v";
+		// Note that the DTO created with NEW here is not a JPA Entity!
+		// And must be fully qualified since JPA has no "import"
+		"SELECT NEW jpa.features.VideoDto(v.title, v.price) from VideoRecording v";
 	String name;
 	int amount;
-	private long id;
-	static EntityManager em;
 	
 	public static void main(String[] args) {
-		em = JpaUtil.getEntityManager();
+		EntityManager em = JpaUtil.getEntityManager();
 		
 		Query q = em.createQuery(query);
 		EntityTransaction tx = em.getTransaction();
@@ -35,7 +34,8 @@ public class DtoDemo {
 		final List<VideoDto> resultList = q.getResultList();
 		System.out.println("Video Prices:");
 		for (VideoDto data : resultList) {
-			System.out.printf("Name %s, Price %f%n", data.title, data.price);
+			System.out.printf("Name %s, Price $%-5.2f%n", data.title, data.price);
 		}
+		tx.commit();
 	}
 }
