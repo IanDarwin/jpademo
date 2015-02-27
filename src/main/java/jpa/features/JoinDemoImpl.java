@@ -2,37 +2,56 @@ package jpa.features;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import jpa.JpaUtil;
 
 /** 
  * An example of a Join and also an example of a DTO creation
  * @author Ian Darwin
  */
-@NamedQuery(name="joindemo",
-	// Note that the DTO created with NEW here is not a JPA Entity!
-	query="SELECT NEW JoinDemoImpl(p.name, SUM(s.amount))" + 
-          "FROM Salesperson p LEFT JOIN p.sales s GROUP BY p.name")
 public class JoinDemoImpl {
+	static String query =
+			// Note that the DTO created with NEW here is not a JPA Entity!
+			"SELECT NEW JoinDemoImpl(p.lastName, SUM(s.amount))" + 
+			"FROM SalesPerson p LEFT JOIN p.sales s GROUP BY p.lastName";
 	String name;
 	int amount;
-	@PersistenceContext EntityManager em;
+	private long id;
+	static EntityManager em;
 	
+	public static void main(String[] args) {
+		em = JpaUtil.getEntityManager();
+		sendReport();
+	}
 	@SuppressWarnings("unchecked")
-	public void sendReport() {
-		Query q = em.createNamedQuery("joindemo");
+	public static void sendReport() {
+		Query q = em.createQuery(query);
 		final List<JoinDemoImpl> resultList = q.getResultList();
 		for (JoinDemoImpl data : resultList) {
 			System.out.printf("Name %s, Amount %s%n", data.name, data.amount);
 		}
 	}
 	
+	// The rest of this is the DTO portion,
+	// could be its own class (but must be a public
+	// class for JPA to treat it as a DTO).
 	public JoinDemoImpl(String name, int amount) {
 		super();
 		this.name = name;
 		this.amount = amount;
+	}
+	
+	@Id public long getId() {
+		return this.id;
+	}
+	private void setId(long id) {
+		this.id = id;
 	}
 	
 	public int getAmount() {

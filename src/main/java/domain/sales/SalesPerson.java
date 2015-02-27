@@ -47,4 +47,12 @@ public class SalesPerson extends Person {
 			customer.setSalesRep(this);
 		}
 	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 }
