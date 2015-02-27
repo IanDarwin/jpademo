@@ -19,7 +19,7 @@ public class HibernateSimple {
 
 		System.out.println("HibernateSimple.main()");
 
-		Configuration cf = new AnnotationConfiguration();
+		Configuration cf = new Configuration();
 		cf.configure();
 		SessionFactory sf = cf.buildSessionFactory();
 		Session session = sf.openSession();
