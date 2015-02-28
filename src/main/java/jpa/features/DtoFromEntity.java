@@ -18,8 +18,6 @@ import domain.model.VideoRecording;
  */
 public class DtoFromEntity {
 	static String query =
-		// Note that the DTO created with NEW here is not a JPA Entity!
-		// And must be fully qualified since JPA has no "import"
 		"select id, ptype, firstname, lastname from Person";
 	String name;
 	int amount;
