@@ -62,10 +62,6 @@ public class Person {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-
-	public String getLastName() {
-		return lastName;
-	}
 	
 	@Transient /* synthetic: cannot be used in JPA queries, alas. */
 	public String getName() {
@@ -80,11 +76,15 @@ public class Person {
 	public String getFirstName() {
 		return firstName;
 	}
-
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
+	public String getLastName() {
+		return lastName;
+	}
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
