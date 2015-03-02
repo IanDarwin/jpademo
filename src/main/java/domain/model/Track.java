@@ -2,13 +2,14 @@ package domain.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Embedded;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -100,7 +101,8 @@ public class Track implements Serializable {
 	/**
 	 *  Returns the duration of the track
 	 */
-	@Embedded
+	//@Embedded
+	@OneToOne(cascade=CascadeType.ALL)
 	public Duration getDuration() {
 		return duration;
 	}

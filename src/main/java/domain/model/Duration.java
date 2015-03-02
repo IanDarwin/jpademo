@@ -1,7 +1,10 @@
 package domain.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 
 
@@ -26,11 +29,19 @@ import javax.persistence.Transient;
  *  @author 570 Development Team
  */
 
-@Embeddable
+//@Embeddable
+@Entity
 public class Duration implements java.io.Serializable {
 
 	private static final long serialVersionUID = -6020955281760590352L;
 
+	/**
+	 * The ID property (if not using Embeddable);
+	 * name chosen to avoid duplicate fieldnames when
+	 * changing strategies!
+	 */
+	private long durationId;
+	
 	/**
 	 *  The number of hours
 	 */
@@ -69,6 +80,15 @@ public class Duration implements java.io.Serializable {
 		setTotalSeconds(totalSeconds);
 	}
 	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	public long getDurationId() {
+		return durationId;
+	}
+
+	public void setDurationId(long durationId) {
+		this.durationId = durationId;
+	}
+
 	/**
 	 *  Returns the hours portion of the duration
 	 */	
