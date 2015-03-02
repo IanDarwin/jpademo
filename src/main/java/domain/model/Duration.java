@@ -126,9 +126,7 @@ public class Duration implements java.io.Serializable {
 	}
 	
 	/**
-	 * This is needed because the Duration is stored
-	 * as an Embedded field inside the Track, 
-	 * containing the total seconds
+	 * Set the total seconds; we'll convert to H:M:S for you.
 	 * @param seconds
 	 */
 	public void setTotalSeconds(int totalSeconds) {
