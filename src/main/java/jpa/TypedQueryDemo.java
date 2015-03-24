@@ -16,8 +16,8 @@ public class TypedQueryDemo {
 		System.out.println("TypedQueryDemo.main()");
 
 		// These two steps would be done for you
-		// were you running in an EE App Server.
-		// Or just the EntityManager injected if you were using JavaEE or Spring
+		// were you running in an EE App Server; you'd
+		// just have the EntityManager injected if using JavaEE or Spring.
 		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = JpaUtil.getEntityManager();
 
