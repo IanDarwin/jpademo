@@ -13,7 +13,7 @@ public class TypedQueryDemo {
 	
 	public static void main(String[] args) {
 
-		System.out.println("JpaPaging.main()");
+		System.out.println("TypedQueryDemo.main()");
 
 		// These two steps would be done for you
 		// were you running in an EE App Server.
