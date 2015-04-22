@@ -138,7 +138,7 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return getName();
+		return getName() + "#" + getId();
 	}
 
 	// XXX This should probably be in Customer
