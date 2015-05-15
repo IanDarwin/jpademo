@@ -24,10 +24,6 @@
 				<property name="hibernate.connection.isolation">2</property>
 				<property name="hibernate.jdbc.batch_size">0</property>
 
-				<!-- Make hibernate manage session contexts -->
-				<property name="hibernate.current_session_context_class">
-					org.hibernate.context.ThreadLocalSessionContext</property>
-
 				<property name="hibernate.hbm2ddl.auto">
 					create-drop
 				</property>
