@@ -6,7 +6,7 @@
 <hibernate-configuration>
 		<session-factory>
 				<!-- Using Hypersonic HSQL -->
-				<property name="connection.url">jdbc:hsqldb:tmp/hibdemo.db</property>
+				<property name="connection.url">jdbc:hsqldb:mem:hibdemo.db</property>
 				<property name="connection.username">sa</property>
 				<property name="connection.password"></property>
 				<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
@@ -43,6 +43,7 @@
 				<mapping class="domain.model.Recording"/>
 				<mapping class="domain.model.MusicRecording"/>
 				<mapping class="domain.model.Track"/>
+				<mapping class="domain.model.Duration"/>
 				<mapping class="domain.model.VideoRecording"/>
 				<mapping class="domain.model.Actor"/>
 				

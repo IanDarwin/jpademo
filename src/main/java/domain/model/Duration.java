@@ -81,11 +81,11 @@ public class Duration implements java.io.Serializable {
 	}
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	public long getDurationId() {
+	public long getId() {
 		return durationId;
 	}
 
-	public void setDurationId(long durationId) {
+	public void setId(long durationId) {
 		this.durationId = durationId;
 	}
 
@@ -120,7 +120,6 @@ public class Duration implements java.io.Serializable {
 	/**
 	 *  Returns the total seconds
 	 */
-	@Column(name="duration")
 	public int getTotalSeconds() {
 		return seconds + (60 * (minutes + (60 * hours)));
 	}

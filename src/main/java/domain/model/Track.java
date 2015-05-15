@@ -103,6 +103,7 @@ public class Track implements Serializable {
 	 */
 	//@Embedded
 	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="duration_id")
 	public Duration getDuration() {
 		return duration;
 	}
