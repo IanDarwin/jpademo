@@ -23,8 +23,9 @@ public class JpaSimple {
 		// were you running in an EE App Server.
 		// Or just the EntityManager injected if you were using JavaEE or Spring
 		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		System.out.println("EntityManagerFactory is " + entityMgrFactory.getClass().getName());
 		EntityManager entityManager = JpaUtil.getEntityManager();
-		
+
 		try {
 			EntityTransaction transaction = entityManager.getTransaction();
 			transaction.begin();
