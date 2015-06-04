@@ -1,7 +1,7 @@
 == jpademo
 
-This project contains the RainForest domain model implemented using
-annotations, and has both Hibernate and JPA versions of many of the demo
+This project contains the MusicRecording/VideoRecording portion of the domain model,
+and has both Hibernate and JPA versions of many of the demo
 programs, including the famous (working) ManyToManyDemo.
 
 The domain model is annotated using JPA annotations, and is used by *both
@@ -26,19 +26,22 @@ H2 runs in-memory, in-VM, so no setup is needed.
 
 For PostgreSQL, you can use the handy _psql_ command-line client.
 Once you have your authorization set up as per the Postgres documentation,
-it's as simple as
+it can be as simple as
 
 [source]
 ----
 ian=# create user student login password 'student';
 CREATE ROLE
-ian=# create database TicketManorJava owner student;
+ian=# create database jpademo owner student;
 CREATE DATABASE
 ian=# 
 ----
 
-For MySQL, there is a command line clien but it is very well hidden
+This is explored a bit more fully in the file PostgreSQL.adoc / PostgreSQL.html.
+
+For MySQL, there is a command line client but it is very well hidden
 (e.g., on Mac OS, it installs in /usr/local/mysql-5.6.21-osx10.8-x86_64/bin/mysql).
-Instead, we offer a guided click-through; see the *.doc
-file which has many screenshots with instructions and has not yet been
-converted to AsciiDoc format.
+Instead, we offer a guided click-through; see the MySQL.adoc / MySQL.html
+file which has many screenshots with instructions.
+
+DO NOT USE student/student as credentials on any machine that is accessible from the Internet!!

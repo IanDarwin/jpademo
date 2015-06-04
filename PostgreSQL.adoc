@@ -1,0 +1,66 @@
+
+== How to Configure _jpademo_ for the PostgreSQL Database
+ 
+by Ian Darwin, June, 2015
+
+These are the steps to add PostgreSQL support into the _jpademo_ project.
+ 
+Start the psql command-line tool.
+
+Log in with a PostgreSQL user that has administrative privileges.
+The name will depend on how you set up PostgreSQL.
+
+Issue the two _create_ commands shown here:
+
+----
+ian=# create role student with password 'student' login;
+CREATE ROLE
+ian=# create database jpademo owner student;
+CREATE DATABASE
+ian=#
+----
+
+Obviously you should not use student/student in a production environment, nor any that is directly
+accessible to the internet. These values are for illustration only; just be sure you remember
+the password you use.
+ 
+In the _dependencies_ section of the _pom.xml_ file, add this entry for the PostgreSQL driver, 
+if not already present:
+ 
+----
+<dependency>
+	<groupId>org.postgresql</groupId>
+	<artifactId>postgresql</artifactId>
+	<version>9.4-1200-jdbc41</version>
+</dependency>
+----
+ 
+In the file _META-INF/persistence.xml_ make sure you have this in the persistence unit
+(you should only need to un-comment the relevant parts):
+ 
+----
+<persistence-unit name="jpademo">
+     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+     <properties>
+          <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+          <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
+          <property name="javax.persistence.jdbc.user" value="student"/>
+          <property name="javax.persistence.jdbc.password" value="student"/>
+          <property name="eclipselink.target-database" value="PostgressQL"/>
+          <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+          <property name="hibernate.hbm2ddl.auto" value="update"/>
+          <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+     </properties>
+</persistence-unit>
+----
+
+Obviously if you used a differnet username and/or a stronger password you will need to substitute them here.
+
+You should now be able to run the _jpademo_ sample programs and examine the database afterwards.
+Give the command _psql -d jpademo_ and use these subcommands:
+
+. \d Lists the tables
+. \d _tableName_ Describes the given table
+. select * from _tableName_; Lists the values in the given table
+. \? gives help

@@ -1,0 +1,102 @@
+== How to Configure _jpademo_ for the MySQL Database
+ 
+by: Chris Mawata, edited by Ian Darwin, June, 2015
+
+These are the steps to add MySQL support into the _jpademo_ project.
+ 
+Start MySQL Workbench
+
+Single click Local Instance MySQL
+
+Right click in the schema area to make a pop up come up with the choice to _Create Schema_
+
+:image:img/image001.png[]
+ 
+Click on _Create Schema_
+ 
+:image:img/image002.png[]
+ 
+In the next dialog enter _jpademo.db_ for the name of the schema
+ 
+:image:img/image004.png[]
+ 
+Click Apply at the bottom right of this screen.
+
+In the next dialog, _Apply Sql Script to Database_, click _Apply_
+
+The next dialog should say that the SQL script was successfully applied to the database
+
+Click _Finish_ in that dialog
+ 
+To create the account, click on _Users and Privileges_
+
+:image:img/image005.png[]
+ 
+Click on the _Add Account_ button at the bottom of the Users and Privileges dialog
+
+Enter the details for the account:
+
+. Login Name: student
+. Authentication Type: Standard
+. Limit to Hosts Matching %
+. Password: student
+
+Obviously you should not use student/student in a production environment, nor any that is directly
+accessible to the internet. These values are for illustration only; just be sure you remember
+the password you use.
+ 
+:image:img/image007.png[]
+ 
+Click Apply.
+There should now be an account called student in the list of user accounts.
+ 
+With the _student_ account highlighted, click on the Schema Privileges tab
+ 
+:image:img/image009.png[]
+
+Click the Add Entry button
+ 
+In the New Schema Privilege Definition dialog click the Select schema: radio button, highlight jpademo.db, and click OK
+ 
+:image:img/image012.png[]
+
+In the dialog that follows click Select _ALL_ and _Apply_
+ 
+You can now close the MySQL workbench.
+ 
+In the _dependencies_ section of the _pom.xml_ file, add this entry for the MySQL driver, 
+if not already present:
+ 
+----
+<dependency>
+   <groupId>mysql</groupId>
+   <artifactId>mysql-connector-java</artifactId>
+   <version>5.1.33</version>
+</dependency>
+----
+ 
+In the file _META-INF/persistence.xml_ make sure you have this in the persistence unit
+(you should only need to un-comment the relevant parts):
+ 
+----
+<persistence-unit name="jpademo">
+     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+     <properties>
+          <property name="eclipselink.logging.level" value="INFO" />
+          <property name="eclipselink.target-database" value="MySQL"/>
+          <property name="eclipselink.ddl-generation"
+               value="drop-and-create-tables" />
+         <property name="javax.persistence.jdbc.driver"
+               value="com.mysql.jdbc.Driver" />
+          <property name="javax.persistence.jdbc.url"
+               value="jdbc:mysql://localhost:3306/jpademo.db"/>
+          <property name="javax.persistence.jdbc.user" value="student" />
+          <property name="javax.persistence.jdbc.password" value="student" />
+     </properties>
+</persistence-unit>
+----
+
+Obviously if you used a differnet username and/or a stronger password you will need to substitute them here.
+
+You should now be able to run the _jpademo_ programs and examine the results using the MySQL Workbench.
