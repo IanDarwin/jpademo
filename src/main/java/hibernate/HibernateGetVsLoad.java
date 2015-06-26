@@ -46,7 +46,6 @@ public class HibernateGetVsLoad {
 		tx = session.beginTransaction();
 		Person p2 = (Person) session.load(Person.class, id);
 		System.out.println("Classes: " + p1.getClass() + "..." + p2.getClass());
-		System.out.println("Identity equality? " + (p1 == p2));
 		session.close();
 		
 		System.out.println(p1);
