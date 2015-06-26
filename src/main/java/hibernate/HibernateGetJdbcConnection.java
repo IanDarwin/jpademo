@@ -12,13 +12,13 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.jdbc.Work;
 
 public class HibernateGetJdbcConnection {
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
 		System.out.println("HibernateSimple.main()");
 
 		Configuration cf = new Configuration();
 		cf.configure();
+		@SuppressWarnings("deprecation")
 		SessionFactory sf = cf.buildSessionFactory();
 		Session session = sf.openSession();
 
