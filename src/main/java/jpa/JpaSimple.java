@@ -91,8 +91,10 @@ public class JpaSimple {
 			transaction.begin();
 			entityManager.persist(new HierBottom());
 			transaction.commit();
-			
-		
+
+			// The concise way of listing Entities (Java 8)
+			entityManager.createQuery("from Person p").getResultList().forEach(System.out::println);
+
 		} finally {	
 			if (entityManager != null)
 				entityManager.close();

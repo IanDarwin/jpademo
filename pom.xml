@@ -16,6 +16,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<javase.version>1.8</javase.version>
+		<maven.compiler.source>${javase.version}</maven.compiler.source>
+		<maven.compiler.target>${javase.version}</maven.compiler.target>
+		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
+		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
 		<eclipselink.version>2.6.0-M3</eclipselink.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
@@ -96,16 +101,11 @@
 	</dependencies>
 
 	<build>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
-			<!-- Compiler plugin enforces Java compatibility and activates annotation 
-				processors -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
 					<excludes>
 						<!-- Can't find em.unwrap in current JPA -->
 						<exclude>jpa/features/JpaJdbc.java</exclude>
