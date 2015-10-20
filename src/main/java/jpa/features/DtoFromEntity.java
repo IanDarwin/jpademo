@@ -5,11 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 import jpa.JpaUtil;
 import domain.Person;
-import domain.model.VideoRecording;
 
 /** 
  * Try to use a real @Entity as a DTO instead of

@@ -2,11 +2,8 @@ package jpa.features;
 
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import jpa.JpaUtil;
