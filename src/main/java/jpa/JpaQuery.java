@@ -9,6 +9,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
 
+import domain.Person;
+
 /**
  * Interactive query runner; ideal for testing query syntax once
  * you've dealt with setting JPA up for your project.
@@ -42,6 +44,8 @@ public class JpaQuery {
 			System.out.println("Created EntityManagerFactory");
 			entityManager = entityMgrFactory.createEntityManager();
 
+			fake_data(entityManager);
+			
 			// Delegate
 			program.run(entityManager);
 
@@ -56,7 +60,18 @@ public class JpaQuery {
 				entityMgrFactory.close();
 		}
 	}
-		
+	
+	/** Ensure there is at least one Person, even if the import.sql
+	 * fails to get run.
+	 * @param entityManager The JPA Connection wrapper
+	 */
+	private static void fake_data(EntityManager entityManager) {
+		Person p = new Person("Firstname", "Lastname");
+		entityManager.getTransaction().begin();
+		entityManager.persist(p);
+		entityManager.getTransaction().commit();
+	}
+
 	Console console;
 	Mode mode = Mode.CONSOLE;
 
@@ -71,7 +86,6 @@ public class JpaQuery {
 
 		String queryStr;
 		Query query = null;
-
 
 		while(true) {
 
@@ -104,6 +118,5 @@ public class JpaQuery {
 				}
 			}
 		}
-
 	}
 }
