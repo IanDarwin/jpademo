@@ -40,6 +40,8 @@ public class JpaRollback {
 			System.out.println("Rolling back transaction!");
 			transaction.rollback();
 			System.out.println("Tom's last name in memory is now " + tom.getLastName());
+			
+			// See what it is in the database!
 			boolean firstway = true;
 			if (firstway) {
 				tom = entityManager.find(Person.class, npId);
