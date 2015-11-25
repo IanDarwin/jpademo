@@ -41,14 +41,17 @@ public class JpaRollback {
 			transaction.rollback();
 			System.out.println("Tom's last name in memory is now " + tom.getLastName());
 			
-			// See what it is in the database!
-			boolean firstway = true;
-			if (firstway) {
+			boolean mergeBack = false;
+			if (!mergeBack) {
+				// Re-read it from the database
 				tom = entityManager.find(Person.class, npId);
 			} else {
+				// Create a managed copy, in a transaction,
+				// that will get written back.
 				transaction = entityManager.getTransaction();
 				transaction.begin();
-				entityManager.merge(tom);
+				tom = entityManager.merge(tom);
+				transaction.commit();
 			}
 			System.out.println("Tom's last name in database is now " + tom.getLastName());
 		
