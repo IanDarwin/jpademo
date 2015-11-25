@@ -49,7 +49,8 @@
 		-->
 
 		<!-- Properties for eclipselink provider -->
-		<property name="eclipselink.logging.level" value="OFF"/>
+		<!--  Leave logging on, for use in 936. -->
+		<property name="eclipselink.logging.level" value="FINE"/>
 		<property name="eclipselink.orm.throw.exceptions" value="true"/>
 		<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 		<property name="eclipselink.ddl-generation.output-mode" value="database"/>
