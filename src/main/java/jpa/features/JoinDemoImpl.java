@@ -14,6 +14,7 @@ import jpa.JpaUtil;
 public class JoinDemoImpl {
 	static String query =
 		// Note that the DTO created with NEW here is not a JPA Entity!
+		// The Join on p.sales will get a List<Sale> entities.
 		"SELECT NEW SalesReportDTO(p.lastName, SUM(s.amount))" + 
 		"FROM SalesPerson p LEFT JOIN p.sales s GROUP BY p.lastName";
 	
