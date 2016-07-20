@@ -50,11 +50,11 @@ public class Track implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	public Recording getRecordingId() {
+	public Recording getRecording() {
 		return recording;
 	}
 
-	public void setRecordingId(Recording recording) {
+	public void setRecording(Recording recording) {
 		this.recording = recording;
 	}
 

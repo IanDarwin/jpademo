@@ -147,7 +147,7 @@ public class MusicRecording extends Recording {
 		this.category = category;
 	}
 
-	@OneToMany(mappedBy="recordingId", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="recording", cascade=CascadeType.ALL)
 	@OrderColumn(name="index_number")
 	public List<Track> getTracks() {
 		if (tracks == null || tracks.length == 0) {
