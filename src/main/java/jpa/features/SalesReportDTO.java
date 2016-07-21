@@ -7,18 +7,18 @@ package jpa.features;
  */
 public class SalesReportDTO {
 	private String name;
-	private int amount;
+	private long amount;
 	
-	public SalesReportDTO(String name, int amount) {
+	public SalesReportDTO(String name, long amount) {
 		super();
 		this.name = name;
 		this.amount = amount;
 	}
 	
-	public int getAmount() {
+	public long getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(long amount) {
 		this.amount = amount;
 	}
 	
