@@ -12,10 +12,10 @@ import jpa.JpaUtil;
  * @author Ian Darwin
  */
 public class JoinDemoImpl {
-	static String query =
+	final static String QUERY =
 		// Note that the DTO created with NEW here is not a JPA Entity!
 		// The Join on p.sales will get a List<Sale> entities.
-		"SELECT NEW SalesReportDTO(p.lastName, SUM(s.amount))" + 
+		"SELECT NEW SalesReportDTO(p.lastName, SUM(s.amount)) " + 
 		"FROM SalesPerson p LEFT JOIN p.sales s GROUP BY p.lastName";
 	
 	static EntityManager em;
@@ -26,7 +26,7 @@ public class JoinDemoImpl {
 	}
 	@SuppressWarnings("unchecked")
 	public static void sendReport() {
-		Query q = em.createQuery(query);
+		Query q = em.createQuery(QUERY);
 		final List<SalesReportDTO> resultList = q.getResultList();
 		for (SalesReportDTO data : resultList) {
 			System.out.printf("Name %s, Amount %s%n", data.getName(), data.getAmount());
