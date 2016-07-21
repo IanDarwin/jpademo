@@ -32,8 +32,15 @@ public class JoinDemoImpl {
 	public static void doReport() {
 		Query q = em.createQuery(QUERY);
 		final List<SalesReportDTO> resultList = q.getResultList();
+		int n = 0;
 		for (SalesReportDTO data : resultList) {
+			++n;
 			System.out.printf("Name %s, Amount %s%n", data.getName(), data.getAmount());
+		}
+		if (n == 0) {
+			System.out.println("NO SALES RECORDS FOUND");
+		} else {
+			System.out.println(n + " Sales Records Found");
 		}
 	}
 }
