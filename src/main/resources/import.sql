@@ -55,9 +55,9 @@ insert into SalesPerson(id) values (-201)
 
 -- Customers
 insert into Person(id, version, firstName, lastName, ptype) values(-150, 1, 'A', 'Byer', 'S')
-insert into SalesPerson(id, salesrep_id) values (-150, -200)
+insert into Customer(id, salesrep_id) values (-150, -200)
 insert into Person(id, version, firstName, lastName, ptype) values(-151, 1, 'Top', 'Shopper', 'S')
-insert into SalesPerson(id, salesrep_id) values (-151, -201)
+insert into Customer(id, salesrep_id) values (-151, -201)
 
 -- Sales
 
