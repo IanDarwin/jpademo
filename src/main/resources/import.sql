@@ -63,3 +63,4 @@ insert into Customer(id, salesrep_id) values (-151, -201)
 
 insert into sales(customer_id, salesrep_id, salesdate, amount) values(-150, -200, '2012-12-12', 123)
 insert into sales(customer_id, salesrep_id, salesdate, amount) values(-151, -201, '2011-11-11', 334)
+
