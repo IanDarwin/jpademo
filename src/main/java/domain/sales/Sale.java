@@ -7,11 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Sale entity - track one sale.
  */
-@Entity
+@Entity @Table(name="sales")
 public class Sale {
 	private long id;
 	private Customer cust;
