@@ -1,9 +1,6 @@
 package jpa.features;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import jpa.JpaUtil;
 
@@ -29,12 +26,9 @@ public class JoinDemoImpl {
 		System.exit(0);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static void doReport() {
-		Query q = em.createQuery(QUERY);
-		final List<SalesReportDTO> resultList = q.getResultList();
 		int n = 0;
-		for (SalesReportDTO data : resultList) {
+		for (SalesReportDTO data : em.createQuery(QUERY, SalesReportDTO.class).getResultList()) {
 			++n;
 			System.out.printf("Name %s, Amount %s%n", data.getName(), data.getAmount());
 		}
