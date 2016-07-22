@@ -20,7 +20,6 @@ public class SalesPerson extends Person {
 		super(firstName, lastName);
 	}
 
-	private int amount; // JPA "sum" can for now only work on ints
 	private List<Customer> customers;
 	private List<Sale> sales;
 
@@ -61,11 +60,4 @@ public class SalesPerson extends Person {
 		this.sales = sales;
 	}
 
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
 }
