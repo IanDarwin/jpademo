@@ -44,3 +44,22 @@ insert into Tracks (id, title, duration_id, product_id) values(1, 'All Hits Medl
 
 -- Composite Primary Key demo
 -- insert into fish(speciesId, individualId, fishName) values(255, 001, 'Fred')
+
+-- Sales Reports
+
+-- Sales Reps
+insert into Person(id, version, firstName, lastName, ptype) values(-200, 1, 'Bill', 'Gates', 'S')
+insert into SalesPerson(id) values (-200)
+insert into Person(id, version, firstName, lastName, ptype) values(-201, 1, 'Steve', 'Jobs', 'S')
+insert into SalesPerson(id) values (-201)
+
+-- Customers
+insert into Person(id, version, firstName, lastName, ptype) values(-150, 1, 'A', 'Byer', 'S')
+insert into SalesPerson(id, salesrep_id) values (-150, -200)
+insert into Person(id, version, firstName, lastName, ptype) values(-151, 1, 'Top', 'Shopper', 'S')
+insert into SalesPerson(id, salesrep_id) values (-151, -201)
+
+-- Sales
+
+insert into sales(customer_id, salesrep_id, salesdate, amount) values(-150, -200, '2012-12-12', 123)
+insert into sales(customer_id, salesrep_id, salesdate, amount) values(-151, -201, '2011-11-11', 334)
