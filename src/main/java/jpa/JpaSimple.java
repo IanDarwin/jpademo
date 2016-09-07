@@ -81,7 +81,7 @@ public class JpaSimple {
 			// Remove an entity without actually loading it.
 			transaction = entityManager.getTransaction();
 			transaction.begin();
-			Person dp = entityManager.getReference(Person.class, 1);
+			Person dp = entityManager.getReference(Person.class, id);
 			System.out.println("Removing person " + dp.getId());
 			entityManager.remove(dp);
 			transaction.commit();
