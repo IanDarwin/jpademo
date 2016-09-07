@@ -3,7 +3,6 @@ package jpa.features;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Id;
 import javax.persistence.Query;
 
 import jpa.JpaUtil;
@@ -13,54 +12,35 @@ import jpa.JpaUtil;
  * @author Ian Darwin
  */
 public class JoinDemoImpl {
-	static String query =
-			// Note that the DTO created with NEW here is not a JPA Entity!
-			"SELECT NEW JoinDemoImpl(p.lastName, SUM(s.amount))" + 
-			"FROM SalesPerson p LEFT JOIN p.sales s GROUP BY p.lastName";
-	String name;
-	int amount;
-	private long id;
+	final static String QUERY =
+		// Note that the DTO created with NEW here is not a JPA Entity!
+		// The Join on p.sales will get a List<Sale> entities.
+		"SELECT NEW jpa.features.SalesReportDTO(p.lastName, SUM(s.amount)) " + 
+		"FROM SalesPerson p LEFT JOIN p.sales s GROUP BY p.lastName";
+	
 	static EntityManager em;
 	
 	public static void main(String[] args) {
 		em = JpaUtil.getEntityManager();
-		sendReport();
+		System.out.println("Sales Report:");
+		doReport();
+		System.out.println("-------------");
+		System.exit(0);
 	}
+	
 	@SuppressWarnings("unchecked")
-	public static void sendReport() {
-		Query q = em.createQuery(query);
-		final List<JoinDemoImpl> resultList = q.getResultList();
-		for (JoinDemoImpl data : resultList) {
-			System.out.printf("Name %s, Amount %s%n", data.name, data.amount);
+	public static void doReport() {
+		Query q = em.createQuery(QUERY);
+		final List<SalesReportDTO> resultList = q.getResultList();
+		int n = 0;
+		for (SalesReportDTO data : resultList) {
+			++n;
+			System.out.printf("Name %s, Amount %s%n", data.getName(), data.getAmount());
 		}
-	}
-	
-	// The rest of this is the DTO portion,
-	// could be its own class (but must be a public
-	// class for JPA to treat it as a DTO).
-	public JoinDemoImpl(String name, int amount) {
-		super();
-		this.name = name;
-		this.amount = amount;
-	}
-	
-	@Id public long getId() {
-		return this.id;
-	}
-	private void setId(long id) {
-		this.id = id;
-	}
-	
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+		if (n == 0) {
+			System.out.println("NO SALES RECORDS FOUND");
+		} else {
+			System.out.println(n + " Sales Records Found");
+		}
 	}
 }

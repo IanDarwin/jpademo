@@ -20,13 +20,14 @@ public class SalesPerson extends Person {
 		super(firstName, lastName);
 	}
 
-	int amount; // JPA "sum" can for now only work on ints
+	private int amount; // JPA "sum" can for now only work on ints
 	private List<Customer> customers;
+	private List<Sale> sales;
 
 	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
 	public List<Customer> getCustomers() {
-		if (customers == null || customers.size() == 0) {
-			return new ArrayList<Customer>();
+		if (customers == null) {
+			return customers = new ArrayList<>();
 		}
 		return customers;
 	}
@@ -46,6 +47,18 @@ public class SalesPerson extends Person {
 		for (Customer customer : customers) {
 			customer.setSalesRep(this);
 		}
+	}
+
+	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+	public List<Sale> getSales() {
+		if (sales == null) {
+			return sales = new ArrayList<>();
+		}
+		return sales;
+	}
+
+	public void setSales(List<Sale> sales) {
+		this.sales = sales;
 	}
 
 	public int getAmount() {
