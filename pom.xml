@@ -21,9 +21,16 @@
 		<maven.compiler.target>${javase.version}</maven.compiler.target>
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
 		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
-		<eclipselink.version>2.6.0-M3</eclipselink.version>
+		<eclipselink.version>2.6.4-RC1</eclipselink.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
+
+	<!--
+	The following dependencies in Dependencies have newer versions:
+	[INFO]   mysql:mysql-connector-java ........................... 5.1.33 -> 6.0.4
+	[INFO]   org.hibernate:hibernate-entitymanager ..... 4.3.8.Final -> 5.2.2.Final
+	[INFO]   org.hibernate:hibernate-validator ........... 4.3.2.Final -> 5.3.0.CR1
+	-->
 
 	<dependencies>
 
@@ -72,12 +79,12 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.185</version>
+			<version>1.4.192</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.2</version>
+			<version>2.3.4</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -87,7 +94,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4-1200-jdbc41</version>
+			<version>9.4.1210.jre7</version>
 		</dependency>
 		
 		<!-- Testing... -->
