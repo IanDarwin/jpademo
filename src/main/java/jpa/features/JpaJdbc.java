@@ -14,6 +14,10 @@ import org.hibernate.Session;
 import domain.misc.Fish;
 import domain.misc.FishPK;
 
+/**
+ * Demonstrates using the Hibernate Session to perform "raw" JDBC ops
+ * but will only work if Hibernate is the underlying JPA provider.
+ */
 public class JpaJdbc {
 	public static void main(String[] args) throws SQLException {
 		EntityManager em = JpaUtil.getEntityManager();
@@ -28,7 +32,15 @@ public class JpaJdbc {
 		
 		em = JpaUtil.getEntityManager();
 		System.out.println("Using EM: " + em.getClass().getName());
-		Connection conn = em.unwrap(Session.class).connection();
+		Connection conn = null;
+		try {
+			Class<?> clazz = Session.class;
+			conn = em.unwrap(Session.class).connection();
+		}  catch (PersistenceException pex) {
+			System.err.println("Sorry, EntityManager " + em + " does not support " + clazz);
+			System.err.println("Try using Hibernate as your EntityManager next time.");
+			System.exit(1);
+		}
 		PreparedStatement st = conn.prepareStatement("select * from fish");
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
