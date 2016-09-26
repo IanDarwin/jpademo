@@ -50,12 +50,11 @@ In the file _META-INF/persistence.xml_ make sure you have this in the persistenc
           <property name="eclipselink.target-database" value="PostgressQL"/>
           <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
           <property name="hibernate.hbm2ddl.auto" value="update"/>
-          <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
      </properties>
 </persistence-unit>
 ----
 
-Obviously if you used a differnet username and/or a stronger password you will need to substitute them here.
+Obviously if you used a different username and/or a stronger password you will need to substitute them here.
 
 You should now be able to run the _jpademo_ sample programs and examine the database afterwards.
 Give the command _psql -d jpademo_ and use these subcommands:
