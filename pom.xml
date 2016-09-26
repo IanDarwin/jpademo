@@ -113,10 +113,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.1</version>
 				<configuration>
-					<excludes>
-						<!-- Can't find em.unwrap in current JPA -->
-						<exclude>jpa/features/JpaJdbc.java</exclude>
-					</excludes>
+					<!-- None needed ATM -->
 				</configuration>
 			</plugin>
 		</plugins>
