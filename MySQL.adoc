@@ -97,6 +97,7 @@ In the file _META-INF/persistence.xml_ make sure you have this in the persistenc
 </persistence-unit>
 ----
 
-Obviously if you used a differnet username and/or a stronger password you will need to substitute them here.
+Obviously if you used a differnet username and/or a stronger password (which you obviously should!)
+you will need to substitute them here.
 
 You should now be able to run the _jpademo_ programs and examine the results using the MySQL Workbench.

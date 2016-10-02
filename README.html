@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>How to Configure jpademo for the PostgreSQL Database</title>
+<title>jpademo</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -422,101 +422,77 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_how_to_configure_em_jpademo_em_for_the_postgresql_database">How to Configure <em>jpademo</em> for the PostgreSQL Database</h2>
+<h2 id="_jpademo">jpademo</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>by Ian Darwin, June, 2015</p>
+<p>This project contains the MusicRecording/VideoRecording portion of the domain model,
+and has both Hibernate and JPA versions of many of the demo
+programs, including the famous (working) ManyToManyDemo.</p>
 </div>
 <div class="paragraph">
-<p>These are the steps to add PostgreSQL support into the <em>jpademo</em> project.</p>
+<p>The domain model is annotated using JPA annotations, and is used by <strong>both
+sets of demos - JPA and Hibernate - without change</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Start the psql command-line tool.</p>
+<p>This notion-of using both JPA and the Hibernate API to access the same entities-
+is explored <a href="http://darwinsys.com/java/hibernate-jpa.html">on my Java web site</a>.</p>
 </div>
 <div class="paragraph">
-<p>Log in with a PostgreSQL user that has administrative privileges.
-The name will depend on how you set up PostgreSQL.</p>
+<p>Further, the <strong>JPA demos can run using either Hibernate or EclipseLink
+as their JPA provider</strong>; see the persistence.xml file for the properties
+to change.</p>
 </div>
 <div class="paragraph">
-<p>Issue the two <em>create</em> commands shown here:</p>
+<p>Currently works with Eclipse (M2E plugin required!) and builds with Maven;
+there are no 'run' type goals configured in Maven.</p>
+</div>
+<div class="paragraph">
+<p>Can run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
+of DB parameters is not commented out in persistence.xml.</p>
+</div>
+<div class="paragraph">
+<p>REQUIRES JAVA 8 - if you are still stuck on a legacy version of Java,
+checkout revision 9084d9e1aa1ac1c261a5bf2dc8cdc8cd180b8162 and stay there
+until you get a current Java SE / JDK implementation.</p>
+</div>
+<div class="sect2">
+<h3 id="_database_setup">Database Setup</h3>
+<div class="paragraph">
+<p>H2 runs in-memory, in-VM, so no setup is needed.</p>
+</div>
+<div class="paragraph">
+<p>For PostgreSQL, you can use the handy <em>psql</em> command-line client.
+Once you have your authorization set up as per the Postgres documentation,
+it can be as simple as</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ian=# create role student with password 'student' login;
+<pre class="highlight"><code>ian=# create user student login password 'student';
 CREATE ROLE
 ian=# create database jpademo owner student;
 CREATE DATABASE
-ian=#</pre>
+ian=#</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Obviously you should not use student/student in a production environment, nor any that is directly
-accessible to the internet. These values are for illustration only; just be sure you remember
-the password you use.</p>
+<p>This is explored a bit more fully in the file PostgreSQL.adoc / PostgreSQL.html.</p>
 </div>
 <div class="paragraph">
-<p>In the <em>dependencies</em> section of the <em>pom.xml</em> file, add this entry for the PostgreSQL driver,
-if not already present:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;dependency&gt;
-	&lt;groupId&gt;org.postgresql&lt;/groupId&gt;
-	&lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-	&lt;version&gt;9.4-1200-jdbc41&lt;/version&gt;
-&lt;/dependency&gt;</pre>
-</div>
+<p>For MySQL, there is a command line client but it is very well hidden
+(e.g., on Mac OS, it installs in /usr/local/mysql-5.6.21-osx10.8-x86_64/bin/mysql).
+Instead, we offer a guided click-through; see the MySQL.adoc / MySQL.html
+file which has many screenshots with instructions.</p>
 </div>
 <div class="paragraph">
-<p>In the file <em>META-INF/persistence.xml</em> make sure you have this in the persistence unit
-(you should only need to un-comment the relevant parts):</p>
+<p>DO NOT USE student/student as credentials on any machine that is accessible from the Internet!!</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;persistence-unit name="jpademo"&gt;
-     &lt;provider&gt;org.eclipse.persistence.jpa.PersistenceProvider&lt;/provider&gt;
-     &lt;exclude-unlisted-classes&gt;false&lt;/exclude-unlisted-classes&gt;
-     &lt;properties&gt;
-          &lt;property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/&gt;
-          &lt;property name="javax.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/&gt;
-          &lt;property name="javax.persistence.jdbc.user" value="student"/&gt;
-          &lt;property name="javax.persistence.jdbc.password" value="student"/&gt;
-          &lt;property name="eclipselink.target-database" value="PostgressQL"/&gt;
-          &lt;property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/&gt;
-          &lt;property name="hibernate.hbm2ddl.auto" value="update"/&gt;
-     &lt;/properties&gt;
-&lt;/persistence-unit&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Obviously if you used a different username and/or a stronger password you will need to substitute them here.</p>
-</div>
-<div class="paragraph">
-<p>You should now be able to run the <em>jpademo</em> sample programs and examine the database afterwards.
-Give the command <em>psql -d jpademo</em> and use these subcommands:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>\d Lists the tables</p>
-</li>
-<li>
-<p>\d <em>tableName</em> Describes the given table</p>
-</li>
-<li>
-<p>select * from <em>tableName</em>; Lists the values in the given table</p>
-</li>
-<li>
-<p>\? gives help</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-09-26 12:17:28 EDT
+Last updated 2015-10-14 22:20:56 EDT
 </div>
 </div>
 </body>
