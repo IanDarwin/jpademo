@@ -30,13 +30,14 @@ public class MusicDaoHibernateImpl implements MusicDao {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MusicRecording> listMusicRecordings() {
 		Session hibSession = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = hibSession.beginTransaction();
-			return (List<MusicRecording>) hibSession.createQuery("from MusicRecording");
+			return hibSession.createQuery("from MusicRecording").list();
 		} finally {
 			tx.commit();
 			hibSession.close();
@@ -45,6 +46,7 @@ public class MusicDaoHibernateImpl implements MusicDao {
 	
 	/** Get list of recording by price */
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingsByPrice(double price) {
 
 		Session hibSession = factory.openSession();

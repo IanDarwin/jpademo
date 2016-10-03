@@ -7,7 +7,6 @@ import javax.persistence.EntityTransaction;
 import domain.Person;
 
 public class JpaRollback {
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
 		System.out.println("JPARollback.main()");
