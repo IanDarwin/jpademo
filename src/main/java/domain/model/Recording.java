@@ -14,6 +14,7 @@ import javax.persistence.Version;
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Recording implements Serializable {
 
+	private static final long serialVersionUID = 5895997814851620471L;
 	private int id;
 	protected String title;
 	protected double price;

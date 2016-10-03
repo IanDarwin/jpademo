@@ -17,6 +17,7 @@ import domain.model.Track;
 /**
  * Populate Hibernate Demo
  */
+@SuppressWarnings("deprecation")
 public class RainAddRecording {
 
 	public static void main(String[] args) throws HibernateException {

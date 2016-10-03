@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
-import jpa.JpaUtil;
 import domain.model.VideoRecording;
+import jpa.JpaUtil;
 
 /** 
  * An example of a DTO creation
@@ -24,7 +24,7 @@ public class DtoDemo {
 	public static void main(String[] args) {
 		EntityManager em = JpaUtil.getEntityManager();
 		
-		Query q = em.createQuery(query);
+		TypedQuery<VideoDto> q = em.createQuery(query, VideoDto.class);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		VideoRecording vRec = new VideoRecording("Greatest Hits", 1984);

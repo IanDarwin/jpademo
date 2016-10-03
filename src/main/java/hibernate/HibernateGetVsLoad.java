@@ -8,13 +8,14 @@ import org.hibernate.cfg.Configuration;
 
 import domain.Person;
 
-/** Demonstrate the fact that load() will return a proxy
+/** 
+ * Demonstrate the fact that load() will return a proxy
  * (iff the object is not already in the current session!).
  * 
- * @author Ian
+ * @author Ian Darwin
  */
 public class HibernateGetVsLoad {
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 
 		System.out.println("HibernateSimple.main()");

@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
 
-import jpa.JpaUtil;
 import domain.Person;
+import jpa.JpaUtil;
 
 /** 
  * Try to use a real @Entity as a DTO instead of
@@ -29,8 +29,8 @@ public class DtoFromEntity {
 		em.persist(p);
 		em.flush();
 		
-		Query q = em.createNativeQuery(query, Person.class);
-		final List<Person> resultList = q.getResultList();
+		@SuppressWarnings("unchecked")
+		final List<Person> resultList = em.createNativeQuery(query, Person.class).getResultList();
 		System.out.println("Person:");
 		for (Person per : resultList) {
 			System.out.println(per);

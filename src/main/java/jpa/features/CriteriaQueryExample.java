@@ -20,7 +20,7 @@ public class CriteriaQueryExample {
 		// Assume that the user has filled in a form field (Swing or Web, matters not)
 		// and given us the following values:
 		String firstName = "Ian";
-		String lastName = null;
+		//String lastName = null;
 		//String workPhone = "+44 7910 123456";
 		//String homePhone = null;
 		// and we want to use each of these fields, where non-null, in the query.

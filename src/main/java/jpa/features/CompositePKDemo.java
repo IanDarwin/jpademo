@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
-import jpa.JpaUtil;
 import domain.misc.Fish;
 import domain.misc.FishPK;
+import jpa.JpaUtil;
 
 public class CompositePKDemo {
 
@@ -29,7 +29,7 @@ public class CompositePKDemo {
 		em.persist(goldie);
 		transaction.commit();
 		
-		final Query fishQuery = em.createQuery("SELECT f FROM Fish f");
+		final TypedQuery<Fish> fishQuery = em.createQuery("SELECT f FROM Fish f", Fish.class);
 		for (Fish f : (List<Fish>)fishQuery.getResultList()) {
 			System.out.println(f);
 		}

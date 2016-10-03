@@ -11,6 +11,7 @@ import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
 
+@SuppressWarnings("deprecation")
 public class MusicDaoHibernateImpl implements MusicDao {
 
 	final static SessionFactory factory =

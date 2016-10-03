@@ -17,6 +17,7 @@ import domain.model.MusicRecording;
  * the global UserTransaction object, which can be started by the @Transactional annotation.
  * Note that Distributed Transactions require a full Java EE Application Server, not a standalone program.
  */
+@SuppressWarnings("deprecation")
 public class MultiSessionTX {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
