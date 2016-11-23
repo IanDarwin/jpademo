@@ -10,7 +10,9 @@ import javax.persistence.Persistence;
 import domain.model.MusicRecording;
 
 /**
- * JPA implementation of MusicDAO
+ * JPA implementation of MusicDAO.
+ * Unlike our general rules, this DAO does control transactions.
+ * It probably shouldn't.
  */
 public final class MusicDaoJpaImpl implements MusicDao {
 
@@ -24,12 +26,11 @@ public final class MusicDaoJpaImpl implements MusicDao {
 		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingsByPrice(double price) {
 		try {
 		em = emf.createEntityManager();
 		return em.createQuery(
-				"from MusicRecording where price = " + price).getResultList();
+				"from MusicRecording where price = " + price, MusicRecording.class).getResultList();
 		} finally {
 			if (em != null)
 				em.close();
