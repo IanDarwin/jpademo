@@ -5,12 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Address {
 	
 	private int id;
 	
+	@NotEmpty
 	private String streetAddress;
+	@NotEmpty
 	private String city;
 	private Country country = Country.CANADA;
 
