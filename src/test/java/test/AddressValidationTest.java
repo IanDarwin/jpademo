@@ -25,11 +25,13 @@ public class AddressValidationTest {
 	
 	@Test
 	public void testValid() {
-		// Address must have address and city as a minimum
+		// Address must have address and city as a minimum;
+		// make test subject VALID by providing values.
 		final Address address = new Address();
 		address.setStreetAddress("123 Yonge St");
 		address.setCity("Hogtown");
-		final Set<ConstraintViolation<Address>> valid = validator.validate(address);
+		final Set<ConstraintViolation<Address>> valid = 
+				validator.validate(address);
 		for (ConstraintViolation<?> err : valid) {
 			System.out.println(err);
 		}
@@ -40,7 +42,8 @@ public class AddressValidationTest {
 	public void testNotValid() {
 		// Address must have address and city as a minimum, so
 		// "new Address()" is by definition INVALID out of the box
-		final Set<ConstraintViolation<Address>> valid = validator.validate(new Address());
+		final Set<ConstraintViolation<Address>> valid = 
+				validator.validate(new Address());
 		for (ConstraintViolation<?> err : valid) {
 			System.out.println(err);
 		}
