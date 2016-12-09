@@ -8,18 +8,30 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import domain.Address;
 
+/**
+ * Show how to test the javax.validation constraints on a POJO.
+ * See https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/
+ * (doc is for Hibernate impl but should work with any impl of javax.validation API).
+ * @author Ian Darwin
+ */
 public class AddressValidationTest {
 
-	Validator validator;
+	static ValidatorFactory factory;
+	protected Validator validator;
+	
+	@BeforeClass
+	public static void setupFactory() {
+		factory = Validation.buildDefaultValidatorFactory();
+	}
 	
 	@Before
 	public void setUp() throws Exception {
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
 	}
 	
