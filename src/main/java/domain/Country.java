@@ -5,6 +5,10 @@ package domain;
  */
 public enum Country {
 	CANADA,
+	AUSTRALIA,
+	MEXICO,
+	FRANCE,
+	GERMANY,
 	UK,
 	USA
 }
