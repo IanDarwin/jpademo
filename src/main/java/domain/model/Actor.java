@@ -31,4 +31,10 @@ public class Actor extends Person {
 	public void setVideos(Set<VideoRecording> films) {
 		this.videos = films;
 	}
+	
+	/** Make relationship bidirectional */
+	public void addVideo(VideoRecording v) {
+		this.getVideos().add(v);
+		v.getActors().add(this);
+	}
 }
