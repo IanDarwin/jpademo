@@ -1,7 +1,7 @@
 package jpa.features;
 
 /** This is a Data Transfer Object (DTO);
- * it must NOT be annotated as an Entity.
+ * it need not be annotated as an Entity.
  * @author Ian Darwin
  */
 public class VideoDto {
