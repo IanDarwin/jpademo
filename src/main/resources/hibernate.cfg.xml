@@ -29,6 +29,7 @@
 				</property>
 
 				<property name="show_sql">true</property>
+				<property name="hibernate.discriminator.ignore_explicit_for_joined">true</property>
 				
 				<!-- Hibernate has to be told about each class, like a strict JPA implementation -->
 				<mapping class="domain.Address"/>
@@ -44,6 +45,7 @@
 				<mapping class="domain.model.Actor"/>
 				
 				<mapping class="domain.sales.Customer"/>
+				<mapping class="domain.sales.Sale"/>
 				<mapping class="domain.sales.SalesPerson"/>
 
 				<mapping class="hibernate.Type1"/>
