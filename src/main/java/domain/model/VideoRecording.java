@@ -40,8 +40,9 @@ public class VideoRecording extends Recording {
 		this.actors = actors;
 	}
 	
+	/** Make relationship bidirectional */
 	public void addActor(Actor a) {
-		getActors().add(a);
+		this.getActors().add(a);
 		a.getVideos().add(this);
 	}
 
