@@ -16,6 +16,8 @@ import domain.model.Track;
  * using the "Native Query" escape route. N.B this assumes
  * you have done the db-specific work of creating the
  * stored procedure!
+ * 
+ * N.B. In Java EE 7 (JPA 2.x), you can simplify this via new annotations
  */
 public class StoredProcedureDriver {
 
