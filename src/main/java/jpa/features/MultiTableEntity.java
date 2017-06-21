@@ -19,7 +19,7 @@ public class MultiTableEntity {
 	private int id;
 	/** These fields go into the main table */
 	private String mainField1, mainfield2;
-	/** These fields go into the secondary table */
+	/** These fields go into the secondary table (see accessors) */
 	private String secoField1, secoField2;
 	
 	public static void main(String[] args) {
