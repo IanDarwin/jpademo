@@ -41,6 +41,8 @@ public class JpaRemoveReinsert {
 			System.out.println("Odd, it's not really gone?");
 		}
 		
+		transaction = entityManager.getTransaction();
+		transaction.begin();
 		try {
 			entityManager.merge(np);
 			System.err.println("Did NOT catch expected exceptio on merge");
@@ -54,6 +56,7 @@ public class JpaRemoveReinsert {
 		} catch (Exception e) {
 			System.out.println("refresh() caught expected exception: " + e);
 		}
+		transaction.rollback();
 
 		// Transaction 3 - Re-insert it
 		transaction = entityManager.getTransaction();
