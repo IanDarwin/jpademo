@@ -44,6 +44,7 @@ public class JpaSimple {
 
 			Customer cust = new Customer("Happy", "User");
 			cust.getHomeAddress().setStreetAddress("123 Main St");
+			cust.getHomeAddress().setCity("Tronna");
 			Address home = cust.getHomeAddress();
 			if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
 				entityManager.persist(home);
