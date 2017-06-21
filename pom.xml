@@ -25,12 +25,6 @@
 		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
 
-	<!--
-	The following dependencies in Dependencies have newer versions:
-	[INFO]   org.hibernate:hibernate-entitymanager ..... 4.3.8.Final -> 5.2.2.Final
-	[INFO]   org.hibernate:hibernate-validator ........... 4.3.2.Final -> 5.3.0.CR1
-	-->
-
 	<dependencies>
 
 		<!-- Java EE -->
