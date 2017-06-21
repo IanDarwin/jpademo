@@ -40,6 +40,20 @@ public class JpaRemoveReinsert {
 		if (entityManager.find(Person.class, id) != null) {
 			System.out.println("Odd, it's not really gone?");
 		}
+		
+		try {
+			entityManager.merge(np);
+			System.err.println("Did NOT catch expected exceptio on merge");
+		} catch (Exception e) {
+			System.out.println("merge() caught expected exception: " + e);
+		}
+		
+		try {
+			entityManager.refresh(np);
+			System.err.println("Did NOT catch expected exceptio on refresh");
+		} catch (Exception e) {
+			System.out.println("refresh() caught expected exception: " + e);
+		}
 
 		// Transaction 3 - Re-insert it
 		transaction = entityManager.getTransaction();
