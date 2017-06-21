@@ -43,9 +43,9 @@ public class JpaSimple {
 			transaction.begin();
 
 			Customer cust = new Customer("Happy", "User");
-			cust.getHomeAddress().setStreetAddress("123 Main St");
-			cust.getHomeAddress().setCity("Tronna");
 			Address home = cust.getHomeAddress();
+			home.setStreetAddress("123 Main St");
+			home.setCity("Tronna");
 			if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
 				entityManager.persist(home);
 			} else {
