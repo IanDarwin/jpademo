@@ -40,7 +40,7 @@ public class CriteriaDemo {
 	
 	public static void main(String[] args) {
 
-		List<Recording> list = new CriteriaDemo().doSearch("Star", null);
+		List<VideoRecording> list = new CriteriaDemo().doSearch("Star", null);
 
 		for (VideoRecording mRec : list) {
 			System.out.println(mRec);
