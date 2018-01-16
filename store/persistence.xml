@@ -17,14 +17,13 @@
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 	<properties>
-
+	<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+	<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
+	<property name="javax.persistence.jdbc.user" value="sa"/>
+	<property name="javax.persistence.jdbc.password" value=""/>
 
 	<!-- Properties for eclipselink -->
 	<!-- 
-	<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
-	<property name="eclipselink.jdbc.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
-	<property name="eclipselink.jdbc.user" value="sa"/>
-	<property name="eclipselink.jdbc.password" value=""/>
 	<property name="eclipselink.target-database"
 	      value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
 	<property name="eclipselink.logging.level" value="OFF"/>
@@ -37,10 +36,6 @@
 		<property name="eclipselink.logging.level" value="INFO" />
 		<property name="eclipselink.target-database" value="MySQL"/>
 		<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
-		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpademo.db"/>
-		<property name="javax.persistence.jdbc.user" value="student" />
-		<property name="javax.persistence.jdbc.password" value="student" />
 	
 	<!-- These cause EclipseLink to save the generated DDL statements for examination -->
 	<!--
@@ -68,10 +63,6 @@
 	<property name="hibernate.show_sql" value="true"/>
 	<property name="hibernate.format_sql" value="false"/>
 	<property name="hibernate.archive.autodetection" value="class"/>
-	<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
-	<property name="hibernate.connection.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
-	<property name="hibernate.connection.username" value="sa"/>
-	<property name="hibernate.connection.password" value=""/>
 	<property name="hibernate.transaction.factory.class" value="org.hibernate.transaction.JTATransactionFactory"/>
 	<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
  -->
