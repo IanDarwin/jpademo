@@ -11,13 +11,13 @@
     *** the other in pom.xml as well, and "Maven->Update Project" run! 
     -->
 	
-	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-<!-- 	
-	<provider>org.hibernate.ejb.HibernatePersistence</provider>
- -->
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 	<properties>
+		<property name="javax.persistence.provider" value="org.hibernate.ejb.HibernatePersistence"/>
+		<!--
+		<property name="javax.persistence.provider" value="org.eclipselink.jpa.provider"/>
+		-->
 
 		<!-- Properties for HSQL(H2) database (runs in-VM, no database files needed) -->
 		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
