@@ -42,8 +42,9 @@ public class CriteriaDemo {
 
 		List<VideoRecording> list = new CriteriaDemo().doSearch("Star", null);
 
-		for (VideoRecording mRec : list) {
-			System.out.println(mRec);
-		}
+		System.out.println("Found " + list.size() + " video(s)");
+		list.forEach(System.out::println);
+		
+		System.exit(0);
 	}
 }
