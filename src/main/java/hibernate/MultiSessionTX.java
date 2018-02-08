@@ -33,10 +33,13 @@ public class MultiSessionTX {
 		rec.setArtist("The Unknown Programmer");
 		session.save(rec);
 		
+		System.out.println("Saved: " + rec + " (id " + rec.getId() + ").");
+		
 		// Query some entities		
 		Session session2 = sessionFactory.openSession();
 		Query q = session2.createQuery("From MusicRecording");
 		List<MusicRecording> list = q.list();
+		System.out.println("Query found " + list.size() + " recordings");
 		for (MusicRecording t : list) {
 			System.out.println(t);
 		}
