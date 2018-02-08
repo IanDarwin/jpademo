@@ -38,13 +38,13 @@ public class HibernateGetVsLoad {
 		session.close();
 		
 		session = sf.openSession();
-		tx = session.beginTransaction();
+		//tx = session.beginTransaction();
 		Person p1 = (Person) session.get(Person.class, id);
-		tx.commit();
+		//tx.commit();
 		session.close();
 		
 		session = sf.openSession();
-		tx = session.beginTransaction();
+		//tx = session.beginTransaction();
 		Person p2 = (Person) session.load(Person.class, id);
 		System.out.println("Classes: " + p1.getClass() + "..." + p2.getClass());
 		session.close();
@@ -55,8 +55,6 @@ public class HibernateGetVsLoad {
 			System.out.println("Busted! Did not throw LIE");
 		} catch (LazyInitializationException lie) {
 			System.out.println("Aha! Caught LIE as expected");
-			lie.printStackTrace(System.out);
-			
 		}
 	}
 
