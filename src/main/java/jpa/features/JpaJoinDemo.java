@@ -8,7 +8,7 @@ import jpa.JpaUtil;
  * An example of a Join and also an example of a DTO creation
  * @author Ian Darwin
  */
-public class JoinDemoImpl {
+public class JpaJoinDemo {
 	final static String QUERY =
 		// Note that the DTO created with NEW here is not a JPA Entity
 		// so we have to give its full class name (if it were, we wouldn't).
