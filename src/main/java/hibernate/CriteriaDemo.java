@@ -18,6 +18,7 @@ public class CriteriaDemo {
 	@Resource
 	Session session;
 
+	@SuppressWarnings("unchecked")
 	List<VideoRecording> doSearch(String titleStr, String producerName) {
 		if (session == null) {
 			session = HibernateUtil.createSession();
