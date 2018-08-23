@@ -37,13 +37,11 @@ public class HibernateSimple {
 		tx = session.beginTransaction();
 
 		Customer person = new Customer("Happy", "User");
-		person.getHomeAddress().setStreetAddress("123 Main St");
 		Address home = person.getHomeAddress();
-		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
-			session.save(home);
-		} else {
-			person.setHomeAddress(null);
-		}
+		home.setStreetAddress("123 Main St");
+		home.setCity("Toronto");
+		session.save(home); // should use Cascade
+		
 		Address work = person.getWorkAddress();
 		if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
 			session.save(work);
