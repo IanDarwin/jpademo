@@ -45,6 +45,6 @@ public class CriteriaDemo {
 		System.out.println("Found " + list.size() + " video(s)");
 		list.forEach(System.out::println);
 		
-		System.exit(0);
+		// System.exit(0);
 	}
 }
