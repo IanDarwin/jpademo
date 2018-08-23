@@ -40,7 +40,7 @@ public class ManyToManyHibernate {
 			a = new Actor();
 			v.addActor(a);
 			a.setFirstName("Mark");
-			a.setLastName("Hammill");
+			a.setLastName("Hamill");
 			actors.add(a);
 			a = new Actor();
 			v.addActor(a);
