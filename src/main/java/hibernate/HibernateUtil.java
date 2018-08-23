@@ -23,4 +23,7 @@ public class HibernateUtil {
 	public static Session findSession() {
 		return factory.getCurrentSession();
 	}
+	public static void close() {
+		factory.close();
+	}
 }

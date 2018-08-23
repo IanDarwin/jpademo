@@ -63,6 +63,7 @@ public class ManyToManyHibernate {
 				System.out.println(ac);
 			}
 			tx.commit();
+			hibSession.close();
 			
 		} catch (Throwable e) {
 			if (tx != null) {
@@ -70,7 +71,8 @@ public class ManyToManyHibernate {
 			}
 			e.printStackTrace();
 		} finally {
-			hibSession.close();
+			factory.close();
+			System.out.println("Done");
 		}
 	}
 
