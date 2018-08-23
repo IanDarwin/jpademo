@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
+import dao.MusicDao;
 import dao.MusicDaoHibernateImpl;
 import domain.model.MusicRecording;
 import domain.model.Track;
@@ -14,7 +15,7 @@ import domain.model.Track;
 public class RainListerHibernate {
 
 	public static void main(String[] args) throws HibernateException {
-			final MusicDaoHibernateImpl musicDAO = new MusicDaoHibernateImpl();
+			final MusicDao musicDAO = new MusicDaoHibernateImpl();
 
 			MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.67, "Rock", null);
 			musicDAO.saveMusicRecording(recording1);
