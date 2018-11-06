@@ -44,6 +44,7 @@ public class HibernateDemosTest {
 				m.invoke(null, new Object[] {new String[0]});
 			} catch (Exception ex) {
 				failed = true;
+				System.out.println("Error in " + c.getName());
 				ex.printStackTrace();
 			}
 		}
