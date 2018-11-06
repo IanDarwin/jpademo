@@ -16,14 +16,17 @@ public class HibernateUtil {
 		configuration.configure();
 		factory = configuration.buildSessionFactory();
 	}
-	
+
 	public static Session createSession() {
 		return factory.openSession();
 	}
+
 	public static Session findSession() {
 		return factory.getCurrentSession();
 	}
+
 	public static void close() {
+		System.out.println("HibernateUtil.close()");
 		factory.close();
 	}
 }

@@ -7,6 +7,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,6 +29,10 @@ public class AddressValidationTest {
 	@BeforeClass
 	public static void setupFactory() {
 		factory = Validation.buildDefaultValidatorFactory();
+	}
+	@AfterClass
+	public static void closeFactory() {
+		// factory.close();
 	}
 	
 	@Before

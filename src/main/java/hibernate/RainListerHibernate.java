@@ -34,6 +34,8 @@ public class RainListerHibernate {
 					System.out.println("\t" + t);
 				}
 			}
+
+		musicDAO.close();
 	}
 
 }

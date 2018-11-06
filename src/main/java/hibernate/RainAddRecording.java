@@ -52,6 +52,7 @@ public class RainAddRecording {
 			e.printStackTrace();
 		} finally {
 			hibSession.close();
+			factory.close();
 		}
 	}
 

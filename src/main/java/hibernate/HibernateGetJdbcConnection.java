@@ -12,9 +12,10 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.jdbc.Work;
 
 public class HibernateGetJdbcConnection {
+
 	public static void main(String[] args) {
 
-		System.out.println("HibernateSimple.main()");
+		System.out.println("HibernateGetJdbcConnection.main()");
 
 		Configuration cf = new Configuration();
 		cf.configure();
@@ -48,6 +49,7 @@ public class HibernateGetJdbcConnection {
 	    try {
 			Connection conn = connectionProvider.getConnection();
 			myWork.execute(conn);
+			connectionProvider.closeConnection(conn);
 		} catch (SQLException e) {
 			System.err.println("SessionFactoryImplementor plan failed");
 		}
@@ -58,6 +60,8 @@ public class HibernateGetJdbcConnection {
 		// All done!
 		tx.commit();
 		session.close();
+		sf.close();
+		System.out.println("HibernateGetJdbcConnection done");
 	}
 
 }

@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 @SuppressWarnings("deprecation")
 public class ManyToOneDemo {
+
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Configuration cf = new AnnotationConfiguration();

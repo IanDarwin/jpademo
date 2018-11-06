@@ -19,6 +19,7 @@ import domain.model.MusicRecording;
  */
 @SuppressWarnings("deprecation")
 public class MultiSessionTX {
+
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Configuration cf = new AnnotationConfiguration();

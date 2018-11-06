@@ -63,6 +63,6 @@ public class HibernateSimple {
 		System.out.println();
 
 		session.close();
+		sf.close();
 	}
-
 }

@@ -16,13 +16,10 @@ import domain.model.VideoRecording;
  */
 public class CriteriaDemo {
 	@Resource
-	Session session;
+	static Session session;
 
 	@SuppressWarnings("unchecked")
 	List<VideoRecording> doSearch(String titleStr, String producerName) {
-		if (session == null) {
-			session = HibernateUtil.createSession();
-		}
 		if (!session.getTransaction().isActive())
 			session.getTransaction().begin();
 		Criteria qb = session.createCriteria(VideoRecording.class);
@@ -40,6 +37,8 @@ public class CriteriaDemo {
 	}
 	
 	public static void main(String[] args) {
+
+		session = HibernateUtil.createSession();
 
 		List<VideoRecording> list = new CriteriaDemo().doSearch("Star", null);
 

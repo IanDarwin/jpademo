@@ -12,6 +12,10 @@ public class JpaUtil {
 	
 	protected static EntityManagerFactory entityMgrFactory = null;
 	protected static EntityManager entityManager = null;
+	
+	static {
+		getEntityManagerFactory();
+	}
 
 	public synchronized static EntityManagerFactory getEntityManagerFactory() {
 		long time = System.currentTimeMillis();
@@ -22,13 +26,16 @@ public class JpaUtil {
 	}
 
 	public static EntityManager getEntityManager() {
-		if (entityMgrFactory == null) {
-			getEntityManagerFactory();
-		}
 		long time2 = System.currentTimeMillis();
 		entityManager = entityMgrFactory.createEntityManager();
 		long time3 = System.currentTimeMillis();
 		System.out.printf("Created EntityManager in %f seconds%n", (time3 - time2)/1000d);
 		return entityManager;
+	}
+	
+	public static void close() {
+		if (entityMgrFactory != null && entityMgrFactory.isOpen()) {
+			entityMgrFactory.close();
+		}
 	}
 }

@@ -29,8 +29,8 @@ public class JpaUpdate {
 
 		Query query =
 			entityManager.createNamedQuery("updateActorLastNameById");
-		query.setParameter(1, oldLastName);
-		query.setParameter(2, newLastName);
+		query.setParameter(1, newLastName);
+		query.setParameter(2, oldLastName);
 		entityManager.getTransaction().begin();
 		int rowCount = query.executeUpdate();
 		entityManager.getTransaction().commit();
