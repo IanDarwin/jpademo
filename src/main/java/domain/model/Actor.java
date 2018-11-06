@@ -13,7 +13,7 @@ import domain.Person;
 @Entity
 @DiscriminatorValue(value="A")
 @NamedQuery(name="updateActorLastNameById",
-	query="Update Actor a set a.lastname = ? where a.lastname = ?")
+	query="Update Actor a set a.lastName = ?1 where a.lastName = ?2")
 public class Actor extends Person {
 	
 	Set<VideoRecording> videos = new HashSet<VideoRecording>();
