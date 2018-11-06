@@ -15,7 +15,7 @@ import jpa.JpaUtil;
  */
 public class DtoFromEntity {
 	static String query =
-		"select id, ptype, firstname, lastname from Person";
+		"select id, ptype, firstName, lastName from Person";
 	String name;
 	int amount;
 	
