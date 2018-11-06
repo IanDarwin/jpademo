@@ -1,12 +1,14 @@
 package domain.array;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ATrack {
+public class ATrack implements Serializable {
 	
 	long id;
 	String name;
