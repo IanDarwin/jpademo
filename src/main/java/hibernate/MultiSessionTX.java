@@ -33,6 +33,7 @@ public class MultiSessionTX {
 		rec.setTitle("Cookin' wi' Java");
 		rec.setArtist("The Unknown Programmer");
 		session.save(rec);
+		session.close();
 		
 		System.out.println("Saved: " + rec + " (id " + rec.getId() + ").");
 		
