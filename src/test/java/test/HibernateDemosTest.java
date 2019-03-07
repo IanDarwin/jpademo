@@ -1,10 +1,13 @@
 package test;
 
-import static org.junit.Assert.fail;
-
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import hibernate.CriteriaDemo;
 import hibernate.HibernateGetJdbcConnection;
@@ -17,6 +20,7 @@ import hibernate.MultiSessionTX;
 import hibernate.RainAddRecording;
 import hibernate.RainListerHibernate;
 
+@RunWith(Parameterized.class)
 public class HibernateDemosTest {
 
 	final static Class<?>[] mains = {
@@ -32,25 +36,22 @@ public class HibernateDemosTest {
 			RainListerHibernate.class,
 	};
 	
+	@Parameters
+	public static List<Class<?>> params() {
+		return Arrays.asList(mains);
+	}
+	
+	private Class<?> clazz;
+	
+	public HibernateDemosTest(Class<?> clazz) {
+		this.clazz = clazz;
+	}
+	
 	@Test
-	public void test() {
-		boolean failed = false;
-		
-		for (Class<?> c : mains) {
-			System.out.println("START " + c.getCanonicalName());
-			try {
-				Object demo = c.newInstance();
-				Method m = c.getMethod("main", String[].class);
-				m.invoke(null, new Object[] {new String[0]});
-			} catch (Exception ex) {
-				failed = true;
-				System.out.println("Error in " + c.getName());
-				ex.printStackTrace();
-			}
-		}
-		if (failed) {
-			fail("There were Hibernate Demo Failures");
-		}
+	public void test() throws Exception {
+		System.out.println("START " + clazz);
+		Method m = clazz.getMethod("main", String[].class);
+		m.invoke(null, new Object[] {new String[0]});
 	}
 
 }
