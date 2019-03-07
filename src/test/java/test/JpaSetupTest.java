@@ -17,7 +17,8 @@ public class JpaSetupTest {
 
 		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = JpaUtil.getEntityManager();
-		
+		// If that didn't throw an exception then we know
+		// that the JPA annotations are in good shape.
 		entityManager.close();
 		entityMgrFactory.close();
 		
