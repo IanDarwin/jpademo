@@ -11,6 +11,13 @@ import javax.persistence.criteria.Root;
 import jpa.JpaUtil;
 import domain.Person;
 
+/**
+ * JPA's Criteria demands a "MetaModel" class for each
+ * Entity used in a Criteria. For one or two you can
+ * hand-roll the MetaModel class (see Person_.java in
+ * this package); for more, or if classes change a lot,
+ * JPA impls provide a MetaModel generator.
+ */
 public class CriteriaQueryExample {
 
 	/**
