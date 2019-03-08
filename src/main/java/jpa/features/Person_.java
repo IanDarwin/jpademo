@@ -1,6 +1,7 @@
 package jpa.features;
 
 import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
 
 import domain.Person;
 
@@ -10,6 +11,7 @@ import domain.Person;
  * and slow to invoke Maven on every file save.
  * @author Ian Darwin
  */
+@StaticMetamodel(Person.class)
 public class Person_ {
 
 	public static SingularAttribute<Person, String> firstName;
