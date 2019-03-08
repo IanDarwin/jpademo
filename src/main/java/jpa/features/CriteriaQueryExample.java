@@ -16,7 +16,8 @@ import domain.Person;
  * Entity used in a Criteria. For one or two you can
  * hand-roll the MetaModel class (see Person_.java in
  * this package); for more, or if classes change a lot,
- * JPA impls provide a MetaModel generator.
+ * JPA impls provide a MetaModel generator. Hibernate's is:
+ * org.hibernate:hibernate-jpamodelgen:5.0.0-Final (or later)
  */
 public class CriteriaQueryExample {
 
