@@ -43,22 +43,20 @@ public class CriteriaQueryExample {
 		if (firstName != null) {
 			firstNameParameter = qb.parameter(String.class);
 			personPredicate = qb.equal(root.get(Person_.firstName), firstNameParameter);
-		}
-		if (personPredicate != null) {
 			cq.where(personPredicate);
 		}
 		// And similar for lastName...
 		
-		TypedQuery<Person> q = entityManager.createQuery(cq);
+		TypedQuery<Person> query = entityManager.createQuery(cq);
 		
 		// Can't do these until the Query is finally created...
 		if (firstName != null) {
-			q.setParameter(firstNameParameter, firstName);
+			query.setParameter(firstNameParameter, firstName);
 		}
-		// And similar for lastName
+		// And similar for lastName...
 
-		System.out.println("Running the generated Query: " + q);
-		for (Person p : q.getResultList()) {
+		System.out.println("Running the generated Query: " + query);
+		for (Person p : query.getResultList()) {
 			System.out.println("Found person " + p);
 		}
 	}
