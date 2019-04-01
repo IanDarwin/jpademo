@@ -80,4 +80,9 @@
 
 	</properties>
 </persistence-unit>
+
+<persistence-unit name="test">
+	<!-- Properties filled in dynamically, see JPAShell code -->
+	<exclude-unlisted-classes>false</exclude-unlisted-classes>
+</persistence-unit>
 </persistence>
