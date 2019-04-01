@@ -1,14 +1,17 @@
 package jpa.features;
 
 import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
 
 import domain.Person;
 
 /** This single JPA MetaModel Class was hand-made to avoid having
- * to run the pre-processor to create them every time.
+ * to run the pre-processor to create them every time;
+ * that's awkward to do in both Eclipse and Maven.
+ * and slow to invoke Maven on every file save.
  * @author Ian Darwin
- *
  */
+@StaticMetamodel(Person.class)
 public class Person_ {
 
 	public static SingularAttribute<Person, String> firstName;

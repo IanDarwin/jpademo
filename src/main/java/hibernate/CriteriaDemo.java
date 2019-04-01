@@ -45,6 +45,7 @@ public class CriteriaDemo {
 		System.out.println("Found " + list.size() + " video(s)");
 		list.forEach(System.out::println);
 		
+		session.close();
 		HibernateUtil.close();
 	}
 }
