@@ -8,7 +8,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 
 import domain.model.Duration;
 import domain.model.MusicRecording;
@@ -22,7 +22,7 @@ public class RainAddRecording {
 
 	public static void main(String[] args) throws HibernateException {
 		SessionFactory factory =
-			new AnnotationConfiguration().configure("/hibernate.cfg.xml").buildSessionFactory();
+			new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
 
 		Session hibSession = factory.openSession();
 		Transaction tx = null;

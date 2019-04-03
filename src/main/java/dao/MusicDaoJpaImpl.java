@@ -21,7 +21,6 @@ public final class MusicDaoJpaImpl implements MusicDao {
 	private EntityTransaction entityTransaction;
 
 	public MusicDaoJpaImpl(){
-		System.out.println("MusicDaoImpl.MusicDaoImpl()");
 		emf = Persistence.createEntityManagerFactory("jpademo");
 		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
 	}
@@ -30,7 +29,7 @@ public final class MusicDaoJpaImpl implements MusicDao {
 		try {
 		em = emf.createEntityManager();
 		return em.createQuery(
-				"from MusicRecording where price = " + price, MusicRecording.class).getResultList();
+				"from MusicRecording mr where mr.price = " + price, MusicRecording.class).getResultList();
 		} finally {
 			if (em != null)
 				em.close();
