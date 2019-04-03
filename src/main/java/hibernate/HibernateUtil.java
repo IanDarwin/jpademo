@@ -28,7 +28,7 @@ public class HibernateUtil {
 	}
 
 	public static void close() {
-		if (isDontCloseFactory()) {
+		if (dontCloseFactory) {
 			System.out.println("HibernateUtil.Test mode: ignoring close");
 			return;
 		}
