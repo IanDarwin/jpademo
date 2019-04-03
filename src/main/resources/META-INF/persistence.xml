@@ -52,7 +52,6 @@
 		<!--  Leave logging on, for use in 936. -->
 		<property name="eclipselink.logging.level" value="FINE"/>
 		<property name="eclipselink.orm.throw.exceptions" value="true"/>
-		<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 		<property name="eclipselink.ddl-generation.output-mode" value="database"/>
 		<property name="eclipselink.logging.level.sql" value="FINE"/>
  		<property name="eclipselink.logging.parameters" value="true"/>
@@ -65,14 +64,14 @@
 		<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 		-->
 		
-		<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->
-		<!-- 	
+		<!-- Control database creation -->
+		<property name="javax.persistence.schema-generation.database.action"
+			value="drop-and-create"/>
+		<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->	
 		<property name="javax.persistence.sql-load-script-source" 
-			value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
-		 -->	    
+			value="META-INF/sql/loadscript.sql"/>
 
 		<!-- Properties for Hibernate provider -->
-		<property name="hibernate.hbm2ddl.auto" value="create"/>
 		<property name="hibernate.show_sql" value="true"/>
 		<property name="hibernate.format_sql" value="false"/>
 		<property name="hibernate.archive.autodetection" value="class"/>
