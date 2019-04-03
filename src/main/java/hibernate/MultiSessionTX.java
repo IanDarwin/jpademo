@@ -48,7 +48,6 @@ public class MultiSessionTX {
 		session2.close();
 		
 		// Shut it down
-		tx.commit();
 		sessionFactory.close();
 	}
 }
