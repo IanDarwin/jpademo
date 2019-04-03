@@ -42,17 +42,16 @@ public class HibernateGetJdbcConnection {
 		// Session.connection() was deprecated in 3.x, REMOVED in 4.x
 		// myWork.execute(session.connection());
 		
-		// 2) SessionFactoryImplementor - works but deprecated!
-		SessionFactoryImplementor sessionFactoryImplementation = (SessionFactoryImplementor) session.getSessionFactory();
-	    @SuppressWarnings("deprecation")
-		ConnectionProvider connectionProvider = sessionFactoryImplementation.getConnectionProvider();
-	    try {
-			Connection conn = connectionProvider.getConnection();
-			myWork.execute(conn);
-			connectionProvider.closeConnection(conn);
-		} catch (SQLException e) {
-			System.err.println("SessionFactoryImplementor plan failed");
-		}
+		// 2) SessionFactoryImplementor - works but deprecated, removed in 6.x
+		//SessionFactoryImplementor sessionFactoryImplementation = (SessionFactoryImplementor) sf;
+	    //ConnectionProvider connectionProvider = sessionFactoryImplementation.getJdbcConnectionAccess();
+	    //try {
+		//	Connection conn = connectionProvider.obtainConnection();
+		//	myWork.execute(conn);
+		//	connectionProvider.closeConnection(conn);
+		//} catch (SQLException e) {
+		//	System.err.println("SessionFactoryImplementor plan failed");
+		//}
 	    
 	    // 3) The current preferred way: session.doWork()
 		session.doWork(myWork);
