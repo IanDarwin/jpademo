@@ -31,6 +31,18 @@
 			<artifactId>javaee-api</artifactId>
 			<version>8.0.1-b5</version>
 		</dependency>
+		<!-- For EL evaluation, used in one test -->
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.4</version>
+		</dependency>
 
 		<!-- Here we put two different JPA providers on the ClassPath.
 		 *** This works, but a different implementation of the Persistence
