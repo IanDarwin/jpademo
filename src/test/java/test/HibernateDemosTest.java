@@ -28,7 +28,6 @@ public class HibernateDemosTest {
 			HibernateGetJdbcConnection.class,
 			HibernateGetVsLoad.class,
 			HibernateSimple.class,
-			HibernateUtil.class,
 			ManyToManyHibernate.class,
 			ManyToOneDemo.class,
 			MultiSessionTX.class,
@@ -36,7 +35,11 @@ public class HibernateDemosTest {
 			RainListerHibernate.class,
 	};
 	
-	@Parameters
+	static {
+		HibernateUtil.setDontCloseFactory(true);
+	}
+	
+	@Parameters(name="{0}")
 	public static List<Class<?>> params() {
 		return Arrays.asList(mains);
 	}
