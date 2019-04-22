@@ -1,5 +1,6 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.persistence.DiscriminatorColumn;
@@ -22,7 +23,8 @@ import javax.persistence.Version;
 @DiscriminatorColumn(name="PType",
 	discriminatorType=DiscriminatorType.CHAR)
 @DiscriminatorValue(value="P")
-public class Person {
+public class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	int id;
 	protected String firstName;
