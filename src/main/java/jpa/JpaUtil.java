@@ -24,6 +24,11 @@ public class JpaUtil {
 		System.out.printf("Created EntityManagerFactory in %f seconds%n", (time2 - time)/1000d);
 		return entityMgrFactory;
 	}
+	
+	/** FOR TESTING ONLY */
+	public synchronized static void setEntityManagerFactory(EntityManagerFactory mockEMF) {
+		JpaUtil.entityMgrFactory = mockEMF;
+	}
 
 	public static EntityManager getEntityManager() {
 		long time2 = System.currentTimeMillis();
