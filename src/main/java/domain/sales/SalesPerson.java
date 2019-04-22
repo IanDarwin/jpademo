@@ -13,6 +13,7 @@ import domain.Person;
 @Entity
 @DiscriminatorValue(value="S")
 public class SalesPerson extends Person {
+	private static final long serialVersionUID = 1L;
 
 	public SalesPerson() {}
 	
