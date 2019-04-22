@@ -1,9 +1,15 @@
 package test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -21,12 +27,25 @@ import jpa.RainListerJpa;
 import jpa.TypedQueryDemo;
 
 /**
- * Run most of the "main program"-style demo classes as tests; just to see if they blow up or not.
+ * Run a bunch of the "main program"-style demo classes as tests,
+ * just to see if they blow up or not.
  */
 @RunWith(Parameterized.class)
 public class JpaDemosTest {
+	
+	/**
+	 * We mock the EMF so the real one's close method won't get called.
+	 */
+	@BeforeClass
+	public static void fakeEntityManagerFactory() {
+		EntityManagerFactory realEMF = JpaUtil.getEntityManagerFactory();
+		EntityManagerFactory mock = mock(EntityManagerFactory.class);
+		when (mock.createEntityManager()).thenReturn(realEMF.createEntityManager());
+		JpaUtil.setEntityManagerFactory(mock);
+	}
 
 	final static Class<?>[] mains = {
+			// Can only include ones that use JpaUtil to get their EMF
 			JpaArray.class,
 			JpaFindFail.class,
 			JpaPaging.class,
