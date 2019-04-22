@@ -58,7 +58,6 @@ public class JpaDemosTest {
 	@Test
 	public void test() throws Exception {
 		System.out.println("START " + clazz.getCanonicalName());
-		JpaUtil.getEntityManagerFactory();
 		try {
 			Method m = clazz.getMethod("main", String[].class);
 			m.invoke(null, new Object[] {new String[0]});
