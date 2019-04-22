@@ -3,9 +3,9 @@ package test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import jpa.JpaUtil;
-
 import org.junit.Test;
+
+import jpa.JpaUtil;
 
 /** A very simple test just to ensure that JPA is set up correctly. */
 public class JpaSetupTest {

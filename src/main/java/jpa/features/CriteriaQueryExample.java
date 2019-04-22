@@ -8,8 +8,8 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import jpa.JpaUtil;
 import domain.Person;
+import jpa.JpaUtil;
 
 /**
  * JPA's Criteria demands a "MetaModel" class for each

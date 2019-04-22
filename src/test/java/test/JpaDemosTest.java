@@ -12,13 +12,11 @@ import org.junit.runners.Parameterized.Parameters;
 import jpa.JpaArray;
 import jpa.JpaFindFail;
 import jpa.JpaPaging;
-import jpa.JpaQuery;
 import jpa.JpaRemoveReinsert;
 import jpa.JpaRollback;
 import jpa.JpaSimple;
 import jpa.JpaUpdate;
 import jpa.JpaUtil;
-import jpa.ManyToManyJpa;
 import jpa.RainListerJpa;
 import jpa.TypedQueryDemo;
 
