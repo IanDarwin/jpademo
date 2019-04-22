@@ -23,7 +23,7 @@ public class SalesPerson extends Person {
 	private List<Customer> customers;
 	private List<Sale> sales;
 
-	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "salesRep")
 	public List<Customer> getCustomers() {
 		if (customers == null) {
 			return customers = new ArrayList<>();
@@ -48,7 +48,7 @@ public class SalesPerson extends Person {
 		}
 	}
 
-	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "salesRep")
 	public List<Sale> getSales() {
 		if (sales == null) {
 			return sales = new ArrayList<>();
