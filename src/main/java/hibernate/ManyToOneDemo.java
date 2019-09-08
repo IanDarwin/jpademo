@@ -2,13 +2,12 @@ package hibernate;
 
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-@SuppressWarnings("deprecation")
 public class ManyToOneDemo {
 
 	@SuppressWarnings("unchecked")
@@ -30,7 +29,7 @@ public class ManyToOneDemo {
 		tx.commit();
 		
 		// Query some entities		
-		Query q = session.createQuery("From Type1");
+		Query<Type1> q = session.createQuery("From Type1");
 		List<Type1> list = q.list();
 		for (Type1 t : list) {
 			System.out.println(t);
