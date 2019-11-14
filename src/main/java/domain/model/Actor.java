@@ -6,11 +6,14 @@ import java.util.Set;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 
 import domain.Person;
 
 @Entity
 @DiscriminatorValue(value="A")
+@NamedQuery(name="updateActorLastNameById",
+	query="Update Actor a set a.lastName = ?1 where a.lastName = ?2")
 public class Actor extends Person {
 	
 	Set<VideoRecording> videos = new HashSet<VideoRecording>();

@@ -19,7 +19,7 @@ import org.eclipse.persistence.sessions.UnitOfWork;
  * <property name="javax.persistence.sql-load-script-source" value="/import.sql"/>
  * (EXCEPT that the value has to be a URL, not a "mere" filesystem path...).
  * </br>
- * To use this workaround code, you MUST add this line to persistence.xml:
+ * To instead use the workaround code in this class, you MUST add this line to persistence.xml:
  * <property name="eclipselink.session.customizer" value="eclipselink.ImportSQL"/>
  * Original code posted by an Oracle (EclipseLink owner) employee for public use, at:
  * http://onpersistence.blogspot.ca/2010/03/running-sql-script-on-startup-in.html

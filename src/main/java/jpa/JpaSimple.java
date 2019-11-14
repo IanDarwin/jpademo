@@ -62,6 +62,7 @@ public class JpaSimple {
 			System.out.println("Created Customer " + cust + ", HomeAddress = " + cust.getHomeAddress());
 			
 			SalesPerson sp = new SalesPerson("Active", "Seller");
+			entityManager = JpaUtil.getEntityManager();
 			transaction = entityManager.getTransaction();
 			transaction.begin();
 			sp.addCustomer(cust);

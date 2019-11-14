@@ -2,11 +2,11 @@ package hibernate;
 
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import domain.Address;
 import domain.Person;
@@ -37,13 +37,11 @@ public class HibernateSimple {
 		tx = session.beginTransaction();
 
 		Customer person = new Customer("Happy", "User");
-		person.getHomeAddress().setStreetAddress("123 Main St");
 		Address home = person.getHomeAddress();
-		if (home != null && (home.getStreetAddress() != null || home.getCity() != null)) {
-			session.save(home);
-		} else {
-			person.setHomeAddress(null);
-		}
+		home.setStreetAddress("123 Main St");
+		home.setCity("Toronto");
+		session.save(home); // should use Cascade
+		
 		Address work = person.getWorkAddress();
 		if (work != null && (work.getStreetAddress() != null || work.getCity() != null)) {
 			session.save(work);
@@ -54,7 +52,7 @@ public class HibernateSimple {
 		tx.commit();
 		System.out.println("Created Customer " + person + ", HomeAddress = " + person.getHomeAddress());
 
-		Query query = session.createQuery("select p from Person p order by p.lastName");
+		Query<Person> query = session.createQuery("select p from Person p order by p.lastName");
 
 		List<Person> list = query.list();
 		System.out.println("There are " + list.size() + " persons:");
@@ -65,6 +63,6 @@ public class HibernateSimple {
 		System.out.println();
 
 		session.close();
+		sf.close();
 	}
-
 }

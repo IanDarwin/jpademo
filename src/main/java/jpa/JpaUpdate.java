@@ -1,6 +1,7 @@
 package jpa;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
 import domain.model.Actor;
@@ -16,6 +17,7 @@ import domain.model.Actor;
 public class JpaUpdate {
 
 	public static void main(String[] args) {
+		EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		renameActorsByLastName(entityManager, "Ford", "Smith");
@@ -29,8 +31,8 @@ public class JpaUpdate {
 
 		Query query =
 			entityManager.createNamedQuery("updateActorLastNameById");
-		query.setParameter(1, oldLastName);
-		query.setParameter(2, newLastName);
+		query.setParameter(1, newLastName);
+		query.setParameter(2, oldLastName);
 		entityManager.getTransaction().begin();
 		int rowCount = query.executeUpdate();
 		entityManager.getTransaction().commit();

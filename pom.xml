@@ -16,13 +16,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Keep on 1.8 for now due to reflection used in tests -->
 		<javase.version>1.8</javase.version>
 		<maven.compiler.source>${javase.version}</maven.compiler.source>
 		<maven.compiler.target>${javase.version}</maven.compiler.target>
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
 		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
-		<eclipselink.version>2.6.4-RC1</eclipselink.version>
-		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -31,7 +30,36 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
+			<version>8.0.1</version>
+		</dependency>
+
+		<!-- JAXB deleted from Java SE 11 -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.4.0-b180830.0359</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.istack</groupId>
+			<artifactId>istack-commons-runtime</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		<!-- For EL evaluation, used in one test -->
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0.1-b06</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.6</version>
 		</dependency>
 
 		<!-- Here we put two different JPA providers on the ClassPath.
@@ -43,12 +71,12 @@
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.core</artifactId>
-			<version>${eclipselink.version}</version>
+			<version>2.7.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>${eclipselink.version}</version>
+			<version>2.7.4</version>
 		</dependency>
 
 		<!-- Hibernate and its JPA Provider -->
@@ -60,41 +88,60 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
+			<version>5.3.0.Beta1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.3.2.Final</version>
+			<version>6.1.0.Alpha4</version>
+		</dependency>
+		<!-- Add-on for Hibernate with Arrays -->
+		<dependency>
+			<groupId>com.vladmihalcea</groupId>
+			<artifactId>hibernate-types-52</artifactId>
+			<version>2.4.3</version>
 		</dependency>
 
 		<!-- Database Drivers (just leave them all listed)-->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.192</version>
+			<version>1.4.199</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.4</version>
+			<version>2.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.4</version>
+			<version>8.0.15</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4.1210.jre7</version>
+			<version>42.2.5.jre7</version>
 		</dependency>
 		
 		<!-- Testing... -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>(4.8,5.0)</version>
+			<version>4.13-beta-2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.6.2</version>
 			<scope>test</scope>
 		</dependency>
 

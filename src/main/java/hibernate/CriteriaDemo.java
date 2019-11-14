@@ -11,19 +11,19 @@ import org.hibernate.criterion.Restrictions;
 import domain.model.VideoRecording;
 
 /** 
- * Demonstrates the Hibernate Criteria interface.
+ * Demonstrates the Hibernate Criteria interface, which has alas been
+ * deprecated in favor of the JPA Criteria, which is more work to use.
  * Should probably have more fields, and better test data in import.sql
  */
 public class CriteriaDemo {
 	@Resource
-	Session session;
+	static Session session;
 
+	@SuppressWarnings("unchecked")
 	List<VideoRecording> doSearch(String titleStr, String producerName) {
-		if (session == null) {
-			session = HibernateUtil.createSession();
-		}
 		if (!session.getTransaction().isActive())
 			session.getTransaction().begin();
+		@SuppressWarnings("deprecation")
 		Criteria qb = session.createCriteria(VideoRecording.class);
 		if (titleStr != null) {
 			qb.add(Restrictions.like("title", wildCard(titleStr)));
@@ -40,10 +40,14 @@ public class CriteriaDemo {
 	
 	public static void main(String[] args) {
 
+		session = HibernateUtil.createSession();
+
 		List<VideoRecording> list = new CriteriaDemo().doSearch("Star", null);
 
-		for (VideoRecording mRec : list) {
-			System.out.println(mRec);
-		}
+		System.out.println("Found " + list.size() + " video(s)");
+		list.forEach(System.out::println);
+		
+		session.close();
+		HibernateUtil.close();
 	}
 }

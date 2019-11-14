@@ -3,9 +3,9 @@ package test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import jpa.JpaUtil;
-
 import org.junit.Test;
+
+import jpa.JpaUtil;
 
 /** A very simple test just to ensure that JPA is set up correctly. */
 public class JpaSetupTest {
@@ -17,7 +17,8 @@ public class JpaSetupTest {
 
 		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = JpaUtil.getEntityManager();
-		
+		// If that didn't throw an exception then we know
+		// that the JPA annotations are in good shape.
 		entityManager.close();
 		entityMgrFactory.close();
 		

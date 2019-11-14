@@ -14,7 +14,7 @@ import domain.Person;
 @Entity
 @DiscriminatorValue(value="C")
 public class Customer extends Person {
-
+	private static final long serialVersionUID = -6014208311502015874L;
 	protected Address homeAddress = new Address();
 	protected Address workAddress = new Address();
 	

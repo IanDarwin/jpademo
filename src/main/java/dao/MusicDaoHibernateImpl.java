@@ -6,7 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
@@ -15,7 +15,7 @@ import domain.model.MusicRecording;
 public class MusicDaoHibernateImpl implements MusicDao {
 
 	final static SessionFactory factory =
-		new AnnotationConfiguration().configure("/hibernate.cfg.xml").buildSessionFactory();
+		new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory();
 
 	@Override
 	public MusicRecording getMusicRecording(long id) {

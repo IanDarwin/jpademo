@@ -39,11 +39,11 @@ insert into Actor_VideoRecording(actors_id, videos_id) values (-107, -200)
 insert into Recording (id, version, title, price) values(-301, 1, 'Greatest Hits', 9.67)
 insert into MusicRecordings (id, artist_name) values (-301, 'The Java Junquies')
 
-insert into Duration (id, totalseconds) values(1234, 225);
-insert into Tracks (id, title, duration_id, product_id) values(1, 'All Hits Medly', 1234, -301)
+insert into Duration (id, totalseconds) values(-1234, 225);
+insert into Tracks (id, title, duration_id, product_id, index_number) values(-1, 'All Hits Medly', -1234, -301, 0)
 
 -- Composite Primary Key demo
--- insert into fish(speciesId, individualId, fishName) values(255, 001, 'Fred')
+-- insert into fish(speciesId, individualId, fishName) values(-255, 001, 'Fred')
 
 -- Sales Reports
 
@@ -61,6 +61,6 @@ insert into Customer(id, salesrep_id) values (-151, -201)
 
 -- Sales
 
-insert into sales(customer_id, salesrep_id, salesdate, amount) values(-150, -200, '2012-12-12', 123)
-insert into sales(customer_id, salesrep_id, salesdate, amount) values(-151, -201, '2011-11-11', 334)
+insert into sales(id, customer_id, salesrep_id, salesdate, amount) values(-1, -150, -200, '2012-12-12', 123)
+insert into sales(id, customer_id, salesrep_id, salesdate, amount) values(-2, -151, -201, '2011-11-11', 334)
 

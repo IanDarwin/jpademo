@@ -3,7 +3,6 @@ package domain.sales;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -13,6 +12,7 @@ import domain.Person;
 @Entity
 @DiscriminatorValue(value="S")
 public class SalesPerson extends Person {
+	private static final long serialVersionUID = 1L;
 
 	public SalesPerson() {}
 	
@@ -23,7 +23,7 @@ public class SalesPerson extends Person {
 	private List<Customer> customers;
 	private List<Sale> sales;
 
-	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "salesRep")
 	public List<Customer> getCustomers() {
 		if (customers == null) {
 			return customers = new ArrayList<>();
@@ -48,7 +48,7 @@ public class SalesPerson extends Person {
 		}
 	}
 
-	@OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "salesRep")
 	public List<Sale> getSales() {
 		if (sales == null) {
 			return sales = new ArrayList<>();

@@ -1,5 +1,6 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.persistence.DiscriminatorColumn;
@@ -22,7 +23,8 @@ import javax.persistence.Version;
 @DiscriminatorColumn(name="PType",
 	discriminatorType=DiscriminatorType.CHAR)
 @DiscriminatorValue(value="P")
-public class Person {
+public class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	int id;
 	protected String firstName;
@@ -32,7 +34,7 @@ public class Person {
 	// Used by JPA with SINGLE_TABLE mode; not really
 	// part of the data model; just exposed here so that
 	// import.sql will work for any inheritance strategy.
-	//char pType = 'P';
+	char pType = 'P';
 	
 	public Person() {
 		// empty
@@ -88,13 +90,13 @@ public class Person {
 		this.lastName = lastName;
 	}
 
-//	public char getPType() {
-//		return pType;
-//	}
+	public char getPType() {
+		return pType;
+	}
 
-//	public void setPType(char pType) {
-//		this.pType = pType;
-//	}
+	public void setPType(char pType) {
+		this.pType = pType;
+	}
 
 	@Override
 	public int hashCode() {

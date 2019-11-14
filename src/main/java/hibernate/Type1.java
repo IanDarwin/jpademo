@@ -3,6 +3,7 @@ package hibernate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/** Trivial entity used in a demo or two */
 @Entity
 public class Type1 {
 	int id;

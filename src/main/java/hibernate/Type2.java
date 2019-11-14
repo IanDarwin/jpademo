@@ -1,5 +1,6 @@
 package hibernate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -19,7 +20,7 @@ public class Type2 {
 		this.id = id;
 	}
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	public Type1 getParent() {
 		return parent;
 	}

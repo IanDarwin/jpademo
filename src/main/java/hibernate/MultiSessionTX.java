@@ -1,12 +1,12 @@
 package hibernate;
+
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import domain.model.MusicRecording;
 
@@ -17,11 +17,11 @@ import domain.model.MusicRecording;
  * the global UserTransaction object, which can be started by the @Transactional annotation.
  * Note that Distributed Transactions require a full Java EE Application Server, not a standalone program.
  */
-@SuppressWarnings("deprecation")
 public class MultiSessionTX {
+
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		Configuration cf = new AnnotationConfiguration();
+		Configuration cf = new Configuration();
 		cf.configure();
 		SessionFactory sessionFactory = cf.buildSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -32,18 +32,22 @@ public class MultiSessionTX {
 		rec.setTitle("Cookin' wi' Java");
 		rec.setArtist("The Unknown Programmer");
 		session.save(rec);
+		tx.commit();
+		session.close();
+		
+		System.out.println("Saved: " + rec + " (id " + rec.getId() + ").");
 		
 		// Query some entities		
 		Session session2 = sessionFactory.openSession();
-		Query q = session2.createQuery("From MusicRecording");
+		Query<MusicRecording> q = session2.createQuery("From MusicRecording");
 		List<MusicRecording> list = q.list();
+		System.out.println("Query found " + list.size() + " recordings");
 		for (MusicRecording t : list) {
 			System.out.println(t);
 		}
 		session2.close();
 		
 		// Shut it down
-		tx.commit();
 		sessionFactory.close();
 	}
 }

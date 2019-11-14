@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -7,10 +9,10 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import domain.Address;
 
@@ -28,6 +30,10 @@ public class AddressValidationTest {
 	@BeforeClass
 	public static void setupFactory() {
 		factory = Validation.buildDefaultValidatorFactory();
+	}
+	@AfterClass
+	public static void closeFactory() {
+		// factory.close();
 	}
 	
 	@Before
