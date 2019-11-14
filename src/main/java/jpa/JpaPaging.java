@@ -27,13 +27,13 @@ public class JpaPaging {
 
 		int people = entityManager.createQuery("select count(p) from Person p").getFirstResult();
 		System.out.printf("There are %d people%n", people);
-		int pageSize = 5, pageNumber = 1;
+		int pageSize = 10, pageNumber = 0;
 		TypedQuery<Person> query = 
 				entityManager.createQuery("select p from Person p order by p.lastName",
 						Person.class);
 		List<Person> list = null;
 		do {
-			query.setFirstResult((pageNumber - 1) * pageSize);
+			query.setFirstResult((pageNumber) * pageSize);
 			query.setMaxResults(pageSize);
 			list = query.getResultList();
 			if (list.size() > 0) {
