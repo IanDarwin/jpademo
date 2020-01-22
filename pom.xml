@@ -62,7 +62,7 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>javax.el</artifactId>
 			<version>2.2.6</version>
-			</dependency>
+		</dependency>
 
 		<!-- Apache DeltaSpike Data (used in jpa.dsd package) -->
 		<dependency>
