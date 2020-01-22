@@ -22,6 +22,7 @@
 		<maven.compiler.target>${javase.version}</maven.compiler.target>
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
 		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
+		<deltaspike.version>1.9.2</deltaspike.version>
 	</properties>
 
 	<dependencies>
@@ -60,6 +61,21 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>javax.el</artifactId>
 			<version>2.2.6</version>
+			</dependency>
+
+		<!-- Apache DeltaSpike Data (used in jpa.dsd package) -->
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-data-module-api</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.modules</groupId>
+			<artifactId>deltaspike-data-module-impl</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Here we put two different JPA providers on the ClassPath.
