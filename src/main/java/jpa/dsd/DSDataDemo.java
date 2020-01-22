@@ -21,7 +21,7 @@ public class DSDataDemo {
         CdiContainer cdiContainer = CdiContainerLoader.getCdiContainer();
         cdiContainer.boot();
 
-        // Start the contexts for beans we need
+        // Start the CDI contexts for beans we need
         ContextControl contextControl = cdiContainer.getContextControl();
         contextControl.startContext(ApplicationScoped.class);
         contextControl.startContext(SessionScoped.class);
