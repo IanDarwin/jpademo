@@ -17,7 +17,6 @@ import domain.model.Actor;
 public class JpaUpdate {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
 		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		renameActorsByLastName(entityManager, "Ford", "Smith");
