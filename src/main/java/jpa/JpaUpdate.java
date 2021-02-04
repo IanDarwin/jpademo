@@ -21,6 +21,7 @@ public class JpaUpdate {
 		
 		renameActorsByLastName(entityManager, "Ford", "Smith");
 		int actorHarrison = -103; // just happen to know (import.sql)
+		entityManager = JpaUtil.getEntityManager(); // get a new one!
 		Actor a = entityManager.find(Actor.class, actorHarrison);
 		System.out.println(a);
 	}
