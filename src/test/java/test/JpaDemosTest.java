@@ -58,7 +58,7 @@ public class JpaDemosTest {
 			RainListerJpa.class,
 			TypedQueryDemo.class,
 	};
-	
+
 	@Parameters(name = "{0}")
     public static List<Object[]> findFiles() {
         List<Object[]> results = new ArrayList<>(20);
