@@ -3,10 +3,12 @@ package domain.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
 @Entity
+@DiscriminatorValue(value="V")
 public class VideoRecording extends Recording {
 
 	private static final long serialVersionUID = -2887474264317103342L;
@@ -18,7 +20,7 @@ public class VideoRecording extends Recording {
 	private String director;
 	
 	public VideoRecording() {
-		// javabean constructor
+		// empty constructor
 	}
 	
 	public VideoRecording(String title) {

@@ -23,7 +23,7 @@ public class ManyToManyJpa {
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
 
-			// N.B. Most data for this demo are loaded via "import.sql"
+			// N.B. Most data for this demo are loaded via the sql load script
 
 			// Show Actors appearing in "Star Wars IV"
 			final Query swQuery = em.createQuery(

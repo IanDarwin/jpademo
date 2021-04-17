@@ -2,6 +2,9 @@ package domain.model;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +15,9 @@ import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="RType",
+discriminatorType=DiscriminatorType.CHAR)
+@DiscriminatorValue(value="R")
 public abstract class Recording implements Serializable {
 
 	private static final long serialVersionUID = 5895997814851620471L;

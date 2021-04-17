@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
@@ -29,6 +30,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name="MusicRecordings")
+@DiscriminatorValue(value="M")
 public class MusicRecording extends Recording {
 
 	private static final long serialVersionUID = -2657285648284489986L;
