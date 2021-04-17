@@ -11,18 +11,13 @@ import javax.persistence.Persistence;
 
 @ApplicationScoped @Dependent
 public class EntityManagerProducer {
-	private EntityManagerFactory emf;
+	private EntityManagerFactory emf =
+		Persistence.createEntityManagerFactory("jpademo");
 	
 	public EntityManagerProducer() {
 		System.out.println("EntityManagerProducer.EntityManagerProducer()");
 	}
 	
-	@PostConstruct
-	public void setup() {
-		System.out.println("EntityManagerProducer.setup()");
-		emf = Persistence.createEntityManagerFactory("jpademo");
-	}
-
 	@Produces // you can also make this @RequestScoped
 	public EntityManager create() {
 		return emf.createEntityManager();
@@ -34,3 +29,4 @@ public class EntityManagerProducer {
 		}
 	}
 }
+
