@@ -7,6 +7,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,7 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	int id;
+	AddressType addressType;
 	protected String firstName;
 	protected String lastName;
 	int version;
@@ -55,6 +58,15 @@ public class Person implements Serializable {
 		this.id = id;
 	}
 	
+	@Enumerated(EnumType.STRING)
+	public AddressType getAddressType() {
+		return addressType;
+	}
+
+	public void setAddressType(AddressType addressType) {
+		this.addressType = addressType;
+	}
+
 	@Version
 	public int getVersion() {
 		return version;

@@ -54,7 +54,8 @@ public class ManyToManyJpa {
 				em.createQuery("Select v from VideoRecording v join v.actors a where a = ?1 order by v.year");
 			videosByActorQuery.setParameter(1, ford);
 			fordVideos = videosByActorQuery.getResultList();
-			//fordVideos = ford.getVideos();
+			System.out.println("Doing it again with getVideos()");
+			ford.getVideos().forEach(p -> System.out.println(p));
 			
 			System.out.println(ford + " appears in these videos:");
 			for (VideoRecording v : fordVideos) {

@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 
@@ -15,9 +17,10 @@ import domain.Person;
 @NamedQuery(name="updateActorLastNameById",
 	query="Update Actor a set a.lastName = ?1 where a.lastName = ?2")
 public class Actor extends Person {
-	
+	private static final long serialVersionUID = 1L;
+
 	Set<VideoRecording> videos = new HashSet<VideoRecording>();
-	
+
 	public Actor() {
 		// javabean constructor
 	}
@@ -31,8 +34,8 @@ public class Actor extends Person {
 	// Describe the naming for the join table; since we re-create
 	// the database on each run we have to agree with the load sql script
 	@JoinTable(name="Actor_VideoRecording",
-		joinColumns=@JoinColumn("video_id"),
-		inverseJoinColumns(@JoinColumn("actor_id"))
+		joinColumns=@JoinColumn(columnDefinition = "video_id"),
+		inverseJoinColumns=@JoinColumn(columnDefinition = "actor_id"))
 	public Set<VideoRecording> getVideos() {
 		return videos;
 	}
