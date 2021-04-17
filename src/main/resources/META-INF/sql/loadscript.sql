@@ -27,13 +27,13 @@ insert into Recording (id, version, title, price) values(-203, 1, 'Patriot Games
 insert into VideoRecording (id, year) values (-203, 1992)
 
 -- Video<-->Actors join table
-insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -201)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -202)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-103, -203)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-104, -201)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-105, -201)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-106, -200)
-insert into Actor_VideoRecording(actors_id, videos_id) values (-107, -200)
+insert into Actor_VideoRecording(actor_id, video_id) values (-103, -201)
+insert into Actor_VideoRecording(actor_id, video_id) values (-103, -202)
+insert into Actor_VideoRecording(actor_id, video_id) values (-103, -203)
+insert into Actor_VideoRecording(actor_id, video_id) values (-104, -201)
+insert into Actor_VideoRecording(actor_id, video_id) values (-105, -201)
+insert into Actor_VideoRecording(actor_id, video_id) values (-106, -200)
+insert into Actor_VideoRecording(actor_id, video_id) values (-107, -200)
 
 -- Gotta have a MusicRecording
 insert into Recording (id, version, title, price) values(-301, 1, 'Greatest Hits', 9.67)

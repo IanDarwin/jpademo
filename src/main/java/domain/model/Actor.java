@@ -28,6 +28,11 @@ public class Actor extends Person {
 	}
 
 	@ManyToMany
+	// Describe the naming for the join table; since we re-create
+	// the database on each run we have to agree with the load sql script
+	@JoinTable(name="Actor_VideoRecording",
+		joinColumns=@JoinColumn("video_id"),
+		inverseJoinColumns(@JoinColumn("actor_id"))
 	public Set<VideoRecording> getVideos() {
 		return videos;
 	}
