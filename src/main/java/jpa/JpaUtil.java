@@ -12,6 +12,7 @@ public class JpaUtil {
 	
 	protected static EntityManagerFactory entityMgrFactory = null;
 	protected static EntityManager entityManager = null;
+	private static boolean testing;
 	
 	static {
 		getEntityManagerFactory();
@@ -27,6 +28,7 @@ public class JpaUtil {
 	
 	/** FOR TESTING ONLY */
 	public synchronized static void setEntityManagerFactory(EntityManagerFactory mockEMF) {
+		testing = true;
 		JpaUtil.entityMgrFactory = mockEMF;
 	}
 
@@ -39,7 +41,6 @@ public class JpaUtil {
 	}
 	
 	public static void close() {
-		final boolean testing = true;
 		// In a real app this would invoke entityManager.close();
 		// But it is static and causes errors when running the tests.
 		if (!testing && entityMgrFactory != null && entityMgrFactory.isOpen()) {
