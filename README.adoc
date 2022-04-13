@@ -49,3 +49,7 @@ Instead, we offer a guided click-through; see the MySQL.adoc / MySQL.html
 file which has many screenshots with instructions.
 
 DO NOT USE student/student as credentials on any machine that is accessible from the Internet!!
+
+== TODO
+
+There should be a SEQUENCE demo someplace.
