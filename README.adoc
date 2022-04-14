@@ -20,9 +20,13 @@ there are no 'run' type goals configured in Maven.
 Can run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
 of DB parameters is not commented out in persistence.xml.
 
-REQUIRES JAVA 8 - if you are still stuck on a legacy version of Java,
+Should work with any Java from this decade or part of the last.
+If you're stuck on a pre-legacy version of Java, you should upgrade to Java 17 or at least 11.
+If you absolutely can't, you might
 checkout revision 9084d9e1aa1ac1c261a5bf2dc8cdc8cd180b8162 and stay there
 until you get a current Java SE / JDK implementation.
+But be aware that branch is *not maintained* and will not even receive security updates,
+so _use at own risk!!_
 
 === Database Setup
 
