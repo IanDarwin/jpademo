@@ -9,9 +9,10 @@ public class SqlInjection {
 		getStudent(name);
 	}
 
-	public static void getStudent(String name) {
+	public static String getStudent(String name) {
 		String sql = "select * from students where name = '" + name + "';";
 		String student = executeQuery(sql);
+		return student;
 	}
 
 	private static String executeQuery(String sql) {
