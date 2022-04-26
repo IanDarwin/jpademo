@@ -13,7 +13,6 @@ import domain.Person;
  * @author Ian Darwin
  */
 public class HibernateGetVsLoad {
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 
 		System.out.println("HibernateGetVsLoad.main()");

@@ -17,7 +17,6 @@ public class HibernateGetJdbcConnection {
 
 		Configuration cf = new Configuration();
 		cf.configure();
-		@SuppressWarnings("deprecation")
 		SessionFactory sf = cf.buildSessionFactory();
 		Session session = sf.openSession();
 
