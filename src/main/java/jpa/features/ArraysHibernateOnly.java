@@ -29,7 +29,6 @@ public class ArraysHibernateOnly {
 		System.out.println("Persisted object with String array");
 
 		em.close();
-		emf.close();
 	}
 }
 
