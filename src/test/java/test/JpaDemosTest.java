@@ -25,10 +25,16 @@ import jpa.JpaUpdate;
 import jpa.JpaUtil;
 import jpa.RainListerJpa;
 import jpa.TypedQueryDemo;
+import jpa.features.MultiTableEntity;
+import jpa.features.JpaJoinDemo;
+import jpa.features.DtoFromEntity;
+import jpa.features.DtoDemo;
+import jpa.features.CriteriaQueryExample;
+import jpa.features.CompositePKDemo;
 
 /**
- * Run a bunch of the "main program"-style demo classes as tests,
- * just to see if they blow up or not.
+ * Probably over-ambitious: just run a bunch of the "main
+ * program"-style demo classes as tests, to see whether they blow.
  */
 @RunWith(Parameterized.class)
 public class JpaDemosTest {
@@ -57,6 +63,13 @@ public class JpaDemosTest {
 			// ManyToManyJpa.class, // Doesn't work ATM
 			RainListerJpa.class,
 			TypedQueryDemo.class,
+			// From "features" sub-package
+			MultiTableEntity.class,
+			JpaJoinDemo.class,
+			DtoFromEntity.class,
+			DtoDemo.class,
+			CriteriaQueryExample.class,
+			CompositePKDemo.class,
 	};
 
 	@Parameters(name = "{0}")
