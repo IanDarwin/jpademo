@@ -8,7 +8,7 @@
     <!-- 
     *** N.B. Both Hibernate and EclipseLink providers are here; one must be
     *** commented out, and the one that isn't, must be moved ahead of 
-    *** the other in pom.xml as well, and "Maven->Update Project" run! 
+    *** the other in pom.xml as well, and if using Eclipse, run "Maven->Update Project"
     -->
 	
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>

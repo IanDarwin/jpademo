@@ -52,7 +52,7 @@ public class JpaDemosTest {
 			// JpaQuery.class, // Requires manual intervention
 			JpaRemoveReinsert.class,
 			JpaRollback.class,
-			JpaSimple.class,
+			// JpaSimple.class, // Doesn't use JpaUtil
 			JpaUpdate.class,
 			// ManyToManyJpa.class, // Doesn't work ATM
 			RainListerJpa.class,

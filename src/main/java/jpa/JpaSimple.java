@@ -24,9 +24,10 @@ public class JpaSimple {
 		System.out.println("JpaSimple.main()");
 
 		// IRL you'd have the EntityManager injected  by JakartaEE or by Spring
-		try (EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
-		     EntityManager entityManager = JpaUtil.getEntityManager()) {
+		EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = JpaUtil.getEntityManager();
 
+		try {
 			EntityTransaction transaction = entityManager.getTransaction();
 			transaction.begin();
 
@@ -96,6 +97,9 @@ public class JpaSimple {
 
 			// The concise way of listing Entities (Java 8)
 			entityManager.createQuery("from Person p").getResultList().forEach(System.out::println);
+		} finally {
+			entityManager.close();
+			entityManagerFactory.close();
 		}
 	}
 
