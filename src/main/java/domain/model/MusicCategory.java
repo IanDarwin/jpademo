@@ -6,5 +6,6 @@ public enum MusicCategory {
 	COUNTRY,
 	HIP_HOP,
 	JAZZ,
+	POP,
 	ROCK
 }

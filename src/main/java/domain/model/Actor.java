@@ -30,6 +30,11 @@ public class Actor extends Person {
 		this.lastName = lastName;
 	}
 
+	public Actor(String fullName) {
+		// XXX split on last space
+		this.firstName = fullName;
+	}
+
 	@ManyToMany
 	// Describe the naming for the join table; 
 	// must agree with the load sql script

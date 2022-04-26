@@ -27,7 +27,6 @@ import javax.persistence.Transient;
  *  @author Ian Darwin modifications for standalone demo.
  */
 
-
 @Entity
 @Table(name="MusicRecordings")
 @DiscriminatorValue(value="M")
@@ -50,13 +49,16 @@ public class MusicRecording extends Recording {
 	 */
 	private String category;
 
+
+	/** The cover image, or null */
+	private String imageName;
+
 	/**
 	 *  Default constructor
 	 */
 	public MusicRecording() {
 		// set the data members using the setter methods
 	}
-
 
 	/**
 	 * Creates a MusicRecording object with given parameter values
@@ -92,6 +94,14 @@ public class MusicRecording extends Recording {
         buffer.append(tracks.length).append(" tracks)");
         return buffer.toString();
     }
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
 
 	/**
 	 *  Returns the artist name
