@@ -13,20 +13,20 @@ import domain.Person;
 import domain.sales.Customer;
 import domain.sales.SalesPerson;
 
+/**
+ * As a result of "feeping creaturism" this class is no longer true to its name.
+ * It does present basic use of JPA, but with too big a set of data examples
+ */
 public class JpaSimple {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
 		System.out.println("JpaSimple.main()");
 
-		// These two steps would be done for you
-		// were you running in an EE App Server.
-		// Or just the EntityManager injected if you were using JavaEE or Spring
-		EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
-		System.out.println("EntityManagerFactory is " + entityMgrFactory.getClass().getName());
-		EntityManager entityManager = JpaUtil.getEntityManager();
+		// IRL you'd have the EntityManager injected  by JakartaEE or by Spring
+		try (EntityManagerFactory entityMgrFactory = JpaUtil.getEntityManagerFactory();
+		     EntityManager entityManager = JpaUtil.getEntityManager()) {
 
-		try {
 			EntityTransaction transaction = entityManager.getTransaction();
 			transaction.begin();
 
@@ -96,12 +96,6 @@ public class JpaSimple {
 
 			// The concise way of listing Entities (Java 8)
 			entityManager.createQuery("from Person p").getResultList().forEach(System.out::println);
-
-		} finally {	
-			if (entityManager != null)
-				entityManager.close();
-			if (entityMgrFactory != null)
-				entityMgrFactory.close();
 		}
 	}
 
