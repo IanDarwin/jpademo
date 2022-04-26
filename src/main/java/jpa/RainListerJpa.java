@@ -24,9 +24,9 @@ public class RainListerJpa {
 		musicDAO.saveMusicRecording(recording2);
 		System.out.printf("Added Music Recording %d.%n", recording2.getId());
 
-		List<MusicRecording> c = musicDAO.findRecordingsByPrice(9.67);
+		List<MusicRecording> recs = musicDAO.findRecordingsByPrice(9.67);
 		
-		rec.forEach(System.out::println);	
+		recs.forEach(System.out::println);	
 	}
 
 }
