@@ -17,7 +17,7 @@ to change.
 Currently works with Eclipse (M2E plugin required!) and builds with Maven; 
 there are no 'run' type goals configured in Maven.
 
-Can run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
+Has in the past been run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
 of DB parameters is not commented out in persistence.xml.
 
 Should work with any Java from this decade or part of the last.
@@ -27,6 +27,14 @@ checkout revision 9084d9e1aa1ac1c261a5bf2dc8cdc8cd180b8162 and stay there
 until you get a current Java SE / JDK implementation.
 But be aware that branch is *not maintained* and will not even receive security updates,
 so _use at own risk!!_
+
+=== Quick Rainforest Demo
+
+* Clone the repo
+* Open in Eclipse
+* Overview the domain.model package
+* Show code in classes Recording, MusicRecording, VideoRecording and Actor.
+* run jpa.Basic, jpa.ManyToMany, jpa.RainLister, etc.
 
 === Database Setup
 
