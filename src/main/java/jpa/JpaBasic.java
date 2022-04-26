@@ -27,8 +27,6 @@ public class JpaBasic {
 		EntityManager entityManager = JpaUtil.getEntityManager();
 
 		try {
-			Query query = entityManager.createQuery("select p from Person p order by p.lastName");
-
 			entityManager.createQuery("from Person p order by p.lastName").getResultList().forEach(System.out::println);
 		} finally {
 			entityManager.close();
