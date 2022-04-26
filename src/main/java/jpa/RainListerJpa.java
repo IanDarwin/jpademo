@@ -6,9 +6,8 @@ import dao.MusicDao;
 import dao.MusicDaoJpaImpl;
 import domain.model.MusicRecording;
 
-
 /**
- * A main Driver for one JPA Demo
+ * A main Driver to list recordings by price
  */
 public class RainListerJpa {
 
@@ -25,12 +24,9 @@ public class RainListerJpa {
 		musicDAO.saveMusicRecording(recording2);
 		System.out.printf("Added Music Recording %d.%n", recording2.getId());
 
-		List<MusicRecording> c =
-            musicDAO.findRecordingsByPrice(9.67);
+		List<MusicRecording> c = musicDAO.findRecordingsByPrice(9.67);
 		
-		for (MusicRecording rec : c) {
-			System.out.println(rec);	
-		}
+		rec.forEach(System.out::println);	
 	}
 
 }
