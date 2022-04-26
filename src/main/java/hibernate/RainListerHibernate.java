@@ -28,12 +28,10 @@ public class RainListerHibernate {
 			final List<MusicRecording> list = 
 				musicDAO.findRecordingsByPrice(9.67);
 			
-			for (MusicRecording musicRecording : list) {
-				System.out.println("Recording: " + musicRecording);
-				for (Track t : musicRecording.getTracks() ) {
-					System.out.println("\t" + t);
-				}
-			}
+			list.forEach(mr -> {
+				System.out.println("Recording: " + mr);
+				mr.getTracks().forEach(t -> System.out.println("\t" + t));
+			});
 
 		musicDAO.close();
 	}

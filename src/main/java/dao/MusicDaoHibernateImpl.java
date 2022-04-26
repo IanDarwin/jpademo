@@ -2,12 +2,10 @@ package dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Expression;
 
 import domain.model.MusicRecording;
 
@@ -44,7 +42,7 @@ public class MusicDaoHibernateImpl implements MusicDao {
 		}
 	}
 	
-	/** Get list of recording by price */
+	/** Get list of recordings whose price == price */
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<MusicRecording> findRecordingsByPrice(double price) {
@@ -54,17 +52,11 @@ public class MusicDaoHibernateImpl implements MusicDao {
 		List<MusicRecording> list = null;
 		try {
 			tx = hibSession.beginTransaction();
-
-			final Criteria criteria = hibSession.createCriteria(MusicRecording.class)
-				.add(Expression.eq("price", price));
-			list = criteria.list();
-			
-			tx.commit();
-			
+			return hibSession.createQuery("from MusicRecording where price = :1").setParameter(1, price).list();
 		} finally {
+			tx.commit();
 			hibSession.close();
 		}
-		return list;
 	}
 
 	@Override
