@@ -1,6 +1,7 @@
 package jpa;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -31,7 +32,7 @@ public class ManyToManyJpa {
 			VideoRecording swIV = (VideoRecording) swQuery.getSingleResult();
 			System.out.println("Video: " + swIV);
 			
-			Set<Actor> starWarsActors = swIV.getActors();
+			List<Actor> starWarsActors = swIV.getActors();
 			System.out.println("The following actors appear in " + swIV);
 			for (Actor a : starWarsActors) {
 				System.out.println("\t" + a);

@@ -1,6 +1,8 @@
 package hibernate;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.HibernateException;
@@ -31,7 +33,7 @@ public class ManyToManyHibernate {
 			v.setTitle("Star Wars IV: A New Hope");
 			v.setDirector("George Lucas");
 			v.setPrice(9.67);
-			Set<Actor> actors = new HashSet<Actor>();
+			List<Actor> actors = new ArrayList<Actor>();
 			Actor a = new Actor();
 			v.addActor(a);
 			a.setFirstName("Harrison");
