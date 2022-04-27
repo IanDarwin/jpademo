@@ -9,6 +9,8 @@ import javax.persistence.Id;
 
 @Entity
 public class ATrack implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	long id;
 	String name;

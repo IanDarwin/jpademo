@@ -1,16 +1,16 @@
 package dao;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
-import java.io.*;
-import java.net.*;
-
-import admin.Editor;
-import domain.model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import domain.model.VideoCategory;
+import domain.model.VideoRecording;
 
 /**
  *  This class implements a trivial database for video recordings.
@@ -24,7 +24,7 @@ public class VideoDataAccessor implements RecordingDao<VideoRecording> {
 
 	/** Construct a data accessor.  */
 	public VideoDataAccessor() {
-		emf = Editor.getEMF();
+		emf = Persistence.createEntityManagerFactory("rainforest");
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class VideoDataAccessor implements RecordingDao<VideoRecording> {
 
 		try {
 			return em
-					.createQuery("from VideoRecording where category = ?")
+					.createQuery("from VideoRecording where category = ?", VideoRecording.class)
 					.setParameter(1, category)
 					.getResultList();
 		} finally {

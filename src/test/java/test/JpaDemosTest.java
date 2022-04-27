@@ -20,17 +20,16 @@ import jpa.JpaFindFail;
 import jpa.JpaPaging;
 import jpa.JpaRemoveReinsert;
 import jpa.JpaRollback;
-import jpa.JpaSimple;
 import jpa.JpaUpdate;
 import jpa.JpaUtil;
 import jpa.RainListerJpa;
 import jpa.TypedQueryDemo;
-import jpa.features.MultiTableEntity;
-import jpa.features.JpaJoinDemo;
-import jpa.features.DtoFromEntity;
-import jpa.features.DtoDemo;
-import jpa.features.CriteriaQueryExample;
 import jpa.features.CompositePKDemo;
+import jpa.features.CriteriaQueryExample;
+import jpa.features.DtoDemo;
+import jpa.features.DtoFromEntity;
+import jpa.features.JpaJoinDemo;
+import jpa.features.MultiTableEntity;
 
 /**
  * Probably over-ambitious: just run a bunch of the "main

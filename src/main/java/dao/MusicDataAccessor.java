@@ -22,8 +22,7 @@ public final class MusicDataAccessor implements RecordingDao<MusicRecording>, Au
 	private EntityTransaction entityTransaction;
 
 	public MusicDataAccessor(){
-		emf = Persistence.createEntityManagerFactory("jpademo");
-		System.out.println("MusicDaoImpl.MusicDaoImpl() JPA setup done");
+		emf = Persistence.createEntityManagerFactory("rainforest");
 	}
 
 	/**

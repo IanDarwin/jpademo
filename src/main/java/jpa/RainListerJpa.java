@@ -2,7 +2,6 @@ package jpa;
 
 import java.util.List;
 
-import dao.RecordingDao;
 import dao.MusicDataAccessor;
 import domain.model.MusicRecording;
 
@@ -14,7 +13,7 @@ public class RainListerJpa {
 	public static void main(String[] args) {
 
 		System.out.println("JPA Demo");
-		RecordingDao<MusicRecording> musicDAO = new MusicDataAccessor();
+		MusicDataAccessor musicDAO = new MusicDataAccessor();
 
 		MusicRecording recording1 = new MusicRecording("The Fray", "How to Save a Life", 9.67, "Rock", null);
 		musicDAO.saveRecording(recording1);
@@ -25,7 +24,9 @@ public class RainListerJpa {
 		System.out.printf("Added Music Recording %d.%n", recording2.getId());
 
 		List<MusicRecording> recs = musicDAO.getRecordings("Jazz");
-		recs.forEach(System.out::println);	
+		recs.forEach(System.out::println);
+		
+		musicDAO.close();
 	}
 
 }
