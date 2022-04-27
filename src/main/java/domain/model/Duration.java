@@ -1,11 +1,11 @@
 package domain.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
-
 
 /**
  *  This class describes a duration of time.  It contains
@@ -22,24 +22,21 @@ import javax.persistence.Transient;
  *
  *      Duration labDuration = new Duration(2700); // 2700 seconds = 45 minutes
  *      System.out.println(labDuration);
- *
  *  </pre>
- *
- *  @author 570 Development Team
+ * @author 471 Development Team
+ * @author Ian Darwin
  */
 
 //@Embeddable
 @Entity
-public class Duration implements java.io.Serializable {
+public class Duration implements Serializable {
 
 	private static final long serialVersionUID = -6020955281760590352L;
 
 	/**
-	 * The ID property (if not using Embeddable);
-	 * name chosen to avoid duplicate fieldnames when
-	 * changing strategies!
+	 * The ID property (if not using Embeddable).
 	 */
-	private long durationId;
+	private long id;
 	
 	/**
 	 *  The number of hours
@@ -50,6 +47,7 @@ public class Duration implements java.io.Serializable {
 	 *  The number of minutes
 	 */
 	private int minutes;
+
 
 	/**
 	 *  The number of seconds
@@ -64,7 +62,10 @@ public class Duration implements java.io.Serializable {
 	}
 
 	/**
-	 *  Creates a Duration object with given parameter values
+	 * Creates a Duration object with given parameter values
+	 * @param theHours The number of hours
+	 * @param theMinutes The number of Minutes
+	 * @param theSeconds The number of Seconds
 	 */
 	public Duration(int theHours, int theMinutes, int theSeconds) {
 		hours = theHours;
@@ -73,45 +74,52 @@ public class Duration implements java.io.Serializable {
 	}
 
 	/**
-	 *  Creates a Duration object with given parameter values
+	 * Creates a Duration object with given parameter values
+	 * @param totalSeconds The number of seconds.
 	 */
 	public Duration(int totalSeconds) {
-		setTotalSeconds(totalSeconds);
+		hours = totalSeconds / 3600;
+		int rem = totalSeconds - (hours * 3600);
+		minutes = rem / 60;
+		seconds = rem % 60;
 	}
 	
+	/**
+ 	 * @return the primary key
+	 */
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public long getId() {
-		return durationId;
-	}
-
-	public void setId(long durationId) {
-		this.durationId = durationId;
+		return id;
 	}
 
 	/**
-	 *  Returns the hours portion of the duration
+	 * Set the identifier
+	 * @param id The primary key
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @returns the hours portion of the duration
 	 */	
-	@Transient
 	public int getHours() {
 		return hours;
 	}
 	
 	/**
-	 *  Returns the minutes portion of the duration
+	 * @returns the minutes portion of the duration
 	 */
-	@Transient
 	public int getMinutes() {
 		return minutes;
 	}
 
 	/**
 	 *  Returns the seconds portion of the duration.
-	 *
-	 *  Note:  This is NOT the total seconds.
-	 *
+	 *  <p/>
+	 *  Note:  This is <b>NOT</b> the total seconds.
 	 *  @see #getTotalSeconds()
 	 */
-	@Transient
 	public int getSeconds() {
 		return seconds;
 	}
@@ -135,21 +143,21 @@ public class Duration implements java.io.Serializable {
 	}
 
 	/**
-	 *  Returns a new duration object that is the sum of the
+	 *  Returns a <b>new</b> duration object that is the sum of the
 	 *  supplied Duration object and current object
 	 */
-	public Duration add(Duration aDuration) {
-		int total = getTotalSeconds() + aDuration.getTotalSeconds();
+	public Duration add(Duration someTime) {
+		int total = getTotalSeconds() + someTime.getTotalSeconds();
 		return new Duration(total);
 	}
 
 	/**
-	 *  Returns a new duration object that is the difference of the
+	 *  Returns a <b>new</b> duration object that is the difference of the
 	 *  supplied Duration and current object.  The difference returned is
 	 *  the absolute difference, so the duration will always be positive.
 	 */
-	public Duration subtract(Duration aDuration) {
-		int diff = getTotalSeconds() - aDuration.getTotalSeconds();
+	public Duration subtract(Duration someTime) {
+		int diff = getTotalSeconds() - someTime.getTotalSeconds();
 		int total = Math.abs(diff);
 
 		return new Duration(total);
@@ -157,14 +165,16 @@ public class Duration implements java.io.Serializable {
 
 
 	/**
-	 *  Returns a string representation of the Duration object:
+	 *  Returns a string representation of the Duration object: <br>
+	 *
+	 *	<pre>
 	 *
 	 *  Format
 	 *    hh:mm:ss
 	 *
+	 *  </pre>
 	 */
 	public String toString() {
 		return String.format("%02d:%02d:%02d", hours, minutes, seconds);
 	}
-
 }
