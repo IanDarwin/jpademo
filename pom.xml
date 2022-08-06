@@ -156,7 +156,14 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.3.4</version>
+			<version>42.4.1</version>
+		</dependency>
+
+		<!-- Logging - slf4j needed by some -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.0-alpha7</version>
 		</dependency>
 		
 		<!-- Testing... -->
