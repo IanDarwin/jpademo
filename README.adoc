@@ -14,8 +14,10 @@ Further, the *JPA demos can run using either Hibernate or EclipseLink
 as their JPA provider*; see the persistence.xml file for the properties 
 to change.
 
-Currently works with Eclipse (M2E plugin required!) and builds with Maven; 
-there are no 'run' type goals configured in Maven.
+Currently works with Eclipse (M2E plugin required!) and builds with Maven.
+To run any of the demos in Maven, use e.g.,:
+
+	mvn exec:java -Dexec.mainClass=jpa.JpaSimple
 
 Has in the past been run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
 of DB parameters is not commented out in persistence.xml.

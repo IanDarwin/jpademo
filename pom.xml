@@ -129,11 +129,13 @@
 			<version>8.0.0.Final</version>
 		</dependency>
 		<!-- Add-on for Hibernate with Arrays -->
+<!--
 		<dependency>
 			<groupId>io.hypersistence</groupId>
 			<artifactId>hypersistence-utils-hibernate-60</artifactId>
 			<version>3.5.0</version>
 		</dependency>
+-->
 
 		<!-- Database Drivers (just leave them all listed)-->
 		<dependency>

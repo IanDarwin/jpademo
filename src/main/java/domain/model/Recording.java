@@ -11,12 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="RType",
-discriminatorType=DiscriminatorType.CHAR)
+	discriminatorType=DiscriminatorType.CHAR)
 @DiscriminatorValue(value="R")
 public abstract class Recording implements Serializable {
 
@@ -48,6 +49,7 @@ public abstract class Recording implements Serializable {
 		this.version = version;
 	}
 
+	@OneToOne
 	public abstract Duration getDuration();
 	public void setDuration(Duration d) {
 		// System.err.println("Lame-but-required method called");

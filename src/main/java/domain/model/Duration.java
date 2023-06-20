@@ -106,12 +106,20 @@ public class Duration implements Serializable {
 	public int getHours() {
 		return hours;
 	}
-	
+
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+
 	/**
 	 * @returns the minutes portion of the duration
 	 */
 	public int getMinutes() {
 		return minutes;
+	}
+
+	public void setMinutes(int minutes) {
+		this.minutes = minutes;
 	}
 
 	/**
@@ -123,7 +131,11 @@ public class Duration implements Serializable {
 	public int getSeconds() {
 		return seconds;
 	}
-	
+
+	public void setSeconds(int seconds) {
+		this.seconds = seconds;
+	}
+
 	/**
 	 *  Returns the total seconds
 	 */
