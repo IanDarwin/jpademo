@@ -3,7 +3,7 @@ package jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import domain.model.Actor;
+import domain.media.Actor;
 
 /**
  * A contrived example of a JPA "UPDATE" statement.

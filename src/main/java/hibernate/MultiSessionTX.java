@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import domain.model.MusicRecording;
+import domain.media.MusicRecording;
 
 /**
  "A transaction can span more than one session" -- Max, Hibernate team.

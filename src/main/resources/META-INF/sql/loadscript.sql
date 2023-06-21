@@ -18,13 +18,13 @@ insert into Actor(id) values (-107)
 
 -- Data for Videos
 insert into Recording (id, version, title, price, rtype) values(-200, 1, 'Gone With The Wind', 0, 'V')
-insert into VideoRecording (id, year) values (-200, 1939)
+insert into VideoRecording (id, rel_year) values (-200, 1939)
 insert into Recording (id, version, title, price, rtype) values(-201, 1, 'Star Wars IV: A New Hope', 0, 'V')
-insert into VideoRecording (id, year) values (-201, 1977)
+insert into VideoRecording (id, rel_year) values (-201, 1977)
 insert into Recording (id, version, title, price, rtype) values(-202, 1, 'Indiana Jones: Raiders of the Lost Ark', 0, 'V')
-insert into VideoRecording (id, year) values (-202, 1981)
+insert into VideoRecording (id, rel_year) values (-202, 1981)
 insert into Recording (id, version, title, price, rtype) values(-203, 1, 'Patriot Games', 0, 'V')
-insert into VideoRecording (id, year) values (-203, 1992)
+insert into VideoRecording (id, rel_year) values (-203, 1992)
 
 -- Video<-->Actors join table
 insert into Actor_VideoRecording(actor_id, video_id) values (-103, -201)

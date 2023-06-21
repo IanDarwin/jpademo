@@ -1,4 +1,4 @@
-package domain.model;
+package domain.media;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +106,7 @@ public class VideoRecording extends Recording {
 		this.producer = producer;
 	}
 
-	@Override
+	@Override @OneToOne(cascade= CascadeType.ALL)
 	public Duration getDuration() {
 		return duration;
 	}
@@ -114,6 +114,7 @@ public class VideoRecording extends Recording {
 		this.duration = duration;
 	}
 
+	@Column(name="rel_year")
 	public int getYear() {
 		return year;
 	}

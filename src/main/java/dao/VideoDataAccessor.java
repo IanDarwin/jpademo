@@ -9,22 +9,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import domain.model.VideoCategory;
-import domain.model.VideoRecording;
+import domain.media.VideoCategory;
+import domain.media.VideoRecording;
 
 /**
  *  This class implements a trivial database for video recordings.
  */
 public class VideoDataAccessor implements RecordingDao<VideoRecording> {
 
-	protected static Logger logger = Logger.getLogger("rainforest");
+	protected static Logger logger = Logger.getLogger("jpademo");
 
 	private final EntityManagerFactory emf;
 	private EntityManager em;
 
 	/** Construct a data accessor.  */
 	public VideoDataAccessor() {
-		emf = Persistence.createEntityManagerFactory("rainforest");
+		emf = Persistence.createEntityManagerFactory("jpademo");
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class VideoDataAccessor implements RecordingDao<VideoRecording> {
 
 		try {
 			return em
-					.createQuery("from VideoRecording where category = ?", VideoRecording.class)
+					.createQuery("from VideoRecording where category = ?1", VideoRecording.class)
 					.setParameter(1, category)
 					.getResultList();
 		} finally {

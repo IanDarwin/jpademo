@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 
 import dao.MusicDataAccessor;
-import domain.model.MusicRecording;
+import domain.media.MusicRecording;
 
 /**
  * Main program for Hibernate Demo

@@ -7,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import domain.model.MusicCategory;
-import domain.model.MusicRecording;
+import domain.media.MusicCategory;
+import domain.media.MusicRecording;
 
 /**
  * JPA implementation of MusicDAO.
@@ -22,7 +22,7 @@ public final class MusicDataAccessor implements RecordingDao<MusicRecording>, Au
 	private EntityTransaction entityTransaction;
 
 	public MusicDataAccessor(){
-		emf = Persistence.createEntityManagerFactory("rainforest");
+		emf = Persistence.createEntityManagerFactory("jpademo");
 	}
 
 	/**
@@ -45,6 +45,8 @@ public final class MusicDataAccessor implements RecordingDao<MusicRecording>, Au
 			em = emf.createEntityManager();
 			entityTransaction = em.getTransaction();
 			entityTransaction.begin();
+			em.persist(recording.getDuration());
+			em.flush();
 			em.persist(recording);
 			entityTransaction.commit();
 		} catch (RuntimeException e) {
@@ -80,7 +82,7 @@ public final class MusicDataAccessor implements RecordingDao<MusicRecording>, Au
 		em = emf.createEntityManager();
 		try {
 			return em
-				.createQuery("from MusicRecording where category = ?", MusicRecording.class)
+				.createQuery("from MusicRecording where category = ?1", MusicRecording.class)
 				.setParameter(1, category)
 				.getResultList();
 		} finally {

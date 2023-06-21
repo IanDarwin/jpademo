@@ -1,6 +1,6 @@
 You can do what you want with this code.
 
-A few of the files under "domain.model" (formerly known as the "rain"
+A few of the files under "domain.media" (formerly known as the "rain"
 package, i.e., Recording/MusicRecording/VideoRecording) originated with 
 Learning Tree.  The Rainforest package was first built for Course 570;
 versions were spun off for various courses; this started with the one for

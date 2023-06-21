@@ -3,7 +3,7 @@ package jpa;
 import java.util.List;
 
 import dao.MusicDataAccessor;
-import domain.model.MusicRecording;
+import domain.media.MusicRecording;
 
 /**
  * A main Driver to list recordings by price
@@ -19,7 +19,7 @@ public class RainListerJpa {
 		musicDAO.saveRecording(recording1);
 		System.out.printf("Added Music Recording %d.%n", recording1.getId());
 		
-		MusicRecording	recording2 = new MusicRecording("K.T.Tunstall", "Eye to the Telescope", 8.75, "Pop", null);
+		MusicRecording	recording2 = new MusicRecording("K.T.Tunstall", "Eye to the Telescope", 8.75, "Jazz", null);
 		musicDAO.saveRecording(recording2);
 		System.out.printf("Added Music Recording %d.%n", recording2.getId());
 

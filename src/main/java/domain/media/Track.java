@@ -1,5 +1,6 @@
-package domain.model;
+package domain.media;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -31,6 +32,7 @@ import javax.persistence.Table;
 @Table(name="Tracks")
 public class Track implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 7412748348094654728L;
 
 	private int id;
@@ -47,16 +49,6 @@ public class Track implements Serializable {
 	
 	/** Recording this track is part of */
 	private Recording recording;
-
-	@ManyToOne
-	@JoinColumn(name="product_id")
-	public Recording getRecording() {
-		return recording;
-	}
-
-	public void setRecording(Recording recording) {
-		this.recording = recording;
-	}
 
 	/**
 	 *  Default constructor.  Simply creates an empty track.
@@ -82,6 +74,16 @@ public class Track implements Serializable {
 	
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="product_id")
+	public Recording getRecording() {
+		return recording;
+	}
+
+	public void setRecording(Recording recording) {
+		this.recording = recording;
 	}
 
 	/**

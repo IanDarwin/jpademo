@@ -39,13 +39,13 @@
 				<mapping class="domain.Person"/>
 				<mapping class="domain.Preference"/>
 				
-				<mapping class="domain.model.Album"/>
-				<mapping class="domain.model.Recording"/>
-				<mapping class="domain.model.MusicRecording"/>
-				<mapping class="domain.model.Track"/>
-				<mapping class="domain.model.Duration"/>
-				<mapping class="domain.model.VideoRecording"/>
-				<mapping class="domain.model.Actor"/>
+				<mapping class="domain.media.Album"/>
+				<mapping class="domain.media.Recording"/>
+				<mapping class="domain.media.MusicRecording"/>
+				<mapping class="domain.media.Track"/>
+				<mapping class="domain.media.Duration"/>
+				<mapping class="domain.media.VideoRecording"/>
+				<mapping class="domain.media.Actor"/>
 				
 				<mapping class="domain.sales.Customer"/>
 				<mapping class="domain.sales.Sale"/>

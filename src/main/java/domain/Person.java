@@ -35,7 +35,7 @@ public class Person implements Serializable {
 	int version;
 	Map<PrefType,Preference> prefs;
 	// Used by JPA with SINGLE_TABLE mode; not really
-	// part of the data model; just exposed here so that
+	// part of the data media; just exposed here so that
 	// import.sql will work for any inheritance strategy.
 	char pType = 'P';
 	

@@ -22,7 +22,8 @@ To run any of the demos in Maven, use e.g.,:
 Has in the past been run with H2, HSQLDB, MySQL and PostgresQL just by changing which set
 of DB parameters is not commented out in persistence.xml.
 
-Should work with any Java from this decade or part of the last.
+Should work with any Java from this decade or part of the last;
+was recently tested with Java 8 just before upgrading it to Java 17.
 If you're stuck on a pre-legacy version of Java, you should upgrade to Java 17 or at least 11.
 If you absolutely can't, you might
 checkout revision 9084d9e1aa1ac1c261a5bf2dc8cdc8cd180b8162 and stay there
@@ -33,16 +34,17 @@ so _use at own risk!!_
 === Quick Rainforest Demo
 
 * Clone the repo
-* Open in Eclipse
-* Overview the domain.model package
+* Open in an IDE
+* Overview the domain.media package
 * Show code in classes Recording, MusicRecording, VideoRecording and Actor.
-* run jpa.Basic, jpa.ManyToMany, jpa.RainLister, etc.
+* run jpa.Basic, jpa.ManyToMany, jpa.RainListerJpa, etc.
+* For "record", show code in Person.java and in PersonRecord.java, run jpa.PersonRecordDemo.
 
 === Database Setup
 
 H2 runs in-memory, in-VM, so no setup is needed.
 
-For PostgreSQL, you can use the handy _psql_ command-line client.
+For PostgreSQL, you can use the handy _psql_ command-line client for any pre-setup.
 Once you have your authorization set up as per the Postgres documentation,
 it can be as simple as
 

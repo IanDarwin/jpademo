@@ -10,9 +10,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import domain.model.Duration;
-import domain.model.MusicRecording;
-import domain.model.Track;
+import domain.media.Duration;
+import domain.media.MusicRecording;
+import domain.media.Track;
 
 /**
  * Populate Hibernate Demo

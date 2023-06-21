@@ -9,8 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import domain.model.Actor;
-import domain.model.VideoRecording;
+import domain.media.Actor;
+import domain.media.VideoRecording;
 
 /**
  * Many-To-Many Hibernate Demo

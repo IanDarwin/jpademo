@@ -8,8 +8,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import domain.model.Duration;
-import domain.model.Track;
+import domain.media.Duration;
+import domain.media.Track;
 
 /**
  * Simple example of using Stored Procedure from within JPA,
