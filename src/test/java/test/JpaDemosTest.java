@@ -74,6 +74,7 @@ public class JpaDemosTest {
 	@Parameters(name = "{0}")
     public static List<Object[]> findFiles() {
         List<Object[]> results = new ArrayList<>(20);
+		// Can't use Arrays.asList() since we need to wrap each in an array
         for (Class<?> c : mains) {
         	results.add(new Object[] {c});
         }
@@ -87,7 +88,7 @@ public class JpaDemosTest {
 	}
 
 	@Test
-	public void test() throws Exception {
+	public void testCallMains() throws Exception {
 		System.out.println("START " + clazz.getCanonicalName());
 		try {
 			Method m = clazz.getMethod("main", String[].class);
