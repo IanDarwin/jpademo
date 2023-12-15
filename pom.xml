@@ -44,12 +44,12 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>4.0.0-M4</version>
+			<version>4.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.istack</groupId>
 			<artifactId>istack-commons-runtime</artifactId>
-			<version>4.1.1</version>
+			<version>4.2.0</version>
 		</dependency>
 		<!-- For EL evaluation, used in one test -->
 		<dependency>
@@ -106,12 +106,12 @@
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.core</artifactId>
-			<version>4.0.0-M3</version>
+			<version>4.0.2-RC2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<version>4.0.0-M3</version>
+			<version>4.0.2-RC2</version>
 		</dependency>
 
 		<!-- Hibernate and its JPA Provider -->
@@ -128,35 +128,35 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Alpha3</version>
+			<version>8.0.0.Final</version>
 		</dependency>
 		<!-- Add-on for Hibernate with Arrays -->
 		<dependency>
 			<groupId>com.vladmihalcea</groupId>
 			<artifactId>hibernate-types-52</artifactId>
-			<version>2.16.1</version>
+			<version>2.21.1</version>
 		</dependency>
 
 		<!-- Database Drivers (just leave them all listed)-->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.1.212</version>
+			<version>2.1.214</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.6.1</version>
+			<version>2.7.2</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.29</version>
+			<version>8.0.33</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.3.4</version>
+			<version>42.6.0</version>
 		</dependency>
 		
 		<!-- Testing... -->
