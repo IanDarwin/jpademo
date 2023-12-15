@@ -1,17 +1,10 @@
-package domain.model;
+package domain.media;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderColumn;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 
 /**
@@ -125,7 +118,7 @@ public class MusicRecording extends Recording {
 	 *  Iterates over the list of tracks and keeps a running
 	 *  total of each track's duration.
 	 */
-	@Transient @Override
+	@Override @OneToOne(cascade= CascadeType.ALL)
 	public Duration getDuration() {
 
 		if (tracks == null) {

@@ -1,22 +1,13 @@
-package domain.model;
+package domain.media;
 
 import java.io.Serializable;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Version;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="RType",
-discriminatorType=DiscriminatorType.CHAR)
+@DiscriminatorColumn(name="rtype",
+	discriminatorType=DiscriminatorType.CHAR)
 @DiscriminatorValue(value="R")
 public abstract class Recording implements Serializable {
 
@@ -25,6 +16,7 @@ public abstract class Recording implements Serializable {
 	protected String title;
 	protected double price;
 	int version;
+	protected Duration duration = new Duration(0);
 	
 	public Recording() {
 		version = 0;
@@ -48,6 +40,7 @@ public abstract class Recording implements Serializable {
 		this.version = version;
 	}
 
+	@OneToOne(cascade=CascadeType.ALL)
 	public abstract Duration getDuration();
 	public void setDuration(Duration d) {
 		// System.err.println("Lame-but-required method called");

@@ -1,11 +1,9 @@
 package domain.array;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.IndexColumn;
 
 @Entity
 public class ARecording implements Serializable {
@@ -49,8 +47,7 @@ public class ARecording implements Serializable {
 		this.title = title;
 	}
 	
-	// You have to comment out this @OneToMany to get EclipseLink to run any demos!
-	//@OneToMany(targetEntity=ATrack.class) @IndexColumn(name="trackNum")
+	@OneToMany(targetEntity=ATrack.class) @IndexColumn(name="trackNum")
 	public ATrack[] getTracks() {
 		return tracks;
 	}

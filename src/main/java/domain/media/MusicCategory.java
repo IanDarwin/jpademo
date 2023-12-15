@@ -1,4 +1,4 @@
-package domain.model;
+package domain.media;
 
 /** Categories don't change often, hence this enum. */
 public enum MusicCategory {

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-import domain.model.VideoRecording;
+import domain.media.VideoRecording;
 import jpa.JpaUtil;
 
 /** 

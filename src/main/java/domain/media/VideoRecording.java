@@ -1,11 +1,9 @@
-package domain.model;
+package domain.media;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue(value="V")
@@ -66,9 +64,24 @@ public class VideoRecording extends Recording {
 		a.getVideos().add(this);
 	}
 
+	@Override
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@Override
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setCategory(MusicCategory category) {
+		this.category = category;
+	}
+
 	public MusicCategory getCategory() {
 		return category;
 	}
+
 	public String getRating() {
 		return rating;
 	}
@@ -93,11 +106,15 @@ public class VideoRecording extends Recording {
 		this.producer = producer;
 	}
 
-	@Override
+	@Override @OneToOne(cascade= CascadeType.ALL)
 	public Duration getDuration() {
 		return duration;
 	}
+	public void setDuration(Duration duration) {
+		this.duration = duration;
+	}
 
+	@Column(name="rel_year")
 	public int getYear() {
 		return year;
 	}
@@ -113,10 +130,6 @@ public class VideoRecording extends Recording {
 		this.director = director;
 	}
 
-	public int getYearReleased() {
-		return year;
-	}
-	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

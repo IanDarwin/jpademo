@@ -24,8 +24,8 @@ public class JpaSimple {
 		System.out.println("JpaSimple.main()");
 
 		// IRL you'd have the EntityManager injected  by JakartaEE or by Spring
-		EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
-		EntityManager entityManager = JpaUtil.getEntityManager();
+		final EntityManagerFactory entityManagerFactory = JpaUtil.getEntityManagerFactory();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		try {
 			EntityTransaction transaction = entityManager.getTransaction();
@@ -63,7 +63,9 @@ public class JpaSimple {
 			System.out.println("Created Customer " + cust + ", HomeAddress = " + cust.getHomeAddress());
 			
 			SalesPerson sp = new SalesPerson("Active", "Seller");
-			entityManager = JpaUtil.getEntityManager();
+			entityManager.close();
+
+			entityManager = entityManagerFactory.createEntityManager();
 			transaction = entityManager.getTransaction();
 			transaction.begin();
 			sp.addCustomer(cust);

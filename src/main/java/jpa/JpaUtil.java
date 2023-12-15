@@ -10,12 +10,12 @@ import javax.persistence.Persistence;
  */
 public class JpaUtil {
 	
-	protected static EntityManagerFactory entityMgrFactory = null;
-	protected static EntityManager entityManager = null;
+	protected static EntityManagerFactory entityMgrFactory;
+	protected static EntityManager entityManager;
 	private static boolean testing;
 	
 	static {
-		getEntityManagerFactory();
+		entityMgrFactory = getEntityManagerFactory();
 	}
 
 	public synchronized static EntityManagerFactory getEntityManagerFactory() {
