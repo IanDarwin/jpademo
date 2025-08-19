@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>4.0.3</version>
+			<version>4.0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.istack</groupId>
@@ -55,7 +55,7 @@
 		<dependency>
 			<groupId>org.jboss.logging</groupId>
 			<artifactId>jboss-logging</artifactId>
-			<version>3.5.1.Final</version>
+			<version>3.6.0.Final</version>
 		</dependency>
 
 		<!-- Apache DeltaSpike Data (used in jpa.dsd package) -->
@@ -94,7 +94,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.15.2</version>
+			<version>2.17.1</version>
 		</dependency>
 
 		<!-- You could leave two different JPA providers on the ClassPath.
@@ -126,7 +126,7 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Final</version>
+			<version>8.0.1.Final</version>
 		</dependency>
 		<!-- Add-on for Hibernate with Arrays -->
 <!--
@@ -141,7 +141,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.1.214</version>
+			<version>2.2.224</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hsqldb</groupId>
@@ -151,19 +151,19 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>8.0.33</version>
+			<version>8.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.6.0</version>
+			<version>42.7.3</version>
 		</dependency>
 
 		<!-- Logging - slf4j needed by some -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>2.0.7</version>
+			<version>2.1.0-alpha1</version>
 		</dependency>
 		
 		<!-- Testing... -->
