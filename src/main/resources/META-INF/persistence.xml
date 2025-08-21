@@ -14,36 +14,36 @@
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 	<properties>
-		<property name="javax.persistence.provider" value="org.hibernate.ejb.HibernatePersistence"/>
+		<property name="jakarta.persistence.provider" value="org.hibernate.ejb.HibernatePersistence"/>
 		<!--
-		<property name="javax.persistence.provider" value="org.eclipselink.jpa.provider"/>
+		<property name="jakarta.persistence.provider" value="org.eclipselink.jpa.provider"/>
 		-->
 
 		<!-- Properties for HSQL(H2) database (runs in-VM, no database files needed) -->
-		<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-		<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:jpademo"/>
-		<property name="javax.persistence.jdbc.user" value="sa"/>
-		<property name="javax.persistence.jdbc.password" value="sa"/>
+		<property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:jpademo"/>
+		<property name="jakarta.persistence.jdbc.user" value="sa"/>
+		<property name="jakarta.persistence.jdbc.password" value="sa"/>
 		<property name="eclipselink.target-database"
 			value="org.eclipse.persistence.platform.database.HSQLPlatform"/>
 		<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 
 		<!-- Properties for MySQL (database must be created) -->
 		<!--
-		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpademo.db"/>
-		<property name="javax.persistence.jdbc.user" value="student" />
-		<property name="javax.persistence.jdbc.password" value="student" />
+		<property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpademo.db"/>
+		<property name="jakarta.persistence.jdbc.user" value="student" />
+		<property name="jakarta.persistence.jdbc.password" value="student" />
 		<property name="eclipselink.target-database" value="MySQL"/>
 		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 		-->
 
 		<!-- Properties for PostgreSQL (database must be created) -->
 		<!--
-		<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-		<property name="javax.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
-		<property name="javax.persistence.jdbc.user" value="student"/>
-		<property name="javax.persistence.jdbc.password" value="student"/>
+		<property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
+		<property name="jakarta.persistence.jdbc.user" value="student"/>
+		<property name="jakarta.persistence.jdbc.password" value="student"/>
 		<property name="eclipselink.target-database" value="PostgresQL"/>
 		<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 		-->
@@ -65,10 +65,10 @@
 		-->
 		
 		<!-- Control database creation -->
-		<property name="javax.persistence.schema-generation.database.action"
+		<property name="jakarta.persistence.schema-generation.database.action"
 			value="drop-and-create"/>
 		<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->	
-		<property name="javax.persistence.sql-load-script-source" 
+		<property name="jakarta.persistence.sql-load-script-source" 
 			value="META-INF/sql/loadscript.sql"/>
 
 		<!-- Properties for Hibernate provider -->

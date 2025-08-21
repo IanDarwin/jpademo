@@ -1,6 +1,6 @@
 package domain;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 /** 
  * An address that can be embedded.

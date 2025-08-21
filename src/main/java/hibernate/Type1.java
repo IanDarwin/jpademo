@@ -1,7 +1,7 @@
 package hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /** Trivial entity used in a demo or two */
 @Entity

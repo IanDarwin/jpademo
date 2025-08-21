@@ -1,6 +1,6 @@
 package jpa.features;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import jpa.JpaUtil;
 

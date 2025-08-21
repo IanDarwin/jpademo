@@ -17,7 +17,7 @@ import org.junit.Test;
 import domain.Address;
 
 /**
- * Show how to test the javax.validation constraints on a POJO.
+ * Show how to test the JakartaEE validation constraints on a POJO.
  * See https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/
  * (doc is for Hibernate impl but should work with any impl of javax.validation API).
  * @author Ian Darwin

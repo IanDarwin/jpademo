@@ -1,9 +1,9 @@
 package jpa.features;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 
 /** A dummy Entity just to show adding NamedQueries
  * to an Entity class.
