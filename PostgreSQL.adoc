@@ -43,10 +43,10 @@ In the file _META-INF/persistence.xml_ make sure you have this in the persistenc
      <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
      <exclude-unlisted-classes>false</exclude-unlisted-classes>
      <properties>
-          <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-          <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
-          <property name="javax.persistence.jdbc.user" value="student"/>
-          <property name="javax.persistence.jdbc.password" value="student"/>
+          <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+          <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql:jpademo"/>
+          <property name="jakarta.persistence.jdbc.user" value="student"/>
+          <property name="jakarta.persistence.jdbc.password" value="student"/>
           <property name="eclipselink.target-database" value="PostgressQL"/>
           <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
           <property name="hibernate.hbm2ddl.auto" value="update"/>

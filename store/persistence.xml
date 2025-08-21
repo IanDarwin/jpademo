@@ -17,10 +17,10 @@
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 	<properties>
-	<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
-	<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
-	<property name="javax.persistence.jdbc.user" value="sa"/>
-	<property name="javax.persistence.jdbc.password" value=""/>
+	<property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+	<property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:/tmp/jpademo.db"/>
+	<property name="jakarta.persistence.jdbc.user" value="sa"/>
+	<property name="jakarta.persistence.jdbc.password" value=""/>
 
 	<!-- Properties for eclipselink -->
 	<!-- 
@@ -47,7 +47,7 @@
 	
 	<!-- This causes EclipseLink to run the Hibernate-style import.sql after table creation. -->
 <!-- 	
-	<property name="javax.persistence.sql-load-script-source" 
+	<property name="jakarta.persistence.sql-load-script-source" 
 	    value="file:///Users/ian/workspace/jpademo/src/main/resources/import.sql"/>
  -->	    
 	<!-- These are for use with the kludgy import mechanism for older EclipseLink -->

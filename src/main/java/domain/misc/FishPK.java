@@ -2,7 +2,7 @@ package domain.misc;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 /** Represents the composite primary key for the pet fish.
  * Note that an Embeddable PK class *must* implement Serializable!

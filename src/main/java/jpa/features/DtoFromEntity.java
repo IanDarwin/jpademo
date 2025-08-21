@@ -2,8 +2,8 @@ package jpa.features;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
 import domain.Person;
 import jpa.JpaUtil;

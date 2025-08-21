@@ -1,9 +1,9 @@
 //package jpa.features;
 //
-//import javax.persistence.EntityManager;
-//import javax.persistence.EntityManagerFactory;
-//import javax.persistence.EntityTransaction;
-//import javax.persistence.Persistence;
+//import jakarta.persistence.EntityManager;
+//import jakarta.persistence.EntityManagerFactory;
+//import jakarta.persistence.EntityTransaction;
+//import jakarta.persistence.Persistence;
 //
 ///** Demonstrate use of arrays, but only stores as Array under Hibernate Provider
 // * (EclipseLink stores as a blob); ArraysEntity uses io.hypersistence.utils.hibernate.

@@ -87,12 +87,12 @@ In the file _META-INF/persistence.xml_ make sure you have this in the persistenc
           <property name="eclipselink.target-database" value="MySQL"/>
           <property name="eclipselink.ddl-generation"
                value="drop-and-create-tables" />
-         <property name="javax.persistence.jdbc.driver"
+         <property name="jakarta.persistence.jdbc.driver"
                value="com.mysql.jdbc.Driver" />
-          <property name="javax.persistence.jdbc.url"
+          <property name="jakarta.persistence.jdbc.url"
                value="jdbc:mysql://localhost:3306/jpademo.db"/>
-          <property name="javax.persistence.jdbc.user" value="student" />
-          <property name="javax.persistence.jdbc.password" value="student" />
+          <property name="jakarta.persistence.jdbc.user" value="student" />
+          <property name="jakarta.persistence.jdbc.password" value="student" />
      </properties>
 </persistence-unit>
 ----
